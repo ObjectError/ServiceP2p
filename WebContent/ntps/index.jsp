@@ -1,23 +1,18 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
-<head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <title>后台管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le styles -->
-
-
-
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/loader-style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-
-    <link rel="stylesheet" type="text/css" href="assets/js/progress-bar/number-pb.css">
-
-
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/style.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/loader-style.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/ServiceP2p/ntps/assets/js/progress-bar/number-pb.css">
+		
     <style type="text/css">
     canvas#canvas4 {
         position: relative;
@@ -25,18 +20,14 @@
     }
     </style>
 
-
-
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/minus.png">
-</head>
-
-<body> 
+    <link rel="shortcut icon" href="/ServiceP2p/ntps/assets/ico/minus.png">
+    
+	<body> 
     <!-- Preloader -->
     <div id="preloader">
         <div id="status">&nbsp;</div>
@@ -53,9 +44,6 @@
                     <span class="entypo-list-add"></span>
                 </button>
 
-
-
-
                 <div id="logo-mobile" class="visible-xs">
                    <h1>WEB管理<span>v1.2</span></h1>
                 </div>
@@ -66,12 +54,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-
                     <li class="dropdown">
-
-
                         <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
-                            
                         </ul>
                     </li>
                     <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
@@ -85,7 +69,7 @@
                 <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
                     <li>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" class="admin-pic img-circle" src="assets/img/307327_205.jpg">欢迎你，admin <b class="caret"></b>
+                            <img alt="" class="admin-pic img-circle" src="/ServiceP2p/ntps/assets/img/307327_205.jpg">欢迎你，admin <b class="caret"></b>
                         </a>
                         <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
@@ -315,7 +299,7 @@
                             <ul>
                                 
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="table-dynamic.html" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/table-dynamic.jsp" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -751,19 +735,19 @@
     </div>
 
     <!-- END OF RIGHT SLIDER CONTENT-->
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script src="assets/js/progress-bar/src/jquery.velocity.min.js"></script>
-    <script src="assets/js/progress-bar/number-pb.js"></script>
-    <script src="assets/js/progress-bar/progress-app.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/jquery.js"></script>
+    <script src="/ServiceP2p/ntps/assets/js/progress-bar/src/jquery.velocity.min.js"></script>
+    <script src="/ServiceP2p/ntps/assets/js/progress-bar/number-pb.js"></script>
+    <script src="/ServiceP2p/ntps/assets/js/progress-bar/progress-app.js"></script>
 
 
 
     <!-- MAIN EFFECT -->
-    <script type="text/javascript" src="assets/js/preloader.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
-    <script type="text/javascript" src="assets/js/load.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/preloader.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/app.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/load.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/main.js"></script>
 
 
 
@@ -771,15 +755,15 @@
     <!-- GAGE -->
 
 
-    <script type="text/javascript" src="assets/js/chart/jquery.flot.js"></script>
-    <script type="text/javascript" src="assets/js/chart/jquery.flot.resize.js"></script>
-    <script type="text/javascript" src="assets/js/chart/realTime.js"></script>
-    <script type="text/javascript" src="assets/js/speed/canvasgauge-coustom.js"></script>
-    <script type="text/javascript" src="assets/js/countdown/jquery.countdown.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/chart/jquery.flot.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/chart/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/chart/realTime.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/speed/canvasgauge-coustom.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/countdown/jquery.countdown.js"></script>
 
 
 
-    <script src="assets/js/jhere-custom.js"></script>
+    <script src="/ServiceP2p/ntps/assets/js/jhere-custom.js"></script>
 
     <script>
     var gauge4 = new Gauge("canvas4", {
@@ -864,9 +848,8 @@
     });
     </script>
 
-<div style="text-align:center;">
-<p>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">后台管理</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-</div>
-</body>
-
+		<div style="text-align:center;">
+		<p>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">后台管理</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+		</div>
+	</body>
 </html>
