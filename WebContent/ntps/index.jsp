@@ -169,7 +169,7 @@
                         </li>
 
                         <li>
-                            <a class="tooltip-tip ajax-load" href="index.html" title="Dashboard">
+                            <a class="tooltip-tip ajax-load" href="#" title="Dashboard">
                                 <i class="icon-window"></i>
                                 <span>首页</span>
 

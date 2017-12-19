@@ -306,7 +306,7 @@
                             <ul>
                                 
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="table-dynamic.html" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="#" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
                                 </li>
                             </ul>
                         </li>
