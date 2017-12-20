@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<meta charset="utf-8">
+	<base href="<%=path%>/">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>表格</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -410,23 +415,43 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                               名
+                                               		编号
                                             </th>
                                             <th>
-                                               姓
+                                           			 用户id
                                             </th>
                                             <th data-hide="phone,tablet">
-                                               职业
+                                        		       银行卡号
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                DOB
+                                                	银行卡类型
                                             </th>
-                                            <th data-hide="phone">
-                                                状态
+                                            <th data-hide="phone,tablet">
+                                                	银行卡余额
+                                            </th>
+                                            <th data-hide="phone,tablet">
+                                                	银行卡状态
+                                            </th >
+                                            <th data-hide="phone,tablet">
+                                            	    状态
                                             </th>
                                         </tr>
+                                        <c:forEach items="${bankList }" var="bank">
+                                        <tbody>
+											<tr>
+												<td>${bank.bid }</td>
+												<td>${bank.bsuid }</td>
+												<td>${bank.bcode }</td>
+												<td>${bank.btype }</td>
+												<td>${bank.bmoeny }</td>
+												<td>${bank.bstate }</td>
+												<td><a href="bank/openUserEdit/${bank.bid }">修改</a>|
+													<a href="bank/delete/${bank.bid }">删除</a></td>
+											</tr>
+											</tbody>
+										</c:forEach>
                                     </thead>
-                                    <tbody>
+                                    <!-- <tbody>
                                         <tr>
                                             <td>Isidra</td>
                                             <td><a href="#">Boudreaux</a>
@@ -444,7 +469,8 @@
                                             </td>
                                         </tr>
 
-                                    </tbody>
+                                    </tbody> 
+                                    -->
                                     <tfoot>
                                         <tr>
                                             <td colspan="5">

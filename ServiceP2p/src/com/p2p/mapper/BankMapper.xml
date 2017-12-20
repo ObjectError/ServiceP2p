@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.p2p.mapper.BankMapper">
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
+	<resultMap type="com.p2p.pojo.Bank" id="bankssm">
+		<result column="b_id" property="bid"/>
+		<result column="b_suid" property="bsuid"/>
+		<result column="b_code" property="bcode"/>
+		<result column="b_type" property="btype"/>
+		<result column="b_moeny" property="bmoeny"/>
+		<result column="b_tate" property="bstate"/>
+	</resultMap>
+	<!-- 查所有 -->
+	<select id="list" resultMap="bankssm">
+		select * from bank
+	</select>
+	<!-- 增加 -->
+	<select id="add" parameterType="com.p2p.pojo.Bank">
+		insert into bank(b_suid,b_code,b_type,b_moeny,b_state) values(#{b_suid},#{b_code},#{b_type},#{b_moeny},#{b_state})
+	</select>
+	<!-- 删除 -->
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from bank where b_id = #{b_id}
+	</delete>
+	<!-- 修改 -->
+	<update id="update" parameterType="com.p2p.pojo.Bank">
+		update bank set b_suid = #{b_suid}, b_code = #{b_code}, b_type = #{b_type}, b_moeny = #{b_moeny}, b_state = #{b_state}
+			where b_id = #{b_id}
+	</update>
+	<!-- 根据id查用户 -->
+	<select id="getById" resultMap="bankssm" parameterType="java.lang.Integer">
+		select * from bank where b_id = #{b_id}
+	</select>
+</mapper>
