@@ -30,32 +30,18 @@ public class Bank implements Serializable{
 	@TableField("b_type")
 	private String btype;//银行卡类型
 	
-	@TableField("b_moeny")
-	private double bmoeny;//银行卡余额
+	@TableField("b_money")
+	private double bmoney;//银行卡余额
 	
 	@TableField("b_state")
 	private String bstate;//银行卡状态
 
-	public Bank(Integer suid, Integer bsuid, String bcode, String btype, double bmoeny, String bstate) {
-		super();
-		this.bid = suid;
-		this.bsuid = bsuid;
-		this.bcode = bcode;
-		this.btype = btype;
-		this.bmoeny = bmoeny;
-		this.bstate = bstate;
-	}
-
-	public Bank() {
-		super();
-	}
-
-	public Integer getSuid() {
+	public Integer getBid() {
 		return bid;
 	}
 
-	public void setSuid(Integer suid) {
-		this.bid = suid;
+	public void setBid(Integer bid) {
+		this.bid = bid;
 	}
 
 	public Integer getBsuid() {
@@ -82,12 +68,12 @@ public class Bank implements Serializable{
 		this.btype = btype;
 	}
 
-	public double getBmoeny() {
-		return bmoeny;
+	public double getBmoney() {
+		return bmoney;
 	}
 
-	public void setBmoeny(double bmoeny) {
-		this.bmoeny = bmoeny;
+	public void setBmoney(double bmoney) {
+		this.bmoney = bmoney;
 	}
 
 	public String getBstate() {
@@ -102,11 +88,26 @@ public class Bank implements Serializable{
 		return serialVersionUID;
 	}
 
+	public Bank(Integer bid, Integer bsuid, String bcode, String btype, double bmoney, String bstate) {
+		super();
+		this.bid = bid;
+		this.bsuid = bsuid;
+		this.bcode = bcode;
+		this.btype = btype;
+		this.bmoney = bmoney;
+		this.bstate = bstate;
+	}
+
+	public Bank() {
+		super();
+	}
+
 	@Override
 	public String toString() {
-		return "Bank [suid=" + bid + ", bsuid=" + bsuid + ", bcode=" + bcode + ", btype=" + btype + ", bmoeny="
-				+ bmoeny + ", bstate=" + bstate + "]";
+		return "Bank [bid=" + bid + ", bsuid=" + bsuid + ", bcode=" + bcode + ", btype=" + btype + ", bmoney=" + bmoney
+				+ ", bstate=" + bstate + "]";
 	}
+
 	
 	
 
