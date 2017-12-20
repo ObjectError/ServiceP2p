@@ -379,7 +379,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="#" title="Sample page 1">表动态</a>
+                <li><a href="#" title="Sample page 1">银行卡管理表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -443,7 +443,7 @@ String path = request.getContextPath();
 												<td>${bank.bsuid }</td>
 												<td>${bank.bcode }</td>
 												<td>${bank.btype }</td>
-												<td>${bank.bmoeny }</td>
+												<td>${bank.bmoney }</td>
 												<td>${bank.bstate }</td>
 												<td><a href="bank/openUserEdit/${bank.bid }">修改</a>|
 													<a href="bank/delete/${bank.bid }">删除</a></td>
