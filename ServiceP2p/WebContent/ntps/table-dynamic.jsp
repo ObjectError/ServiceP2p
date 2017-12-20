@@ -61,10 +61,7 @@
                 <ul class="nav navbar-nav">
 
                     <li class="dropdown">
-
-
                         <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
-                            
                         </ul>
                     </li>
                     <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
@@ -82,7 +79,7 @@
                         </a>
                         <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
-                                <a href="profile.html">
+                                <a href="/ServiceP2p/ntps/profile.jsp">
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
                             <li>

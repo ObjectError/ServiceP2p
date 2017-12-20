@@ -73,7 +73,7 @@
                         </a>
                         <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
-                                <a href="profile.html">
+                                <a href="/ServiceP2p/ntps/profile.jsp">
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
                             <li>
