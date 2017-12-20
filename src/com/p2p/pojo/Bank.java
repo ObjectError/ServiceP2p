@@ -25,7 +25,7 @@ public class Bank implements Serializable{
 	private Integer bsuid;//用户id
 	
 	@TableField("b_code")
-	private Integer bcode;//银行卡号
+	private String bcode;//银行卡号
 	
 	@TableField("b_type")
 	private String btype;//银行卡类型
@@ -36,7 +36,7 @@ public class Bank implements Serializable{
 	@TableField("b_state")
 	private String bstate;//银行卡状态
 
-	public Bank(Integer suid, Integer bsuid, Integer bcode, String btype, double bmoeny, String bstate) {
+	public Bank(Integer suid, Integer bsuid, String bcode, String btype, double bmoeny, String bstate) {
 		super();
 		this.bid = suid;
 		this.bsuid = bsuid;
@@ -66,11 +66,11 @@ public class Bank implements Serializable{
 		this.bsuid = bsuid;
 	}
 
-	public Integer getBcode() {
+	public String getBcode() {
 		return bcode;
 	}
 
-	public void setBcode(Integer bcode) {
+	public void setBcode(String bcode) {
 		this.bcode = bcode;
 	}
 
