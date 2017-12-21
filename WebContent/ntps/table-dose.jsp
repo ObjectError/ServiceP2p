@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<meta charset="utf-8">
@@ -438,23 +441,26 @@
                                          <th data-hide="phone,tablet">
                                          	ip地址
                                          </th>
+                                         <th data-hide="phone,tablet">
+                                         	操作
+                                         </th>
                                      </tr>
-                                     <c:forEach items="${serviceUsers}" var="userall">
+                                     <c:forEach items="${userList}" var="user">
                                      <tbody>
 									<tr>
-										<td>${userall.suid}</td>
-										<td>${userall.suusername}</td>
-										<td>${userall.suname}</td>
-										<td>${userall.suphone}</td>
-										<td>${userall.sucard}</td>
-										<td>${userall.suemail}</td>
-										<td>${userall.subankcard}</td>
-										<td>${userall.subanktype}</td>
-										<td>${userall.sumoeny}</td>
-										<td>${userall.sucredit}</td>
-										<td>${userall.suip}</td>
-										<td><a href="bank/openUserEdit/${bank.bid }"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-											<a href="bank/delete/${bank.bid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
+										<td>${user.suid}</td>
+										<td>${user.suusername}</td>
+										<td>${user.suname}</td>
+										<td>${user.suphone}</td>
+										<td>${user.sucard}</td>
+										<td>${user.suemail}</td>
+										<td>${user.subankcard}</td>
+										<td>${user.subanktype}</td>
+										<td>${user.sumoney}</td>
+										<td>${user.sucredit}</td>
+										<td>${user.suip}</td>
+										<td><a href="user/openUserEdit/${user.suid }"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
+											<a href="user/delete/${user.suid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 									</tr>
 								</tbody>
 							</c:forEach>
