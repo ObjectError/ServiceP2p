@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.p2p.mapper.UsersMapper">
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
+	<resultMap type="com.p2p.pojo.Users" id="userssm">
+		<result column="su_id" property="suid"/>
+		<result column="su_username" property="suusername"/>
+			<result column="su_name" property="suname"/>
+			<result column="su_phone" property="suphone"/>
+			<result column="su_card" property="sucard"/>
+			<result column="su_email" property="suemail"/>
+			<result column="su_bankcard" property="subankcard"/>
+			<result column="su_banktype" property="subanktype"/>
+			<result column="su_money" property="sumoney"/>
+			<result column="su_credit" property="sucredit"/>
+			<result column="su_ip" property="suip"/>
+			<result column="su_password" property="supassword"/>					
+	</resultMap>
+		<!-- 查所有 -->
+	<select id="list" resultMap="userssm">
+		select * from users
+	</select>
+	<!-- 增加 -->
+	<select id="add" parameterType="com.p2p.pojo.Users">
+		insert into serviceUser(b_suid,b_code,b_type,b_money,b_state) values(#{b_suid},#{b_code},#{b_type},#{b_money},#{b_state})
+	</select>
+	<!-- 删除 -->
+	<delete id="delete" parameterType="java.lang.Integer">
+		delete from users where su_id = #{su_id}
+	</delete>
+	<!-- 修改 -->
+	<update id="update" parameterType="com.p2p.pojo.Users">
+		update serviceUser set b_suid = #{b_suid}, b_code = #{b_code}, b_type = #{b_type}, b_money = #{b_money}, b_state = #{b_state}
+			where b_id = #{b_id}
+	</update>
+	<!-- 根据id查用户 -->
+	<select id="getById" resultMap="userssm" parameterType="java.lang.Integer">
+		select * from serviceUser where b_id = #{b_id}
+	</select>
+</mapper>
