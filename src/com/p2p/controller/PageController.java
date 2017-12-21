@@ -12,4 +12,9 @@ public class PageController {
 	public String openindex() {
 		return "/ntps/index";
 	}
+	
+	@RequestMapping("touserss")
+	public String openuserss() {
+		return "/ntps/table-dose";
+	}
 }
