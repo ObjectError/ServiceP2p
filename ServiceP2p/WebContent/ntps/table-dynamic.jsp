@@ -379,7 +379,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="#" title="Sample page 1">银行卡管理表</a>
+                <li><a href="bank/list" title="Sample page 1">银行卡管理表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -398,11 +398,7 @@ String path = request.getContextPath();
                     <div class="col-sm-12">
                         <div class="nest" id="FootableClose">
                             <div class="title-alt">
-                                <div class="titleClose">
-                                    <a class="gone" href="#FootableClose">
-                                        <span class="entypo-cancel"></span>
-                                    </a>
-                                </div>
+                                
                                 <div class="titleToggle">
                                     <a class="nav-toggle-alt" href="#Footable">
                                         <span class="entypo-up-open"></span>
@@ -411,7 +407,8 @@ String path = request.getContextPath();
                             </div>
 
                             <div class="body-nest" id="Footable">
-                                <table class="table-striped footable-res footable metro-blue" data-page-size="6">
+                            	<a href="bank/list"><span class="glyphicon glyphicon-plus"></span>新增</a>
+                                <table class="table-striped footable-res footable metro-blue" data-page-size="7">
                                     <thead>
                                         <tr>
                                             <th>
@@ -445,8 +442,8 @@ String path = request.getContextPath();
 												<td>${bank.btype }</td>
 												<td>${bank.bmoney }</td>
 												<td>${bank.bstate }</td>
-												<td><a href="bank/openUserEdit/${bank.bid }">修改</a>|
-													<a href="bank/delete/${bank.bid }">删除</a></td>
+												<td><a href="bank/openUserEdit/${bank.bid }"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
+													<a href="bank/delete/${bank.bid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
 											</tbody>
 										</c:forEach>
