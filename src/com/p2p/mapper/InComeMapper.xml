@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.p2p.mapper.InComeMapper">
+		<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
+		<resultMap type="com.p2p.pojo.Income" id="incomemapp">
+			<result column="i_id" property="iid"/>
+			<result column="i_suid" property="isuid"/>
+			<result column="i_money" property="imoeny"/>
+			<result column="i_time" property="itime"/>
+			<result column="i_type" property="itype"/>
+			<result column="i_ip" property="iip"/>
+		</resultMap>
+		
+		<!-- 查询所有 -->
+		<select id="list" resultMap="incomemapp">
+			select * from income
+		</select>
+		
+		<!-- 增加 -->
+		<select id="add" parameterType="com.p2p.pojo.Income">
+			insert into income(i_suid,i_money,i_time,i_ip,i_type) values(#{i_suid},#{i_money},#{i_time},#{i_ip},#{i_type})
+		</select>
+		
+		<!-- 删除 -->
+		<delete id="delete" parameterType="java.lang.Integer">
+			delete from income where i_id = #{i_id}
+		</delete>
+		
+		<!-- 修改 -->
+		<update id="update" parameterType="com.p2p.pojo.Income">
+			update income set i_suid = #{i_suid}, i_money = #{i_money}, i_time = #{i_time}, i_ip = #{i_ip}, i_type = #{i_type}
+				where i_id = #{i_id}
+		</update>
+		
+		<!-- 根据id查用户 -->
+		<select id="getById" resultMap="incomemapp" parameterType="java.lang.Integer">
+			select * from income where i_id = #{i_id}
+		</select>
+	</mapper>
