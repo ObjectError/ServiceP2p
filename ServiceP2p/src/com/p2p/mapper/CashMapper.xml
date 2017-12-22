@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.p2p.mapper.CashMapper">
+		<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
+		<resultMap type="com.p2p.pojo.Cash" id="cashcc">
+			<result column="c_id" property="cid"/>
+			<result column="c_suid" property="csuid"/>
+			<result column="c_money" property="cmoeny"/>
+			<result column="c_card" property="ccard"/>
+			<result column="c_order" property="corder"/>
+			<result column="c_time" property="ctime"/>
+			<result column="c_state" property="cstate"/>
+			<result column="c_figure" property="cfigure"/>
+			<result column="c_poundage" property="cpoundage"/>
+		</resultMap>
+		
+		<!-- 查询所有 -->
+		<select id="list" resultMap="cashcc">
+			select * from cash
+		</select>
+		
+		<!-- 增加 -->
+		<select id="add" parameterType="com.p2p.pojo.Cash">
+			insert into cash(c_suid,c_money,c_card,c_order,c_time,c_state,c_figure,c_poundage) values(#{c_suid},#{c_money},#{c_card},#{c_order},#{c_time},#{c_state},#{c_figure},#{c_poundage})
+		</select>
+		
+		<!-- 删除 -->
+		<delete id="delete" parameterType="java.lang.Integer">
+			delete from cash where c_id = #{c_id}
+		</delete>
+		
+		<!-- 增加 -->
+		<update id="update" parameterType="com.p2p.pojo.Cash">
+			update cash set c_suid = #{c_suid},c_money = #{c_money},c_card = #{c_card},c_order = #{c_order},c_time = #{c_time},c_state = #{c_state},
+			c_figure = #{c_figure},c_poundage = #{c_poundage} where c_id = #{c_id}
+		</update>
+		
+		<!-- 查询单个 -->
+		<select id="getById" resultMap="cashcc" parameterType="java.lang.Integer">
+			select * from cash where c_id = #{c_id}
+		</select>
+		
+		
+		
+		
+	</mapper>
