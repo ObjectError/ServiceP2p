@@ -62,6 +62,14 @@ public class Cash implements Serializable{
 		super();
 	}
 
+	public Integer getCorder() {
+		return corder;
+	}
+
+	public void setCorder(Integer corder) {
+		this.corder = corder;
+	}
+
 	public Integer getCid() {
 		return cid;
 	}
