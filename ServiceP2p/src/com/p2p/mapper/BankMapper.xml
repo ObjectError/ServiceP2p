@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.p2p.mapper.BankMapper">
 	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
 	<resultMap type="com.p2p.pojo.Bank" id="bankssm">
-		<result column="b_id" property="bid"/>
+		<id column="b_id" property="bid"/>
 		<result column="b_suid" property="bsuid"/>
 		<result column="b_code" property="bcode"/>
 		<result column="b_type" property="btype"/>
@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 增加 -->
 	<select id="add" parameterType="com.p2p.pojo.Bank">
-		insert into bank(b_suid,b_code,b_type,b_money,b_state) values(#{b_suid},#{b_code},#{b_type},#{b_money},#{b_state})
+		insert into bank(b_id,b_suid,b_code,b_type,b_money,b_state) values(#{bid},#{bsuid},#{bcode},#{btype},#{bmoney},#{bstate})
 	</select>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="java.lang.Integer">
@@ -26,8 +26,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	<!-- 修改 -->
 	<update id="update" parameterType="com.p2p.pojo.Bank">
-		update bank set b_suid = #{b_suid}, b_code = #{b_code}, b_type = #{b_type}, b_money = #{b_money}, b_state = #{b_state}
-			where b_id = #{b_id}
+		update bank set b_suid = #{bsuid}, b_code = #{bcode}, b_type = #{btype}, b_money = #{bmoney}, b_state = #{bstate}
+			where b_id = #{bid}
 	</update>
 	<!-- 根据id查用户 -->
 	<select id="getById" resultMap="bankssm" parameterType="java.lang.Integer">
