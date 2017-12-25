@@ -77,7 +77,7 @@
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="blank_page.html">
                                     <span class="entypo-vcard"></span>&#160;&#160;账户设置</a>
                             </li>
                             <li>
@@ -86,7 +86,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="http://themeforest.net/item/apricot-navigation-admin-dashboard-template/7664475?WT.ac=category_item&WT.z_author=themesmile">
+                                <a href="#">
                                     <span class="entypo-basket"></span>&#160;&#160; 购买</a>
                             </li>
                         </ul>
@@ -169,7 +169,7 @@
                         </li>
 
                         <li>
-                            <a class="tooltip-tip ajax-load" href="#" title="Dashboard">
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/index.jsp" title="Dashboard">
                                 <i class="icon-window"></i>
                                 <span>首页</span>
 
@@ -218,7 +218,7 @@
                         </li>
 
                         <li>
-                            <a class="tooltip-tip " href="login.html" title="login">
+                            <a class="tooltip-tip " href="login.jsp" title="login">
                                 <i class="entypo-picasa"></i>
                                 <span>登入</span>
                             </a>
@@ -299,7 +299,13 @@
                             <ul>
                                 
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/table-dynamic.jsp" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/bank/list" title="Table Dynamic"><i class="entypo-menu"></i><span>表单1</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/user/list" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/income/list" title="Table Dynamic"><i class="entypo-menu"></i><span>表单3</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -368,7 +374,7 @@
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="#" title="Sample page 1">首页</a>
+                <li><a href="/ServiceP2p/ntps/index.jsp" title="Sample page 1">首页</a>
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>

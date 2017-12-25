@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.annotations.TableField;
 
 /**
- * 提现
+ * 提现表
  * 2017年11月16日08:33:23
  * 操作人：zyf
  * 

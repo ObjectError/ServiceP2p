@@ -33,7 +33,11 @@ String path = request.getContextPath();
         <![endif]-->
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="/ServiceP2p/ntps/assets/ico/minus.png">
-	
+	<!-- 开启拟态框 -->
+	<link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/omodal.css">
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/towmodal.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/omodal.js"></script>
+    
 	<body> 
     <!-- Preloader -->
     <div id="preloader">
@@ -177,7 +181,7 @@ String path = request.getContextPath();
                         </li>
 
                         <li>
-                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/toindextt" title="Dashboard">
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/idnex.jsp" title="Dashboard">
                                 <i class="icon-window"></i>
                                 <span>首页</span>
 
@@ -306,9 +310,14 @@ String path = request.getContextPath();
                                 <span>表单</span>
                             </a>
                             <ul>
-                                
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="#" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/bank/list" title="Table Dynamic"><i class="entypo-menu"></i><span>表单1</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/user/list" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/income/list" title="Table Dynamic"><i class="entypo-menu"></i><span>表单3</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -407,14 +416,128 @@ String path = request.getContextPath();
                             </div>
 
                             <div class="body-nest" id="Footable">
-                            	<a href="bank/list"><span class="glyphicon glyphicon-plus"></span>新增</a>
-                                <table class="table-striped footable-res footable metro-blue" data-page-size="7">
+                            	<a href="javascript:void(-1);" onclick="show_modal();">
+                            		<span class="glyphicon glyphicon-plus"></span>新增
+                            	</a>    
+                            <!-- 新增拟态框（Modal） -->
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							    <form action="bank/add" method="post">
+							        <div class="modal-content">
+							            <div class="modal-header">
+							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							                    &times;
+							                </button>
+							                <h4 class="modal-title" id="myModalLabel">
+							                		    新增
+							                </h4>
+							            </div>
+							            <div class="modal-body">
+							                <div class="input-group">
+							                	<div class="form-group">
+							                        <label>编号:</label>
+							                		<input name="bid" type="text" value="" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+							                        <label>用户id:</label>
+							                		<input name="bsuid" type="text" value="" style="color:black;">
+							                    </div>
+												<div class="form-group">
+													<label>银行卡号:</label>
+										            <input name="bcode" type="text" value="" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>银行卡类型:</label>
+										            <input name="btype" type="text" value="" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>银行卡余额:</label>
+										            <input name="bmoney" type="text" value="" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>银行卡状态:</label>
+										            <input name="bstate" type="text" value="" style="color:black;">
+							                    </div>
+							                </div>
+							            </div>
+							            <div class="modal-footer">
+							                <button type="button" class="btn btn-default" data-dismiss="modal">
+							                	关闭
+							                </button>
+							               <!--  <button type="button"  id="id_ad_search" onclick="javascrtpt:window.location.href='bank/add'">
+							                  	  提交
+							                </button> -->
+							                <input type="submit" value="提交" class="btn btn-primary" id="id_ad_search">
+							            </div>
+							        </div>
+							        </form>
+							        <!-- /.modal-content -->
+							    </div><!-- /.modal -->
+							</div>
+							
+                            <!-- 修改拟态框（Modal） -->
+							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							    <form action="bank/update" method="post">
+							        <div class="modal-content">
+							            <div class="modal-header">
+							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							                    &times;
+							                </button>
+							                <h4 class="modal-title" id="myModalLabel">
+							                		    修改
+							                </h4>
+							            </div>
+							            <div class="modal-body">
+							                <div class="input-group">
+							                    <div class="form-group">
+							                        <label>用户id:</label>
+							                		<input name="bsuid" type="text" value="${bank.bsuid}" style="color:black;">
+							                    </div>
+												<div class="form-group">
+													<label>银行卡号:</label>
+										            <input name="bcode" type="text" value="${bank.bcode}" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>银行卡类型:</label>
+										            <input name="btype" type="text" value="${bank.btype}" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>银行卡余额:</label>
+										            <input name="bmoney" type="text" value="${bank.bmoney}" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>银行卡状态:</label>
+										            <input name="bstate" type="text" value="${bank.bstate}" style="color:black;">
+							                    </div>
+							                </div>
+							            </div>
+							            <div class="modal-footer">
+							                <button type="button" class="btn btn-default" data-dismiss="modal">
+							                	关闭
+							                </button>
+							               <!--  <button type="button"  id="id_ad_search" onclick="javascrtpt:window.location.href='bank/add'">
+							                  	  提交
+							                </button> -->
+							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
+							            </div>
+							        </div>
+							        </form>
+							        <!-- /.modal-content -->
+							    </div><!-- /.modal -->
+							</div>    
+                                
+
+                                
+                                
+                                
+                                <table class="table-striped footable-res footable metro-blue" id="tb_role" data-page-size="6">
                                     <thead>
                                         <tr>
-                                            <th>
+                                            <th data-hide="phone,tablet">
                                                		编号
                                             </th>
-                                            <th>
+                                            <th data-hide="phone,tablet">
                                            			 用户id
                                             </th>
                                             <th data-hide="phone,tablet">
@@ -442,32 +565,12 @@ String path = request.getContextPath();
 												<td>${bank.btype }</td>
 												<td>${bank.bmoney }</td>
 												<td>${bank.bstate }</td>
-												<td><a href="bank/openUserEdit/${bank.bid }"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
+												<td><a href="javascript:void(-1);" onclick="show_update()"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 													<a href="bank/delete/${bank.bid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
 											</tbody>
 										</c:forEach>
                                     </thead>
-                                    <!-- <tbody>
-                                        <tr>
-                                            <td>Isidra</td>
-                                            <td><a href="#">Boudreaux</a>
-                                            </td>
-                                            <td>Traffic Court Referee</td>
-                                            <td data-value="78025368997">22 Jun 1972</td>
-                                            <td data-value="1">
-                                              <button type="button" class="btn  ladda-label">
-                                    				<span class="entypo-pencil"></span>&nbsp;&nbsp;修改
-                                    			</button>
-                                    			
-                                    			 <button type="button" class="btn  ladda-label">
-                                    				<span class="entypo-plus-squared"></span>&nbsp;&nbsp;增加
-                                    			</button>
-                                            </td>
-                                        </tr>
-
-                                    </tbody> 
-                                    -->
                                     <tfoot>
                                         <tr>
                                             <td colspan="5">
@@ -498,7 +601,7 @@ String path = request.getContextPath();
                     <p id="clock">
                 </div>
                 <div class="copyright">Make with Love
-                    <span class="entypo-heart"></span>Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> All Rights Reserved</div>
+                    <span class="entypo-heart"></span>Collect from <a href="#" title="网页模板" target="_blank">后台管理</a> All Rights Reserved</div>
                 <div class="devider-footer"></div>
 
             </div>
@@ -716,6 +819,35 @@ String path = request.getContextPath();
         });
     });
     </script>
-
+    
+    <!-- 新增拟态框 -->
+    <script>
+	    function show_modal() {
+	         $('#myModal').modal('show');
+	    }
+	   /*  $(function () {
+	        $('#id_ad_search').click(function () {
+	           var name = $('#id_name').val();
+	            $.ajax({
+	                url:'bank/add',
+	                data:{name:name},
+	                complete:function () {
+	                    $('#myModal').modal('hide');
+	                }
+	            })
+	
+	        });
+	
+	    }); */
+	
+	</script>
+    
+     <!-- 修改拟态框 -->
+    <script>
+	    function show_update() {
+	         $('#myupdate').modal('show');
+	    }
+	    
+	</script>
 	</body>
 </html>
