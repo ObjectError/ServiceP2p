@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +37,7 @@
     <link rel="shortcut icon" href="assets/ico/minus.png">
 </head>
 
-<body><div id="awwwards" class="right black"><a href="/ServiceP2p/ntps/404/500.jsp" target="_blank">best websites of the world</a></div>
+<body><div id="awwwards" class="right black"><a href="/ServiceP2p/ntps/index.jsp" target="_blank">best websites of the world</a></div>
     <!-- Preloader -->
     <div id="preloader">
         <div id="status">&nbsp;</div>
@@ -62,6 +64,10 @@
                     <input type="text" name="search" class='form-control' placeholder="Search">
                 </form>
             </div>
+            <br>
+            <div class="lockscreen-link">
+            <a class="lock-link" href="/ServiceP2p/ntps/index.jsp">返回首页</a>
+        </div>
             <!-- /.error-content -->
         </div>
         <!-- /.error-page -->

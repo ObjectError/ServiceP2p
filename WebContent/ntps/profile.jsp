@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
+		<title>个人中心</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <meta name="description" content="">
 	    <meta name="author" content="">
@@ -13,6 +15,7 @@
 	    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/bootstrap.css">
 	    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/profile.css">
 	
+		
 	    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	    <!--[if lt IE 9]>
 	        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -67,7 +70,7 @@
                         </a>
                         <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
-                                <a href="/ServiceP2p/ntps/profile.jsp">
+                                <a href="/ServiceP2p/admin/list">
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
                             <li class="divider"></li>
@@ -97,11 +100,6 @@
                                 <div id="button-bg13"></div>
                             </li>
                         </ul>
-                    </li>
-                    <li class="hidden-xs">
-                        <a class="toggle-left" href="#">
-                            <span style="font-size:20px;" class="entypo-list-add"></span>
-                        </a>
                     </li>
                 </ul>
 
@@ -352,105 +350,63 @@
                         <div class="well profile">
                             <div class="col-sm-12">
                                 <div class="col-xs-12 col-sm-4 text-center">
-
+									
                                     <ul class="list-group">
                                         <li class="list-group-item text-left">
                                             <span class="entypo-user"></span>&nbsp;&nbsp; 详细信息</li>
                                         <li class="list-group-item text-center">
-                                            <img src="assets/img/307327_205.jpg" alt="" class="img-circle img-responsive img-profile">
+                                            <img src="/ServiceP2p/ntps/assets/img/307327_205.jpg" alt="" class="img-circle img-responsive img-profile">
 
                                         </li>
-                                        <li class="list-group-item text-center">
+                                        <c:forEach items="${adminList}" var="admin">
+										<li class="list-group-item text-right">
                                             <span class="pull-left">
-                                                <strong>评分</strong>
-                                            </span>
-
-
-                                            <div class="ratings">
-
-                                                <a href="#">
-                                                    <span class="fa fa-star"></span>
-                                                </a>
-                                                <a href="#">
-                                                    <span class="fa fa-star"></span>
-                                                </a>
-                                                <a href="#">
-                                                    <span class="fa fa-star"></span>
-                                                </a>
-                                                <a href="#">
-                                                    <span class="fa fa-star"></span>
-                                                </a>
-                                                <a href="#">
-                                                    <span class="fa fa-star-o"></span>
-                                                </a>
-
-                                            </div>
-
-
-                                        </li>
-
+                                                <strong>昵称</strong>
+                                            </span>${admin.aname }</li>
+										</c:forEach>
                                         <li class="list-group-item text-right">
                                             <span class="pull-left">
-                                                <strong>加入时间</strong>
-                                            </span>2.13.2014</li>
+                                                <strong>注册时间</strong>
+                                            </span>12.23.2017</li>
                                         <li class="list-group-item text-right">
                                             <span class="pull-left">
                                                 <strong>最后一次登录</strong>
-                                            </span>Yesterday</li>
-                                        <li class="list-group-item text-right">
-                                            <span class="pull-left">
-                                                <strong>昵称</strong>
-                                            </span>themesmile</li>
-
+                                            </span>12.29.2017</li>
+                                        
                                     </ul>
-
+									
                                 </div>
                                 <div class="col-xs-12 col-sm-8 profile-name">
-                                    <h2>勇峰峰
+                                    <h2>管理员信息
                                         <span class="pull-right social-profile">
                                             <i class="entypo-facebook-circled"></i>  <i class="entypo-twitter-circled"></i>  <i class="entypo-linkedin-circled"></i>  <i class="entypo-github-circled"></i>  <i class="entypo-gplus-circled"></i>
                                         </span>
                                     </h2>
+                                    
                                     <hr>
-
+									<c:forEach items="${adminList}" var="admin">
                                     <dl class="dl-horizontal-profile">
                                         <dt>Id</dt>
-                                        <dd>eko.sulis</dd>
+                                        <dd>${admin.aid }</dd>
 
                                         <dt>姓名</dt>
-                                        <dd>Eko Sulistyo</dd>
+                                        <dd>${admin.aname}</dd>
 
                                         <dt>邮箱</dt>
-                                        <dd>eko.sulistyo@yahoo.com</dd>
+                                        <dd>${admin.amail}</dd>
 
                                         <dt>电话</dt>
-                                        <dd>081 725 xxx</dd>
+                                        <dd>${admin.aphone}</dd>
 
                                         <dt>注册时间</dt>
-                                        <dd>02 Dec 2014</dd>
+                                        <dd>12-23-2017</dd>
 
                                         <dt>最后一次登录时间</dt>
-                                        <dd>02 Apr 2014</dd>
-
-                                        <dt>关闭</dt>
-                                        <dd>Web Designer / UI</dd>
-
-                                        <dt>爱好</dt>
-                                        <dd>Read, out with friends, listen to music, draw and learn new things</dd>
-
-                                        <dt>特长</dt>
-                                        <dd>
-                                            <span class="tags">html5</span>
-                                            <span class="tags">css3</span>
-                                            <span class="tags">jquery</span>
-                                            <span class="tags">bootstrap3</span>
-                                        </dd>
-
+                                        <dd>12-29-2017</dd>
                                     </dl>
-
-
+                                    </c:forEach>
                                     <hr>
-
+									
                                     <h5>
                                         <span class="entypo-arrows-ccw"></span>&nbsp;&nbsp;近期活动</h5>
 
@@ -485,34 +441,19 @@
                             </div>
                             <div class="col-xs-12 divider text-center">
                                 <div class="col-xs-12 col-sm-4 emphasis">
-                                    <h2>
-                                        <strong>20,7K</strong>
-                                    </h2>
-                                    <p>
-                                        <small>关注</small>
-                                    </p>
+                                    
                                     <button class="btn btn-success btn-block">
-                                        <span class="fa fa-plus-circle"></span>&nbsp;&nbsp;关注他</button>
+                                        <span class="fa fa-plus-circle"></span>&nbsp;&nbsp;</button>
                                 </div>
                                 <div class="col-xs-12 col-sm-4 emphasis">
-                                    <h2>
-                                        <strong>245</strong>
-                                    </h2>
-                                    <p>
-                                        <small>关注者</small>
-                                    </p>
+                                    
                                     <button class="btn btn-info btn-block">
-                                        <span class="fa fa-user"></span>&nbsp;&nbsp;查看资料</button>
+                                        <span class="fa fa-user"></span>&nbsp;&nbsp;</button>
                                 </div>
                                 <div class="col-sm-4 emphasis">
-                                    <h2>
-                                        <strong>43</strong>
-                                    </h2>
-                                    <p>
-                                        <small>喜欢</small>
-                                    </p>
+                                    
                                     <button class="btn btn-default btn-block">
-                                        <span class="fa fa-user"></span>&nbsp;&nbsp;喜欢</button>
+                                        <span class="fa fa-user"></span>&nbsp;&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -530,7 +471,7 @@
                             <div style="margin:-20px 15px;" class="nest" id="Blank_PageClose">
                                 <div class="title-alt">
                                     <h6>
-                                        编辑个人资料</h6>
+                                     		   编辑个人资料</h6>
                                     <div class="titleClose">
                                         <a class="gone" href="#Blank_PageClose">
                                             <span class="entypo-cancel"></span>
@@ -556,7 +497,7 @@
                                                 <div class="input-group">
                                                     <span class="input-group-btn">
                                                         <span class="btn btn-primary btn-file">
-                                                            浏览
+                                                          			  浏览
                                                             <input type="file" multiple="">
                                                         </span>
                                                     </span>
@@ -575,76 +516,50 @@
                                                 <strong>警报</strong>.使用此来向用户显示重要消息。
                                             </div>
                                             <h3>个人信息</h3>
-
-                                            <form class="form-horizontal" role="form">
+                                            <c:forEach items="${adminList}" var="admin">
+                                            <form class="form-horizontal" role="form" action="update" method="post">
+                                            <input type="hidden" name="aid" value="${admin.aid}">
                                                 <div class="form-group">
-                                                    <label class="col-lg-3 control-label">名:</label>
+                                                    <label class="col-lg-3 control-label">用户名:</label>
                                                     <div class="col-lg-8">
-                                                        <input class="form-control" value="Jane" type="text">
+                                                        <input class="form-control" value="${admin.aname }" type="text" name="aname">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-lg-3 control-label">姓:</label>
+                                                    <label class="col-lg-3 control-label">身份证:</label>
                                                     <div class="col-lg-8">
-                                                        <input class="form-control" value="Bishop" type="text">
+                                                        <input class="form-control" value="${admin.acard }" type="text" name="acard">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-lg-3 control-label">公司:</label>
+                                                    <label class="col-lg-3 control-label">手机号码:</label>
                                                     <div class="col-lg-8">
-                                                        <input class="form-control" value="" type="text">
+                                                        <input class="form-control" value="${admin.aphone }" type="text" name="aphone">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-lg-3 control-label">邮箱:</label>
                                                     <div class="col-lg-8">
-                                                        <input class="form-control" value="janesemail@gmail.com" type="text">
+                                                        <input class="form-control" value="${admin.amail }" type="text" name="amail">
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="col-lg-3 control-label">时区:</label>
-                                                    <div class="col-lg-8">
-                                                        <div class="ui-select">
-                                                            <select id="user_time_zone" class="form-control">
-                                                                <option value="Hawaii">(GMT-10:00) Hawaii
-                                                                <option value="Alaska">(GMT-09:00) Alaska
-                                                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)
-                                                                <option value="Arizona">(GMT-07:00) Arizona
-                                                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)
-                                                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)
-                                                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)
-                                                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label">用户名:</label>
-                                                    <div class="col-md-8">
-                                                        <input class="form-control" value="janeuser" type="text">
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label">密码:</label>
                                                     <div class="col-md-8">
-                                                        <input class="form-control" value="11111122333" type="password">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label">确认密码:</label>
-                                                    <div class="col-md-8">
-                                                        <input class="form-control" value="11111122333" type="password">
+                                                        <input class="form-control" value="111111" type="password" name="apassword">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label"></label>
                                                     <div class="col-md-8">
-                                                        <input class="btn btn-primary" value="确定" type="button">
+                                                        <input class="btn btn-primary" type="submit" value="提交">
                                                         <span></span>
                                                         <input class="btn btn-default" value="取消" type="reset">
                                                     </div>
                                                 </div>
-                                            </form>
+                                                </form>
+                                                </c:forEach>
                                         </div>
                                     </div>
                                 </div>
@@ -817,11 +732,11 @@
 
 
         <!-- MAIN EFFECT -->
-        <script type="text/javascript" src="assets/js/preloader.js"></script>
-        <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-        <script type="text/javascript" src="assets/js/app.js"></script>
-        <script type="text/javascript" src="assets/js/load.js"></script>
-        <script type="text/javascript" src="assets/js/main.js"></script>
+        <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/preloader.js"></script>
+        <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/app.js"></script>
+        <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/load.js"></script>
+        <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/main.js"></script>
 
 
 		</div>
