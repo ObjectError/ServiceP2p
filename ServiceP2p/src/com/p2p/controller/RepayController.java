@@ -13,7 +13,7 @@ import com.p2p.pojo.Repayment;
 import com.p2p.services.RepayServices;
 
 @Controller
-@RequestMapping("/repay")
+@RequestMapping("/repayment")
 public class RepayController {
 		
 	@Resource(name="repayServiceImpl")
