@@ -4,5 +4,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.p2p.mapper.RepayMapper">
 		<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
+		<resultMap type="com.p2p.pojo.Repayment" id="repaymentt">
+			<result column="r_id" property="rid"/>
+			<result column="r_suid" property="rsuid"/>
+			<result column="r_money" property="rmoeny"/>
+			<result column="r_time" property="rtime"/>
+			<result column="r_state" property="rstate"/>
+			<result column="r_ip" property="rip"/>
+		</resultMap>
+		
+		<!-- 查询所有 -->
+		<select id="list" resultMap="repaymentt">
+			select * from repayment
+		</select>
+		
+		<!-- 增加 -->
+		<select id="add" parameterType="com.p2p.pojo.Repayment">
+			insert into repayment (r_id,r_suid,r_money,r_time,r_state,r_ip) values(#{r_id},#{r_suid},#{r_money},#{r_time},#{r_state},#{r_ip})
+		</select>
+		
+		<!-- 删除 -->
+		<delete id="delete" parameterType="java.lang.Integer">
+			delete from repayment where r_id = #{r_id}
+		</delete>
+		
+		<!-- 修改 -->
+		<update id="update" parameterType="com.p2p.pojo.Repayment">
+			update repayment set r_id = #{r_id},r_suid = #{r_suid},r_money = #{r_money},r_time = #{r_time},r_state = #{r_state},r_ip = #{r_ip} 
+			where r_id = #{r_id}
+		</update>
+		
+		<!-- 根据id查用户 -->
+		<select id="getById" resultMap="repaymentt" parameterType="java.lang.Integer">
+			select * from repayment where r_id = #{r_id}
+		</select>
 		
 	</mapper>
