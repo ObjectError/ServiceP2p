@@ -76,7 +76,7 @@
                         </a>
                         <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
-                                <a href="/ServiceP2p/ntps/profile.jsp">
+                                <a href="/ServiceP2p/admin/list">
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
                             <li class="divider"></li>
@@ -106,11 +106,6 @@
                                 <div id="button-bg13"></div>
                             </li>
                         </ul>
-                    </li>
-                    <li class="hidden-xs">
-                        <a class="toggle-left" href="#">
-                            <span style="font-size:20px;" class="entypo-list-add"></span>
-                        </a>
                     </li>
                 </ul>
 
