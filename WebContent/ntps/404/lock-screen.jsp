@@ -16,11 +16,11 @@
     <!-- Le styles -->
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/loader-style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/signin.css">
-    <link rel="stylesheet" href="assets/css/extra-pages.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/style.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/loader-style.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/signin.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/extra-pages.css">
 
 
 

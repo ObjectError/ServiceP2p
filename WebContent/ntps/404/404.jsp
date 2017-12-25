@@ -16,11 +16,11 @@
     <!-- Le styles -->
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/loader-style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/signin.css">
-    <link rel="stylesheet" href="assets/css/extra-pages.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/style.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/loader-style.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/signin.css">
+    <link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/extra-pages.css">
 
 
 
@@ -35,7 +35,7 @@
     <link rel="shortcut icon" href="assets/ico/minus.png">
 </head>
 
-<body><div id="awwwards" class="right black"><a href="http://www.awwwards.com/best-websites/apricot-navigation-admin-dashboard-template" target="_blank">best websites of the world</a></div>
+<body><div id="awwwards" class="right black"><a href="/ServiceP2p/ntps/404/404.jsp" target="_blank">best websites of the world</a></div>
     <!-- Preloader -->
     <div id="preloader">
         <div id="status">&nbsp;</div>
@@ -81,11 +81,11 @@
 
 
     <!-- MAIN EFFECT -->
-    <script type="text/javascript" src="assets/js/preloader.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
-    <script type="text/javascript" src="assets/js/load.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/preloader.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/app.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/load.js"></script>
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/main.js"></script>
 
 
 </body>

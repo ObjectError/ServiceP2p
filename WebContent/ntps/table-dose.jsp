@@ -50,9 +50,6 @@ String path = request.getContextPath();
                     <span class="entypo-list-add"></span>
                 </button>
 
-
-
-
                 <div id="logo-mobile" class="visible-xs">
                    <h1>WEB管理<span>v1.2</span></h1>
                 </div>
@@ -63,12 +60,11 @@ String path = request.getContextPath();
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-
                     <li class="dropdown">
                         <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
                         </ul>
                     </li>
-                    <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
+                    <li><a><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
                     </li>
 
                 </ul>
@@ -79,31 +75,23 @@ String path = request.getContextPath();
                 <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
                     <li>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" class="admin-pic img-circle" src="assets/img/307327_205.jpg">欢迎你，admin <b class="caret"></b>
+                            <img alt="" class="admin-pic img-circle" src="/ServiceP2p/ntps/assets/img/307327_205.jpg">欢迎你，admin <b class="caret"></b>
                         </a>
                         <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
                                 <a href="/ServiceP2p/ntps/profile.jsp">
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <span class="entypo-vcard"></span>&#160;&#160;账户设置</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="entypo-lifebuoy"></span>&#160;&#160;帮助</a>
-                            </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="http://themeforest.net/item/apricot-navigation-admin-dashboard-template/7664475?WT.ac=category_item&WT.z_author=themesmile">
-                                    <span class="entypo-basket"></span>&#160;&#160; 购买</a>
+                                <a href="/ServiceP2p/ntps/login.jsp">
+                                    <span class="entypo-picasa"></span>&#160;&#160; 登入</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="fontawesome-magic"></span>&#160;&#160;一键换肤</a>
+                            <span class="fontawesome-magic"></span>&#160;&#160;主题更改</a>
                         <ul role="menu" class="dropdown-setting dropdown-menu">
 
                             <li class="theme-bg">
@@ -140,7 +128,7 @@ String path = request.getContextPath();
     <!-- SIDE MENU -->
     <div id="skin-select">
         <div id="logo">
-         <h1>Apricot<span>v1.3</span></h1>
+         <h1>CloudSoft<span>v1.2</span></h1>
         </div>
 
         <a id="toggle">
@@ -160,6 +148,9 @@ String path = request.getContextPath();
             </form>
         </div>
 
+
+
+
         <div class="skin-part">
             <div id="tree-wrap">
                 <div class="side-bar">
@@ -176,20 +167,54 @@ String path = request.getContextPath();
                         </li>
 
                         <li>
-                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/toindextt" title="Dashboard">
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/index.jsp" title="Dashboard">
                                 <i class="icon-window"></i>
                                 <span>首页</span>
 
                             </a>
                         </li>
 
-
-                        <li>
-                            <a class="tooltip-tip ajax-load" href="icon.html" title="Icons">
-                                <i class="icon-preview"></i>
-                                <span>图标</span>
-                                <div class="noft-blue" style="display: inline-block; float: none;">289</div>
+                       <li>
+                            <a class="tooltip-tip" href="#" title="Tables">
+                                <i class="icon-view-thumb"></i>
+                                <span>表单</span>
                             </a>
+                            <ul>
+                                
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/bank/list" title="Table Dynamic"><i class="entypo-menu"></i><span>银行卡表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/user/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/income/list" title="Table Dynamic"><i class="entypo-menu"></i><span>收益表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/cash/list" title="Table Dynamic"><i class="entypo-menu"></i><span>提现表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/detail/list" title="Table Dynamic"><i class="entypo-menu"></i><span>账单明细表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/initiativeTender/list" title="Table Dynamic"><i class="entypo-menu"></i><span>主动投标表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/transfer/list" title="Table Dynamic"><i class="entypo-menu"></i><span>转账表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/repayment/list" title="Table Dynamic"><i class="entypo-menu"></i><span>自动还款表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/loans/list" title="Table Dynamic"><i class="entypo-menu"></i><span>放款表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/userBindCard/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户绑卡表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/admin/list" title="Table Dynamic"><i class="entypo-menu"></i><span>管理员表</span></a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li>
@@ -198,39 +223,21 @@ String path = request.getContextPath();
                                 <span>其它的页面</span>
                             </a>
                             <ul>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="blank_page.html" title="Blank Page"><i class="icon-media-record"></i><span>空白页面</span></a>
-                                </li>
                                  <li>
-                                    <a class="tooltip-tip2 ajax-load" href="profile.html" title="Profile Page"><i class="icon-user"></i><span>资料页面</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/profile.jsp" title="Profile Page"><i class="icon-user"></i><span>资料页面</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="invoice.html" title="Invoice"><i class="entypo-newspaper"></i><span>发票</span></a>
+                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/404.jsp" title="404 Error Page"><i class="icon-thumbs-down"></i><span>404 错误页面</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="pricing_table.html" title="Pricing Table"><i class="fontawesome-money"></i><span>定价表</span></a>
+                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/500.jsp" title="500 Error Page"><i class="icon-thumbs-down"></i><span>500 错误页面</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="time-line.html" title="Time Line"><i class="entypo-clock"></i><span>时间线</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2" href="404.html" title="404 Error Page"><i class="icon-thumbs-down"></i><span>404 错误页面</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2" href="500.html" title="500 Error Page"><i class="icon-thumbs-down"></i><span>500 错误页面</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2" href="lock-screen.html" title="Lock Screen"><i class="icon-lock"></i><span>锁屏</span></a>
+                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/lock-screen.jsp" title="Lock Screen"><i class="icon-lock"></i><span>锁屏</span></a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li>
-                            <a class="tooltip-tip " href="login.html" title="login">
-                                <i class="entypo-picasa"></i>
-                                <span>登入</span>
-                            </a>
-                        </li>
 
                     </ul>
 
@@ -252,64 +259,36 @@ String path = request.getContextPath();
                             </a>
                             <ul>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="element.html" title="Element"><i class="icon-attachment"></i><span>元素</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/element.jsp" title="Element"><i class="icon-attachment"></i><span>元素</span></a>
                                 </li>
-                                <li><a class="tooltip-tip2 ajax-load" href="button.html" title="Button"><i class="icon-view-list-large"></i><span>按钮</span> <div class="noft-blue-number">10</div></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="wizard.html" title="Tab & Accordion"><i class="icon-folder"></i><span>向导</span><div class="noft-purple-number">3</div></a>
+                                <li><a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/button.jsp" title="Button"><i class="icon-view-list-large"></i><span>按钮</span> <div class="noft-blue-number">10</div></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="calendar.html" title="Calender"><i class="icon-calendar"></i><span>日历</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/calendar.jsp" title="Calender"><i class="icon-calendar"></i><span>日历</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="tree.html" title="Tree View"><i class="icon-view-list"></i><span>树视图</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/tree.jsp" title="Tree View"><i class="icon-view-list"></i><span>树视图</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="grids.html" title="Grids"><i class="icon-menu"></i><span>网格</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/grids.jsp" title="Grids"><i class="icon-menu"></i><span>网格</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="chart.html" title="Chart"><i class="icon-graph-pie"></i><span>图表</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/chart.jsp" title="Chart"><i class="icon-graph-pie"></i><span>图表</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip ajax-load" href="typhography.html" title="Typhoghrapy">
+                                    <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/element/typhography.jsp" title="Typhoghrapy">
                                         <i class="icon-information"></i>
                                         <span>字体</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a class="tooltip-tip" href="#" title="Form">
-                                <i class="icon-document"></i>
-                                <span>形式</span>
+                         <li>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/icon.jsp" title="Icons">
+                                <i class="icon-preview"></i>
+                                <span>图标</span>
+                                <div class="noft-blue" style="display: inline-block; float: none;">289</div>
                             </a>
-                            <ul>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="form-element.html" title="Form Elements"><i class="icon-document-edit"></i><span>元素形式</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="andvance-form.html" title="Andvance Form"><i class="icon-map"></i><span>进展形式</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="text-editor.html" title="Text Editor"><i class="icon-code"></i><span>文本编辑器</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="file-upload.html" title="File Upload"><i class="icon-upload"></i><span>文件上传</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="tooltip-tip" href="#" title="Tables">
-                                <i class="icon-view-thumb"></i>
-                                <span>表单</span>
-                            </a>
-                            <ul>
-                                
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="#" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
