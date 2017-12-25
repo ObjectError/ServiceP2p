@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%String path = request.getContextPath();%>
 <html>
+	<base href="<%=path%>/">
 	<meta charset="utf-8">
     <title>后台管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,7 +80,7 @@
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
                             <li>
-                                <a href="blank_page.html">
+                                <a href="blank_page.jsp">
                                     <span class="entypo-vcard"></span>&#160;&#160;账户设置</a>
                             </li>
                             <li>
@@ -86,8 +89,8 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#">
-                                    <span class="entypo-basket"></span>&#160;&#160; 购买</a>
+                                <a href="login.jsp">
+                                    <span class="entypo-picasa"></span>&#160;&#160; 登入</a>
                             </li>
                         </ul>
                     </li>
@@ -176,12 +179,47 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a class="tooltip-tip ajax-load" href="icon.html" title="Icons">
-                                <i class="icon-preview"></i>
-                                <span>图标</span>
-                                <div class="noft-blue" style="display: inline-block; float: none;">289</div>
+                       <li>
+                            <a class="tooltip-tip" href="#" title="Tables">
+                                <i class="icon-view-thumb"></i>
+                                <span>表单</span>
                             </a>
+                            <ul>
+                                
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/bank/list" title="Table Dynamic"><i class="entypo-menu"></i><span>银行卡表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/user/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/income/list" title="Table Dynamic"><i class="entypo-menu"></i><span>收益表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/cash/list" title="Table Dynamic"><i class="entypo-menu"></i><span>提现表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/detail/list" title="Table Dynamic"><i class="entypo-menu"></i><span>账单明细表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/initiativeTender/list" title="Table Dynamic"><i class="entypo-menu"></i><span>主动投标表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/transfer/list" title="Table Dynamic"><i class="entypo-menu"></i><span>转账表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/repayment/list" title="Table Dynamic"><i class="entypo-menu"></i><span>自动还款表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/loans/list" title="Table Dynamic"><i class="entypo-menu"></i><span>放款表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/userBindCard/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户绑卡表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/admin/list" title="Table Dynamic"><i class="entypo-menu"></i><span>管理员表</span></a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li>
@@ -190,39 +228,21 @@
                                 <span>其它的页面</span>
                             </a>
                             <ul>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="blank_page.html" title="Blank Page"><i class="icon-media-record"></i><span>空白页面</span></a>
-                                </li>
                                  <li>
-                                    <a class="tooltip-tip2 ajax-load" href="profile.html" title="Profile Page"><i class="icon-user"></i><span>资料页面</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="profile.jsp" title="Profile Page"><i class="icon-user"></i><span>资料页面</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="invoice.html" title="Invoice"><i class="entypo-newspaper"></i><span>发票</span></a>
+                                    <a class="tooltip-tip2" href="404/404.jsp" title="404 Error Page"><i class="icon-thumbs-down"></i><span>404 错误页面</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="pricing_table.html" title="Pricing Table"><i class="fontawesome-money"></i><span>定价表</span></a>
+                                    <a class="tooltip-tip2" href="404/500.jsp" title="500 Error Page"><i class="icon-thumbs-down"></i><span>500 错误页面</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="time-line.html" title="Time Line"><i class="entypo-clock"></i><span>时间线</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2" href="404.html" title="404 Error Page"><i class="icon-thumbs-down"></i><span>404 错误页面</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2" href="500.html" title="500 Error Page"><i class="icon-thumbs-down"></i><span>500 错误页面</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2" href="lock-screen.html" title="Lock Screen"><i class="icon-lock"></i><span>锁屏</span></a>
+                                    <a class="tooltip-tip2" href="404/lock-screen.jsp" title="Lock Screen"><i class="icon-lock"></i><span>锁屏</span></a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li>
-                            <a class="tooltip-tip " href="login.jsp" title="login">
-                                <i class="entypo-picasa"></i>
-                                <span>登入</span>
-                            </a>
-                        </li>
 
                     </ul>
 
@@ -244,77 +264,38 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="element.html" title="Element"><i class="icon-attachment"></i><span>元素</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="element/element.jsp" title="Element"><i class="icon-attachment"></i><span>元素</span></a>
                                 </li>
-                                <li><a class="tooltip-tip2 ajax-load" href="button.html" title="Button"><i class="icon-view-list-large"></i><span>按钮</span> <div class="noft-blue-number">10</div></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="wizard.html" title="Tab & Accordion"><i class="icon-folder"></i><span>向导</span><div class="noft-purple-number">3</div></a>
+                                <li><a class="tooltip-tip2 ajax-load" href="element/button.jsp" title="Button"><i class="icon-view-list-large"></i><span>按钮</span> <div class="noft-blue-number">10</div></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="calendar.html" title="Calender"><i class="icon-calendar"></i><span>日历</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="element/calendar.jsp" title="Calender"><i class="icon-calendar"></i><span>日历</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="tree.html" title="Tree View"><i class="icon-view-list"></i><span>树视图</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="element/tree.jsp" title="Tree View"><i class="icon-view-list"></i><span>树视图</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="grids.html" title="Grids"><i class="icon-menu"></i><span>网格</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="element/grids.jsp" title="Grids"><i class="icon-menu"></i><span>网格</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="chart.html" title="Chart"><i class="icon-graph-pie"></i><span>图表</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="element/chart.jsp" title="Chart"><i class="icon-graph-pie"></i><span>图表</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip ajax-load" href="typhography.html" title="Typhoghrapy">
+                                    <a class="tooltip-tip ajax-load" href="element/typhography.jsp" title="Typhoghrapy">
                                         <i class="icon-information"></i>
                                         <span>字体</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a class="tooltip-tip" href="#" title="Form">
-                                <i class="icon-document"></i>
-                                <span>形式</span>
+                         <li>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/icon.jsp" title="Icons">
+                                <i class="icon-preview"></i>
+                                <span>图标</span>
+                                <div class="noft-blue" style="display: inline-block; float: none;">289</div>
                             </a>
-                            <ul>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="form-element.html" title="Form Elements"><i class="icon-document-edit"></i><span>元素形式</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="andvance-form.html" title="Andvance Form"><i class="icon-map"></i><span>进展形式</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="text-editor.html" title="Text Editor"><i class="icon-code"></i><span>文本编辑器</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="file-upload.html" title="File Upload"><i class="icon-upload"></i><span>文件上传</span></a>
-                                </li>
-                            </ul>
                         </li>
-                        <li>
-                            <a class="tooltip-tip" href="#" title="Tables">
-                                <i class="icon-view-thumb"></i>
-                                <span>表单</span>
-                            </a>
-                            <ul>
-                                
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/bank/list" title="Table Dynamic"><i class="entypo-menu"></i><span>表单1</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/user/list" title="Table Dynamic"><i class="entypo-menu"></i><span>表单2</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/income/list" title="Table Dynamic"><i class="entypo-menu"></i><span>表单3</span></a>
-                                </li>
-                            </ul>
-                        </li>
-
-                     
                     </ul>
-
-
-                   
                 </div>
             </div>
         </div>
