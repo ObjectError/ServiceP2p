@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.p2p.mapper.RechargeMapper">
+		<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
+		<resultMap type="com.p2p.pojo.Recharge" id="rechargema">
+			<result column="ch_id" property="chid"/>
+			<result column="ch_suid" property="chsuid"/>
+			<result column="ch_money" property="chmoeny"/>
+			<result column="ch_order" property="chorder"/>
+			<result column="ch_state" property="chstate"/>
+			<result column="ch_time" property="chtime"/>
+			<result column="ch_bankid" property="chbankid"/>
+			<result column="ch_type" property="chtype"/>
+		</resultMap>
+		
+		<!-- 查询所有 -->
+		<select id="list" resultMap="rechargema">
+			select * from recharge
+		</select>
+		
+		<!-- 增加 -->
+		<select id="add" parameterType="com.p2p.pojo.Recharge">
+			insert into recharge(ch_id,ch_suid,ch_money,ch_order,ch_state,ch_time,ch_bankid,ch_type)
+			values (#{ch_id},#{ch_suid},#{ch_money},#{ch_order},#{ch_state},#{ch_time},#{ch_bankid},#{ch_type} )
+		</select>
+		
+		<!-- 删除 -->
+		<delete id="delete" parameterType="java.lang.Integer">
+			delete from recharge where ch_id = #{ch_id}
+		</delete>
+		
+		<!-- 修改 -->
+		<update id="update" parameterType="com.p2p.pojo.Recharge">
+			update recharge set ch_id = #{ch_id},ch_suid = #{ch_suid},ch_money = #{ch_money},ch_order = #{ch_order},
+			ch_state = #{ch_state},ch_time = #{ch_time},ch_bankid = #{ch_bankid},ch_type = #{ch_type}
+		</update>
+		
+		<!-- 根据id查用户 -->
+		<select id="getById" resultMap="rechargema" parameterType="java.lang.Integer">
+			select * from recharge where ch_id = #{ch_id}
+		</select>
+	</mapper>
