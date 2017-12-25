@@ -65,7 +65,7 @@ String path = request.getContextPath();
                         <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
                         </ul>
                     </li>
-                    <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
+                    <li><a><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
                     </li>
 
                 </ul>
@@ -83,17 +83,9 @@ String path = request.getContextPath();
                                 <a href="/ServiceP2p/ntps/profile.jsp">
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
-                            <li>
-                                <a href="blank_page.jsp">
-                                    <span class="entypo-vcard"></span>&#160;&#160;账户设置</a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="entypo-lifebuoy"></span>&#160;&#160;帮助</a>
-                            </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.jsp">
+                                <a href="/ServiceP2p/ntps/login.jsp">
                                     <span class="entypo-picasa"></span>&#160;&#160; 登入</a>
                             </li>
                         </ul>
@@ -233,16 +225,16 @@ String path = request.getContextPath();
                             </a>
                             <ul>
                                  <li>
-                                    <a class="tooltip-tip2 ajax-load" href="profile.jsp" title="Profile Page"><i class="icon-user"></i><span>资料页面</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/profile.jsp" title="Profile Page"><i class="icon-user"></i><span>资料页面</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2" href="404/404.jsp" title="404 Error Page"><i class="icon-thumbs-down"></i><span>404 错误页面</span></a>
+                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/404.jsp" title="404 Error Page"><i class="icon-thumbs-down"></i><span>404 错误页面</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2" href="404/500.jsp" title="500 Error Page"><i class="icon-thumbs-down"></i><span>500 错误页面</span></a>
+                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/500.jsp" title="500 Error Page"><i class="icon-thumbs-down"></i><span>500 错误页面</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2" href="404/lock-screen.jsp" title="Lock Screen"><i class="icon-lock"></i><span>锁屏</span></a>
+                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/lock-screen.jsp" title="Lock Screen"><i class="icon-lock"></i><span>锁屏</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -268,24 +260,24 @@ String path = request.getContextPath();
                             </a>
                             <ul>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="element/element.jsp" title="Element"><i class="icon-attachment"></i><span>元素</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/element.jsp" title="Element"><i class="icon-attachment"></i><span>元素</span></a>
                                 </li>
-                                <li><a class="tooltip-tip2 ajax-load" href="element/button.jsp" title="Button"><i class="icon-view-list-large"></i><span>按钮</span> <div class="noft-blue-number">10</div></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="element/calendar.jsp" title="Calender"><i class="icon-calendar"></i><span>日历</span></a>
+                                <li><a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/button.jsp" title="Button"><i class="icon-view-list-large"></i><span>按钮</span> <div class="noft-blue-number">10</div></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="element/tree.jsp" title="Tree View"><i class="icon-view-list"></i><span>树视图</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/calendar.jsp" title="Calender"><i class="icon-calendar"></i><span>日历</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="element/grids.jsp" title="Grids"><i class="icon-menu"></i><span>网格</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/tree.jsp" title="Tree View"><i class="icon-view-list"></i><span>树视图</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="element/chart.jsp" title="Chart"><i class="icon-graph-pie"></i><span>图表</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/grids.jsp" title="Grids"><i class="icon-menu"></i><span>网格</span></a>
                                 </li>
                                 <li>
-                                    <a class="tooltip-tip ajax-load" href="element/typhography.jsp" title="Typhoghrapy">
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/chart.jsp" title="Chart"><i class="icon-graph-pie"></i><span>图表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/element/typhography.jsp" title="Typhoghrapy">
                                         <i class="icon-information"></i>
                                         <span>字体</span>
                                     </a>
