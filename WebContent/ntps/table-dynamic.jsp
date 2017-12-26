@@ -40,7 +40,7 @@ String path = request.getContextPath();
     
 	<body>
     <!-- Preloader -->
-<jsp:include page="./head/head.jsp"></jsp:include>
+	<jsp:include page="./head/head.jsp"></jsp:include>
 
     <!--  PAPER WRAP -->
     <div class="wrap-fluid">

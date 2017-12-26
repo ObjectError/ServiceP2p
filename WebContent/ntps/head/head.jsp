@@ -49,7 +49,7 @@ String path = request.getContextPath();
                         </a>
                         <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
-                                <a href="/ServiceP2p/ntps/profile.jsp">
+                                <a href="/ServiceP2p/admin/list">
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
                             <li class="divider"></li>
@@ -171,6 +171,9 @@ String path = request.getContextPath();
                                 </li>
                                 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/transfer/list" title="Table Dynamic"><i class="entypo-menu"></i><span>转账表</span></a>
+                                </li>
+                                 <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/recharge/list" title="Table Dynamic"><i class="entypo-menu"></i><span>充值表</span></a>
                                 </li>
                                 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/repayment/list" title="Table Dynamic"><i class="entypo-menu"></i><span>自动还款表</span></a>
