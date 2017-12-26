@@ -37,7 +37,24 @@ String path = request.getContextPath();
 	<link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/omodal.css">
     <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/towmodal.js"></script>
     <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/omodal.js"></script>
-    
+    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/jquery.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('#bank').blur(function(){
+    			var bank=$('#bank').val();
+    			$.ajax({
+    				url:'bank/bankType',
+    				data:{'bank':bank},
+    				type:'post',
+    				dataType:'json',
+    				success:function(data){
+    					//alert(data.name);
+    					$('#banktype').val(data.name);
+    				}
+    			});
+    		})
+    	})
+    </script>
 	<body>
     <!-- Preloader -->
 	<jsp:include page="./head/head.jsp"></jsp:include>
@@ -152,7 +169,7 @@ String path = request.getContextPath();
 							                    </div>
 							                    <div class="form-group">
 													<label>银行卡类型:</label>
-										            <input name="btype" type="text" value="" style="color:black;">
+										            <input name="btype" id="banktype" type="text" readonly="readonly" style="color:black;">
 							                    </div>
 							                    <div class="form-group">
 													<label>银行卡余额:</label>
