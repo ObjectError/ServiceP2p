@@ -196,9 +196,6 @@ String path = request.getContextPath();
                                 <span>其它的页面</span>
                             </a>
                             <ul>
-                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/profile.jsp" title="Profile Page"><i class="icon-user"></i><span>资料页面</span></a>
-                                </li>
                                 <li>
                                     <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/404.jsp" title="404 Error Page"><i class="icon-thumbs-down"></i><span>404 错误页面</span></a>
                                 </li>
