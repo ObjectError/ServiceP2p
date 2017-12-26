@@ -1,6 +1,8 @@
 package com.p2p.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.p2p.pojo.Bank;
 import com.p2p.services.BankService;
+import com.p2p.util.BankUtil;
 
 @Controller
 @RequestMapping("/bank")
@@ -41,6 +44,15 @@ public class BankController {
 		bankService.add(bank);
 		return "redirect:/bank/list";
 		
+	}
+	@RequestMapping("bankType")
+	@ResponseBody
+	public Map<String, Object> banktype(String bank) {
+		BankUtil bk=new BankUtil();
+		 String name = bk.getNameOfBank(bank);
+		 Map<String, Object> map = new HashMap<>();
+		 map.put("name", name);
+		 return map;
 	}
 	
 	@RequestMapping("/getby")
