@@ -33,14 +33,9 @@ String path = request.getContextPath();
         <![endif]-->
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="/ServiceP2p/ntps/assets/ico/minus.png">
-	<!-- 开启拟态框 -->
-	<link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/omodal.css">
-    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/towmodal.js"></script>
-    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/omodal.js"></script>
-    
+	
 	<body> 
-	<jsp:include page="./head/head.jsp"></jsp:include>
-
+ 	<jsp:include page="./head/head.jsp"></jsp:include>
 
 
     <!--  PAPER WRAP -->
@@ -96,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="bank/list" title="Sample page 1">账单明细表</a>
+                <li><a href="bank/list" title="Sample page 1">银行卡管理表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -124,184 +119,71 @@ String path = request.getContextPath();
                             </div>
 
                             <div class="body-nest" id="Footable">
-                            	<a href="javascript:void(-1);" onclick="show_modal();">
-                            		<span class="glyphicon glyphicon-plus"></span>新增
-                            	</a>    
-                            <!-- 新增拟态框（Modal） -->
-                            
-							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="detail/add" method="post">
-							        <div class="modal-content">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    新增
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-							                	<div class="form-group">
-							                        <label>编号:</label>
-							                		<input name="did" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-							                        <label>用户id:</label>
-							                		<input name="dsuid" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>金额:</label>
-										            <input name="dmoney" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>明细类型:</label>
-										            <input name="dtype" type="text" value="" style="color:black;">
-							                    </div>
-												<div class="form-group">
-													<label>受理时间:</label>
-										            <input name="dtime" type="text" value="" data-options="required:true,showSeconds:false" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>订单号:</label>
-										            <input name="dorder" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>交易状态:</label>
-										            <input name="dstate" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>交易IP:</label>
-										            <input name="dip" type="text" value="" style="color:black;">
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               <!--  <button type="button"  id="id_ad_search" onclick="javascrtpt:window.location.href='bank/add'">
-							                  	  提交
-							                </button> -->
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_ad_search">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div>
-							
-                            <!-- 修改拟态框（Modal） -->
-							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="detail/update" method="post">
-							        <div class="modal-content">
-							        	<input type="hidden" name="did" id="did">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    修改
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-							                    <div class="form-group">
-							                        <label>用户id:</label>
-							                		<input name="dsuid" id="dsuid" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>金额:</label>
-										            <input name="dmoney" type="text" id="dmoney" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>明细类型:</label>
-										            <input name="dtype" type="text" id="dtype" style="color:black;">
-							                    </div>
-												<div class="form-group">
-													<label>受理时间:</label>
-										            <input name="dtime" type="text" id="dtime" data-options="required:true,showSeconds:false" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>订单号:</label>
-										            <input name="dorder" type="text" id="dorder" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>交易状态:</label>
-										            <input name="dstate" type="text" id="dstate" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>交易IP:</label>
-										            <input name="dip" type="text" id="dip" style="color:black;">
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               <!--  <button type="button"  id="id_ad_search" onclick="javascrtpt:window.location.href='bank/add'">
-							                  	  提交
-							                </button> -->
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div>    
-                                
-
-                                
-                                
-                                
-                                <table class="table-striped footable-res footable metro-blue" id="tb_role" data-page-size="6">
+                            	<a href="income/list"><span class="glyphicon glyphicon-plus"></span>新增</a>
+                                <table class="table-striped footable-res footable metro-blue" data-page-size="7">
                                     <thead>
                                         <tr>
-                                            <th data-hide="phone,tablet">
+                                            <th>
                                                		编号
                                             </th>
-                                            <th data-hide="phone,tablet">
+                                            <th>
                                            			 用户id
                                             </th>
                                             <th data-hide="phone,tablet">
-                                        		       订单号
+                                        		     银行卡号
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	明细类型
+                          							银行卡类型
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	金额
+                                                	绑卡时间
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	受理时间
+                                                	绑卡状态
                                             </th >
                                             <th data-hide="phone,tablet">
-                                            	    交易状态
-                                            </th>
+                                            		ip地址
+                                            </th >
                                             <th data-hide="phone,tablet">
-                                            	    交易IP
-                                            </th>
+                                            		操作
+                                            </th >
                                         </tr>
-                                        <c:forEach items="${detailList }" var="detail">
+                                        <c:forEach items="${listubc}" var="ubcards">
                                         <tbody>
 											<tr>
-												<td>${detail.did }</td>
-												<td>${detail.dsuid }</td>
-												<td>${detail.dorder }</td>
-												<td>${detail.dtype }</td>
-												<td>${detail.dmoney }</td>
-												<td>${detail.dtime }</td>
-												<td>${detail.dstate }</td>
-												<td>${detail.dip }</td>
-												<td><a href="javascript:void(-1);" onclick="show_update(${detail.did})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-													<a href="bank/delete/${detail.did }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
+												<td>${ubcards.uid}</td>
+												<td>${ubcards.usuid}</td>
+												<td>${ubcards.ubankcode}</td>
+												<td>${ubcards.utype}</td>
+												<td>${ubcards.utime}</td>
+												<td>${ubcards.ustate}</td>
+												<td>${ubcards.uip}</td>
+												<td><a href="userBindCard/update/${ubcards.uid}"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
+													<a href="userBindCard/delete/${ubcards.uid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
 											</tbody>
 										</c:forEach>
                                     </thead>
+                                    <!-- <tbody>
+                                        <tr>
+                                            <td>Isidra</td>
+                                            <td><a href="#">Boudreaux</a>
+                                            </td>
+                                            <td>Traffic Court Referee</td>
+                                            <td data-value="78025368997">22 Jun 1972</td>
+                                            <td data-value="1">
+                                              <button type="button" class="btn  ladda-label">
+                                    				<span class="entypo-pencil"></span>&nbsp;&nbsp;修改
+                                    			</button>
+                                    			
+                                    			 <button type="button" class="btn  ladda-label">
+                                    				<span class="entypo-plus-squared"></span>&nbsp;&nbsp;增加
+                                    			</button>
+                                            </td>
+                                        </tr>
+
+                                    </tbody> 
+                                    -->
                                     <tfoot>
                                         <tr>
                                             <td colspan="5">
@@ -332,7 +214,7 @@ String path = request.getContextPath();
                     <p id="clock">
                 </div>
                 <div class="copyright">Make with Love
-                    <span class="entypo-heart"></span>Collect from <a href="#" title="网页模板" target="_blank">后台管理</a> All Rights Reserved</div>
+                    <span class="entypo-heart"></span>Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> All Rights Reserved</div>
                 <div class="devider-footer"></div>
 
             </div>
@@ -550,57 +432,6 @@ String path = request.getContextPath();
         });
     });
     </script>
-    
-    <!-- 新增拟态框 -->
-    <script>
-	    function show_modal() {
-	         $('#myModal').modal('show');
-	         $('#tb_role').bootstrapTable('refresh');
-	    }
-	   /*  $(function () {
-	        $('#id_ad_search').click(function () {
-	           var name = $('#id_name').val();
-	            $.ajax({
-	                url:'bank/add',
-	                data:{name:name},
-	                complete:function () {
-	                    $('#myModal').modal('hide');
-	                }
-	            })
-	
-	        });
-	
-	    }); */
-	
-	</script>
-    
-     <!-- 修改拟态框 -->
-    <script>
-	    function show_update(id) {
-	    	var url =  "detail/getby";
-	    	$.post(
-	    			url,
-	    			{
-	    				did:id
-	    			},
-	    			function(data){
-	    				var obj = JSON.parse(data);
-	    				$('#did').val(obj.did);
-	    				$('#dsuid').val(obj.dsuid);
-	    				$('#dorder').val(obj.dorder);
-	    				$('#dtype').val(obj.dtype);
-	    				$('#dmoney').val(obj.dmoney);
-	    				$('#dstate').val(obj.dstate);
-	    				$('#dtime').val(obj.dtime);
-	    				$('#dip').val(obj.dip);
-	    			}
-		    );	
-	    	
-	         $('#myupdate').modal('show');
-	         
-	         $('#tb_role').bootstrapTable('refresh');
-	    }
-	    
-	</script>
+
 	</body>
 </html>
