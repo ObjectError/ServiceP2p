@@ -41,9 +41,12 @@ public class Recharge implements Serializable{
 	
 	@TableField("ch_type")
 	private String chtype; //充值类型
+	
+	@TableField("ch_ip")
+	private String chip;	//需要充值的IP地址
 
 	public Recharge(Integer chid, Integer chsuid, double chmoeny, Integer chorder, String chstate, String chtime,
-			Integer chbankid, String chtype) {
+			Integer chbankid, String chtype, String chip) {
 		super();
 		this.chid = chid;
 		this.chsuid = chsuid;
@@ -53,6 +56,7 @@ public class Recharge implements Serializable{
 		this.chtime = chtime;
 		this.chbankid = chbankid;
 		this.chtype = chtype;
+		this.chip = chip;
 	}
 
 	public Recharge() {
@@ -126,12 +130,21 @@ public class Recharge implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	public String getChip() {
+		return chip;
+	}
+
+	public void setChip(String chip) {
+		this.chip = chip;
+	}
 
 	@Override
 	public String toString() {
 		return "Recharge [chid=" + chid + ", chsuid=" + chsuid + ", chmoeny=" + chmoeny + ", chorder=" + chorder
-				+ ", chstate=" + chstate + ", chtime=" + chtime + ", chbankid=" + chbankid + ", chtype=" + chtype + "]";
+				+ ", chstate=" + chstate + ", chtime=" + chtime + ", chbankid=" + chbankid + ", chtype=" + chtype
+				+ ", chip=" + chip + "]";
 	}
-	
+
 	
 }

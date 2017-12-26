@@ -191,6 +191,22 @@ String path = request.getContextPath();
 													<label>银行卡状态:</label>
 										            <input name="bstate" type="text" value="" style="color:black;">
 							                    </div>
+							                    <div class="form-group">
+													<label>身份证号码:</label>
+										            <input name="bcard" type="text" value="" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>真实姓名:</label>
+										            <input name="bname" type="text" value="" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>银行预留手机号:</label>
+										            <input name="bphone" type="text" value="" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>申请银行卡时间:</label>
+										            <input name="btime" type="text" value="" style="color:black;">
+							                    </div>
 							                </div>
 							            </div>
 							            <div class="modal-footer">
@@ -244,6 +260,22 @@ String path = request.getContextPath();
 													<label>银行卡状态:</label>
 										            <input name="bstate" id="bstate" type="text"  style="color:black;">
 							                    </div>
+							                    <div class="form-group">
+													<label>身份证号码:</label>
+										            <input name="bcard" id="bcard" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>真实姓名:</label>
+										            <input name="bname" id="bname" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>银行预留手机号:</label>
+										            <input name="bphone" id="bphone" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>申请银行卡时间:</label>
+										            <input name="btime" id="btime" type="text"  style="color:black;">
+							                    </div>
 							                </div>
 							            </div>
 							            <div class="modal-footer">
@@ -287,7 +319,19 @@ String path = request.getContextPath();
                                                 	银行卡状态
                                             </th >
                                             <th data-hide="phone,tablet">
-                                            	    状态
+                                            	   身份证号码
+                                            </th>
+                                            <th data-hide="phone,tablet">
+                                            	 真实姓名
+                                            </th>
+                                            <th data-hide="phone,tablet">
+                                            	   银行预留手机号
+                                            </th>
+                                            <th data-hide="phone,tablet">
+                                            	申请银行卡时间
+                                            </th>
+                                            <th data-hide="phone,tablet">
+												操作
                                             </th>
                                         </tr>
                                         <c:forEach items="${bankList }" var="bank">
@@ -299,6 +343,10 @@ String path = request.getContextPath();
 												<td>${bank.btype }</td>
 												<td>${bank.bmoney }</td>
 												<td>${bank.bstate }</td>
+												<td>${bank.bcard }</td>
+												<td>${bank.bname }</td>
+												<td>${bank.bphone }</td>
+												<td>${bank.btime }</td>
 												<td><a href="javascript:void(-1);" onclick="show_update(${bank.bid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 													<a href="bank/delete/${bank.bid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
@@ -594,6 +642,10 @@ String path = request.getContextPath();
 	    				$('#btype').val(obj.btype);
 	    				$('#bmoney').val(obj.bmoney);
 	    				$('#bstate').val(obj.bstate);
+	    				$('#bcard').val(obj.bcard);
+	    				$('#bname').val(obj.bname);
+	    				$('#bphone').val(obj.bphone);
+	    				$('#btime').val(obj.btime);
 	    			}
 		    );	
 	    	

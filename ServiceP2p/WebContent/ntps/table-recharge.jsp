@@ -148,6 +148,9 @@ String path = request.getContextPath();
                                             		充值类型
                                             </th >
                                             <th data-hide="phone,tablet">
+                                            		ip地址
+                                            </th >
+                                            <th data-hide="phone,tablet">
 													操作
                                             </th >
                                         </tr>
@@ -162,6 +165,7 @@ String path = request.getContextPath();
 												<td>${rechargess.chtime}</td>
 												<td>${rechargess.chbankid}</td>
 												<td>${rechargess.chtype}</td>
+												<td>${rechargess.chip}</td>
 												<td><a href="recharge/openUserEdit/${rechargess.chid}"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 													<a href="recharge/delete/${rechargess.chid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>

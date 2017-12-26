@@ -11,6 +11,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="b_type" property="btype"/>
 		<result column="b_money" property="bmoney"/>
 		<result column="b_state" property="bstate"/>
+		<result column="b_card" property="bcard"/>
+		<result column="b_name" property="bname"/>
+		<result column="b_phone" property="bphone"/>
+		<result column="b_time" property="btime"/>
 	</resultMap>
 	<!-- 查所有 -->
 	<select id="list" resultMap="bankssm">
@@ -18,7 +22,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 增加 -->
 	<select id="add" parameterType="com.p2p.pojo.Bank">
-		insert into bank(b_id,b_suid,b_code,b_type,b_money,b_state) values(#{bid},#{bsuid},#{bcode},#{btype},#{bmoney},#{bstate})
+		insert into bank(b_suid,b_code,b_type,b_money,b_state,b_card,b_name,b_phone,b_time) 
+		values(#{bsuid},#{bcode},#{btype},#{bmoney},#{bstate},#{b_card},#{b_card},#{b_name},#{b_phone},#{b_time})
 	</select>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="java.lang.Integer">
@@ -26,7 +31,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	<!-- 修改 -->
 	<update id="update" parameterType="com.p2p.pojo.Bank">
-		update bank set b_suid = #{bsuid}, b_code = #{bcode}, b_type = #{btype}, b_money = #{bmoney}, b_state = #{bstate}
+		update bank set b_suid = #{bsuid}, b_code = #{bcode}, b_type = #{btype}, b_money = #{bmoney}, b_state = #{bstate},
+			b_card = #{b_card},b_name = #{b_name},b_phone = #{b_phone},b_time = #{b_time}
 			where b_id = #{bid}
 	</update>
 	<!-- 根据id查用户 -->
