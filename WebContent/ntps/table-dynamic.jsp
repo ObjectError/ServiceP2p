@@ -42,6 +42,12 @@ String path = request.getContextPath();
     	$(document).ready(function(){
     		$('#bank').blur(function(){
     			var bank=$('#bank').val();
+    			var b= /^([1-9]{1})(\d{14}|\d{18})$/g;
+    			if(!b.test(bank)){
+    				alert("银行卡号格式不正确");
+    				//$('#bank').val("");
+    				return;
+    			}
     			$.ajax({
     				url:'bank/bankType',
     				data:{'bank':bank},
@@ -50,8 +56,14 @@ String path = request.getContextPath();
     				success:function(data){
     					//alert(data.name);
     					$('#banktype').val(data.name);
+    					if(data.name==""){
+    	    				alert("银行卡号格式错误，请输入正确的银行卡号");
+    	    				//$('#bank').val("");
+    	    				return;
+    	    			}
     				}
     			});
+    			
     		})
     	})
     </script>
