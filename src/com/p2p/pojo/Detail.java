@@ -4,57 +4,36 @@ import java.io.Serializable;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 
-/**
- * 账单明细表
- * 2017年11月16日08:43:12
- * 操作人：zyf
- * 
- * */
-
-
 public class Detail implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@TableField("d_id")
 	private Integer did;//主键id
 	
 	@TableField("d_suid")
-	private Integer dsuid;//用户id
+	private String dsuid;//用户id
 	
-	@TableField("d_moeny")
-	private double dmoeny;//金额
+	@TableField("d_money")
+	private String dmoney;//金额
+	
+	@TableField("d_time")
+	private String dtime;//交易时间
 	
 	@TableField("d_type")
 	private String dtype;//明细类型
 	
-	@TableField("d_time")
-	private String dtime;//受理时间
-	
-	@TableField("d_order")
-	private Integer dorder;//订单号
-	
 	@TableField("d_state")
 	private String dstate;//交易状态
-
-	public Detail(Integer did, Integer dsuid, double dmoeny, String dtype, String dtime, Integer dorder,
-			String dstate) {
-		super();
-		this.did = did;
-		this.dsuid = dsuid;
-		this.dmoeny = dmoeny;
-		this.dtype = dtype;
-		this.dtime = dtime;
-		this.dorder = dorder;
-		this.dstate = dstate;
-	}
-
-	public Detail() {
-		super();
-	}
+	
+	@TableField("d_order")
+	private String dorder;//订单号
+	
+	@TableField("d_ip")
+	private String dip;//交易ip
 
 	public Integer getDid() {
 		return did;
@@ -64,28 +43,20 @@ public class Detail implements Serializable{
 		this.did = did;
 	}
 
-	public Integer getDsuid() {
+	public String getDsuid() {
 		return dsuid;
 	}
 
-	public void setDsuid(Integer dsuid) {
+	public void setDsuid(String dsuid) {
 		this.dsuid = dsuid;
 	}
 
-	public double getDmoeny() {
-		return dmoeny;
+	public String getDmoney() {
+		return dmoney;
 	}
 
-	public void setDmoeny(double dmoeny) {
-		this.dmoeny = dmoeny;
-	}
-
-	public String getDtype() {
-		return dtype;
-	}
-
-	public void setDtype(String dtype) {
-		this.dtype = dtype;
+	public void setDmoney(String dmoney) {
+		this.dmoney = dmoney;
 	}
 
 	public String getDtime() {
@@ -96,12 +67,12 @@ public class Detail implements Serializable{
 		this.dtime = dtime;
 	}
 
-	public Integer getDorder() {
-		return dorder;
+	public String getDtype() {
+		return dtype;
 	}
 
-	public void setDorder(Integer dorder) {
-		this.dorder = dorder;
+	public void setDtype(String dtype) {
+		this.dtype = dtype;
 	}
 
 	public String getDstate() {
@@ -112,15 +83,50 @@ public class Detail implements Serializable{
 		this.dstate = dstate;
 	}
 
+	public String getDorder() {
+		return dorder;
+	}
+
+	public void setDorder(String dorder) {
+		this.dorder = dorder;
+	}
+
+	public String getDip() {
+		return dip;
+	}
+
+	public void setDip(String dip) {
+		this.dip = dip;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+	public Detail(Integer did, String dsuid, String dmoney, String dtime, String dtype, String dstate, String dorder,
+			String dip) {
+		super();
+		this.did = did;
+		this.dsuid = dsuid;
+		this.dmoney = dmoney;
+		this.dtime = dtime;
+		this.dtype = dtype;
+		this.dstate = dstate;
+		this.dorder = dorder;
+		this.dip = dip;
+	}
+
+	public Detail() {
+		super();
+	}
+
 	@Override
 	public String toString() {
-		return "Detail [did=" + did + ", dsuid=" + dsuid + ", dmoeny=" + dmoeny + ", dtype=" + dtype + ", dtime="
-				+ dtime + ", dorder=" + dorder + ", dstate=" + dstate + "]";
+		return "Detail [did=" + did + ", dsuid=" + dsuid + ", dmoney=" + dmoney + ", dtime=" + dtime + ", dtype="
+				+ dtype + ", dstate=" + dstate + ", dorder=" + dorder + ", dip=" + dip + "]";
 	}
+
 	
 	
+
 }

@@ -38,13 +38,279 @@ String path = request.getContextPath();
     <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/towmodal.js"></script>
     <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/omodal.js"></script>
     
-	<body>
+	<body> 
     <!-- Preloader -->
-<jsp:include page="./head/head.jsp"></jsp:include>
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- TOP NAVBAR -->
+    <nav role="navigation" class="navbar navbar-static-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="entypo-menu"></span>
+                </button>
+                <button class="navbar-toggle toggle-menu-mobile toggle-left" type="button">
+                    <span class="entypo-list-add"></span>
+                </button>
+
+                <div id="logo-mobile" class="visible-xs">
+                   <h1>WEB管理<span>v1.2</span></h1>
+                </div>
+
+            </div>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
+                        </ul>
+                    </li>
+                    <li><a><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
+                    </li>
+
+                </ul>
+                <div >    
+                  
+                </div>
+
+                <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
+                    <li>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" class="admin-pic img-circle" src="/ServiceP2p/ntps/assets/img/307327_205.jpg">欢迎你，admin <b class="caret"></b>
+                        </a>
+                        <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
+                            <li>
+                                <a href="/ServiceP2p/ntps/profile.jsp">
+                                    <span class="entypo-user"></span>&#160;&#160;个人信息</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/ServiceP2p/ntps/login.jsp">
+                                    <span class="entypo-picasa"></span>&#160;&#160; 登入</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="fontawesome-magic"></span>&#160;&#160;主题更改</a>
+                        <ul role="menu" class="dropdown-setting dropdown-menu">
+
+                            <li class="theme-bg">
+                                <div id="button-bg"></div>
+                                <div id="button-bg2"></div>
+                                <div id="button-bg3"></div>
+                                <div id="button-bg5"></div>
+                                <div id="button-bg6"></div>
+                                <div id="button-bg7"></div>
+                                <div id="button-bg8"></div>
+                                <div id="button-bg9"></div>
+                                <div id="button-bg10"></div>
+                                <div id="button-bg11"></div>
+                                <div id="button-bg12"></div>
+                                <div id="button-bg13"></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="hidden-xs">
+                        <a class="toggle-left" href="#">
+                            <span style="font-size:20px;" class="entypo-list-add"></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- /END OF TOP NAVBAR -->
+
+    <!-- SIDE MENU -->
+    <div id="skin-select">
+        <div id="logo">
+         <h1>CloudSoft<span>v1.2</span></h1>
+        </div>
+
+        <a id="toggle">
+            <span class="entypo-menu"></span>
+        </a>
+        <div class="dark">
+            <form action="#">
+                <span>
+                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus="">
+                </span>
+            </form>
+        </div>
+
+        <div class="search-hover">
+            <form id="demo-2">
+                <input type="search" placeholder="Search Menu..." class="id_search">
+            </form>
+        </div>
+
+
+
+
+        <div class="skin-part">
+            <div id="tree-wrap">
+                <div class="side-bar">
+                 
+
+                    <ul class="topnav menu-left-nest">
+                        <li>
+                            <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                                <span class="design-kit"></span>
+                                <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/index.jsp" title="Dashboard">
+                                <i class="icon-window"></i>
+                                <span>首页</span>
+
+                            </a>
+                        </li>
+
+                       <li>
+                            <a class="tooltip-tip" href="#" title="Tables">
+                                <i class="icon-view-thumb"></i>
+                                <span>表单</span>
+                            </a>
+                            <ul>
+                                
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/bank/list" title="Table Dynamic"><i class="entypo-menu"></i><span>银行卡表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/user/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/income/list" title="Table Dynamic"><i class="entypo-menu"></i><span>收益表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/cash/list" title="Table Dynamic"><i class="entypo-menu"></i><span>提现表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/detail/list" title="Table Dynamic"><i class="entypo-menu"></i><span>账单明细表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/initiativeTender/list" title="Table Dynamic"><i class="entypo-menu"></i><span>主动投标表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/transfer/list" title="Table Dynamic"><i class="entypo-menu"></i><span>转账表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/repayment/list" title="Table Dynamic"><i class="entypo-menu"></i><span>自动还款表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/loans/list" title="Table Dynamic"><i class="entypo-menu"></i><span>放款表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/userBindCard/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户绑卡表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/admin/list" title="Table Dynamic"><i class="entypo-menu"></i><span>管理员表</span></a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="tooltip-tip" href="#" title="Extra Pages">
+                                <i class="icon-document-new"></i>
+                                <span>其它的页面</span>
+                            </a>
+                            <ul>
+                                 <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/profile.jsp" title="Profile Page"><i class="icon-user"></i><span>资料页面</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/404.jsp" title="404 Error Page"><i class="icon-thumbs-down"></i><span>404 错误页面</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/500.jsp" title="500 Error Page"><i class="icon-thumbs-down"></i><span>500 错误页面</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/lock-screen.jsp" title="Lock Screen"><i class="icon-lock"></i><span>锁屏</span></a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+
+                    <ul id="menu-showhide" class="topnav menu-left-nest">
+                        <li>
+                            <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                                <span class="component"></span>
+                                <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a class="tooltip-tip" href="#" title="UI Element">
+                                <i class="icon-monitor"></i>
+                                <span>界面元素</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/element.jsp" title="Element"><i class="icon-attachment"></i><span>元素</span></a>
+                                </li>
+                                <li><a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/button.jsp" title="Button"><i class="icon-view-list-large"></i><span>按钮</span> <div class="noft-blue-number">10</div></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/calendar.jsp" title="Calender"><i class="icon-calendar"></i><span>日历</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/tree.jsp" title="Tree View"><i class="icon-view-list"></i><span>树视图</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/grids.jsp" title="Grids"><i class="icon-menu"></i><span>网格</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/chart.jsp" title="Chart"><i class="icon-graph-pie"></i><span>图表</span></a>
+                                </li>
+                                <li>
+                                    <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/element/typhography.jsp" title="Typhoghrapy">
+                                        <i class="icon-information"></i>
+                                        <span>字体</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                         <li>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/icon.jsp" title="Icons">
+                                <i class="icon-preview"></i>
+                                <span>图标</span>
+                                <div class="noft-blue" style="display: inline-block; float: none;">289</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END OF SIDE MENU -->
+
+
 
     <!--  PAPER WRAP -->
     <div class="wrap-fluid">
         <div class="container-fluid paper-wrap bevel tlbr">
+
+
+
+
 
             <!-- CONTENT -->
             <!--TITLE -->
@@ -91,7 +357,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="bank/list" title="Sample page 1">银行卡管理表</a>
+                <li><a href="bank/list" title="Sample page 1">账单明细表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -126,7 +392,7 @@ String path = request.getContextPath();
                             
 							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							    <div class="modal-dialog">
-							    <form action="bank/add" method="post">
+							    <form action="detail/add" method="post">
 							        <div class="modal-content">
 							            <div class="modal-header">
 							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -140,27 +406,35 @@ String path = request.getContextPath();
 							                <div class="input-group">
 							                	<div class="form-group">
 							                        <label>编号:</label>
-							                		<input name="bid" type="text" value="" style="color:black;">
+							                		<input name="did" type="text" value="" style="color:black;">
 							                    </div>
 							                    <div class="form-group">
 							                        <label>用户id:</label>
-							                		<input name="bsuid" type="text" value="" style="color:black;">
+							                		<input name="dsuid" type="text" value="" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>金额:</label>
+										            <input name="dmoney" type="text" value="" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>明细类型:</label>
+										            <input name="dtype" type="text" value="" style="color:black;">
 							                    </div>
 												<div class="form-group">
-													<label>银行卡号:</label>
-										            <input id="bank" name="bcode" type="text" value="" style="color:black;">
+													<label>受理时间:</label>
+										            <input name="dtime" type="text" value="" data-options="required:true,showSeconds:false" style="color:black;">
 							                    </div>
 							                    <div class="form-group">
-													<label>银行卡类型:</label>
-										            <input name="btype" type="text" value="" style="color:black;">
+													<label>订单号:</label>
+										            <input name="dorder" type="text" value="" style="color:black;">
 							                    </div>
 							                    <div class="form-group">
-													<label>银行卡余额:</label>
-										            <input name="bmoney" type="text" value="" style="color:black;">
+													<label>交易状态:</label>
+										            <input name="dstate" type="text" value="" style="color:black;">
 							                    </div>
 							                    <div class="form-group">
-													<label>银行卡状态:</label>
-										            <input name="bstate" type="text" value="" style="color:black;">
+													<label>交易IP:</label>
+										            <input name="dip" type="text" value="" style="color:black;">
 							                    </div>
 							                </div>
 							            </div>
@@ -182,9 +456,9 @@ String path = request.getContextPath();
                             <!-- 修改拟态框（Modal） -->
 							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							    <div class="modal-dialog">
-							    <form action="bank/update" method="post">
+							    <form action="detail/update" method="post">
 							        <div class="modal-content">
-							        	<input type="hidden" name="bid" id="bid">
+							        	<input type="hidden" name="did" id="did">
 							            <div class="modal-header">
 							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 							                    &times;
@@ -197,23 +471,31 @@ String path = request.getContextPath();
 							                <div class="input-group">
 							                    <div class="form-group">
 							                        <label>用户id:</label>
-							                		<input name="bsuid" id="bsuid" type="text"  style="color:black;">
+							                		<input name="dsuid" id="dsuid" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>金额:</label>
+										            <input name="dmoney" type="text" id="dmoney" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>明细类型:</label>
+										            <input name="dtype" type="text" id="dtype" style="color:black;">
 							                    </div>
 												<div class="form-group">
-													<label>银行卡号:</label>
-										            <input name="bcode" id="bcode" type="text"  style="color:black;">
+													<label>受理时间:</label>
+										            <input name="dtime" type="text" id="dtime" data-options="required:true,showSeconds:false" style="color:black;">
 							                    </div>
 							                    <div class="form-group">
-													<label>银行卡类型:</label>
-										            <input name="btype" id="btype" type="text"  style="color:black;">
+													<label>订单号:</label>
+										            <input name="dorder" type="text" id="dorder" style="color:black;">
 							                    </div>
 							                    <div class="form-group">
-													<label>银行卡余额:</label>
-										            <input name="bmoney" id="bmoney" type="text"  style="color:black;">
+													<label>交易状态:</label>
+										            <input name="dstate" type="text" id="dstate" style="color:black;">
 							                    </div>
 							                    <div class="form-group">
-													<label>银行卡状态:</label>
-										            <input name="bstate" id="bstate" type="text"  style="color:black;">
+													<label>交易IP:</label>
+										            <input name="dip" type="text" id="dip" style="color:black;">
 							                    </div>
 							                </div>
 							            </div>
@@ -246,32 +528,37 @@ String path = request.getContextPath();
                                            			 用户id
                                             </th>
                                             <th data-hide="phone,tablet">
-                                        		       银行卡号
+                                        		       订单号
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	银行卡类型
+                                                	明细类型
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	银行卡余额
+                                                	金额
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	银行卡状态
+                                                	受理时间
                                             </th >
                                             <th data-hide="phone,tablet">
-                                            	    状态
+                                            	    交易状态
+                                            </th>
+                                            <th data-hide="phone,tablet">
+                                            	    交易IP
                                             </th>
                                         </tr>
-                                        <c:forEach items="${bankList }" var="bank">
+                                        <c:forEach items="${detailList }" var="detail">
                                         <tbody>
 											<tr>
-												<td>${bank.bid }</td>
-												<td>${bank.bsuid }</td>
-												<td>${bank.bcode }</td>
-												<td>${bank.btype }</td>
-												<td>${bank.bmoney }</td>
-												<td>${bank.bstate }</td>
-												<td><a href="javascript:void(-1);" onclick="show_update(${bank.bid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-													<a href="bank/delete/${bank.bid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
+												<td>${detail.did }</td>
+												<td>${detail.dsuid }</td>
+												<td>${detail.dorder }</td>
+												<td>${detail.dtype }</td>
+												<td>${detail.dmoney }</td>
+												<td>${detail.dtime }</td>
+												<td>${detail.dstate }</td>
+												<td>${detail.dip }</td>
+												<td><a href="javascript:void(-1);" onclick="show_update(${detail.did})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
+													<a href="bank/delete/${detail.did }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
 											</tbody>
 										</c:forEach>
@@ -551,20 +838,22 @@ String path = request.getContextPath();
      <!-- 修改拟态框 -->
     <script>
 	    function show_update(id) {
-	    	var url =  "bank/getby";
+	    	var url =  "detail/getby";
 	    	$.post(
 	    			url,
 	    			{
-	    				bid:id
+	    				did:id
 	    			},
 	    			function(data){
 	    				var obj = JSON.parse(data);
-	    				$('#bid').val(obj.bid);
-	    				$('#bsuid').val(obj.bsuid);
-	    				$('#bcode').val(obj.bcode);
-	    				$('#btype').val(obj.btype);
-	    				$('#bmoney').val(obj.bmoney);
-	    				$('#bstate').val(obj.bstate);
+	    				$('#did').val(obj.did);
+	    				$('#dsuid').val(obj.dsuid);
+	    				$('#dorder').val(obj.dorder);
+	    				$('#dtype').val(obj.dtype);
+	    				$('#dmoney').val(obj.dmoney);
+	    				$('#dstate').val(obj.dstate);
+	    				$('#dtime').val(obj.dtime);
+	    				$('#dip').val(obj.dip);
 	    			}
 		    );	
 	    	

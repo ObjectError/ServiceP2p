@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.p2p.mapper.DetailMapper">
+		<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
+		<resultMap type="com.p2p.pojo.Detail" id="detail">
+			<result column="d_id" property="did"/>
+			<result column="d_suid" property="dsuid"/>
+			<result column="d_money" property="dmoney"/>
+			<result column="d_time" property="dtime"/>
+			<result column="d_order" property="dorder"/>
+			<result column="d_type" property="dtype"/>
+			<result column="d_state" property="dstate"/>
+			<result column="d_ip" property="dip"/>
+		</resultMap>
+		
+		<!-- 查询所有 -->
+		<select id="list" resultMap="detail">
+			SELECT * from detail
+		</select>
+		
+		<!-- 增加 -->
+		<select id="add" parameterType="com.p2p.pojo.Detail">
+			insert into detail(d_id,d_suid,d_money,d_time,d_ip,d_type,d_order,d_state) values(#{did},#{dsuid},#{dmoney},#{dtime},#{dip},#{dtype},#{dorder},#{dstate})
+		</select>
+		
+		<!-- 删除 -->
+		<delete id="delete" parameterType="java.lang.Integer">
+			delete from detail where d_id = #{d_id}
+		</delete>
+		
+		<!-- 修改 -->
+		<update id="update" parameterType="com.p2p.pojo.Detail">
+			update detail set d_suid = #{dsuid}, d_money = #{dmoney}, d_time = #{dtime}, d_ip = #{dip}, d_type = #{dtype}, d_order = #{dorder}, d_state = #{dstate}
+				where d_id = #{did}
+		</update>
+		
+		<!-- 根据id查用户 -->
+		<select id="getById" resultMap="detail" parameterType="java.lang.Integer">
+			select * from detail where d_id = #{d_id}
+		</select>
+	</mapper>
