@@ -36,6 +36,9 @@ public class Users implements Serializable{
 	@TableField("su_email")
 	private String suemail; //邮箱
 	
+	@TableField("supay_password")
+	private String supaypassword;		//支付密码
+	
 	@TableField("su_bankcard")
 	private String subankcard; //银行卡
 	
@@ -154,8 +157,22 @@ public class Users implements Serializable{
 		return serialVersionUID;
 	}
 
+	
+	public String getSupaypassword() {
+		return supaypassword;
+	}
+
+	public void setSupaypassword(String supaypassword) {
+		this.supaypassword = supaypassword;
+	}
+
+	public Users() {
+		super();
+	}
+
 	public Users(Integer suid, String suusername, String suname, String suphone, String sucard, String suemail,
-			String subankcard, String subanktype, double sumoney, Integer sucredit, String suip, String supassword) {
+			String supaypassword, String subankcard, String subanktype, double sumoney, Integer sucredit, String suip,
+			String supassword) {
 		super();
 		this.suid = suid;
 		this.suusername = suusername;
@@ -163,6 +180,7 @@ public class Users implements Serializable{
 		this.suphone = suphone;
 		this.sucard = sucard;
 		this.suemail = suemail;
+		this.supaypassword = supaypassword;
 		this.subankcard = subankcard;
 		this.subanktype = subanktype;
 		this.sumoney = sumoney;
@@ -171,20 +189,12 @@ public class Users implements Serializable{
 		this.supassword = supassword;
 	}
 
-	public Users() {
-		super();
-	}
-
 	@Override
 	public String toString() {
-		return "ServiceUser [suid=" + suid + ", suusername=" + suusername + ", suname=" + suname + ", suphone="
-				+ suphone + ", sucard=" + sucard + ", suemail=" + suemail + ", subankcard=" + subankcard
-				+ ", subanktype=" + subanktype + ", sumoney=" + sumoney + ", sucredit=" + sucredit + ", suip=" + suip
-				+ ", supassword=" + supassword + "]";
+		return "Users [suid=" + suid + ", suusername=" + suusername + ", suname=" + suname + ", suphone=" + suphone
+				+ ", sucard=" + sucard + ", suemail=" + suemail + ", supaypassword=" + supaypassword + ", subankcard="
+				+ subankcard + ", subanktype=" + subanktype + ", sumoney=" + sumoney + ", sucredit=" + sucredit
+				+ ", suip=" + suip + ", supassword=" + supassword + "]";
 	}
-
-	
-
-	
 
 }
