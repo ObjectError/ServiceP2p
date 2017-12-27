@@ -24,8 +24,8 @@ public class Cash implements Serializable{
 	@TableField("c_suid")
 	private Integer csuid;//用户id
 	
-	@TableField("c_moeny")
-	private double cmoeny;//提现金额
+	@TableField("c_money")
+	private double cmoney;//提现金额
 	
 	@TableField("c_card")
 	private Integer ccard;//提现卡号
@@ -48,12 +48,12 @@ public class Cash implements Serializable{
 	@TableField("c_ip")
 	private String cip;		//ip地址
 
-	public Cash(Integer cid, Integer csuid, double cmoeny, Integer ccard, Integer corder, String ctime, String cstate,
+	public Cash(Integer cid, Integer csuid, double cmoney, Integer ccard, Integer corder, String ctime, String cstate,
 			double cfigure, double cpoundage, String cip) {
 		super();
 		this.cid = cid;
 		this.csuid = csuid;
-		this.cmoeny = cmoeny;
+		this.cmoney = cmoney;
 		this.ccard = ccard;
 		this.corder = corder;
 		this.ctime = ctime;
@@ -92,11 +92,11 @@ public class Cash implements Serializable{
 	}
 
 	public double getCmoeny() {
-		return cmoeny;
+		return cmoney;
 	}
 
 	public void setCmoeny(double cmoeny) {
-		this.cmoeny = cmoeny;
+		this.cmoney = cmoeny;
 	}
 
 	public Integer getCcard() {
@@ -153,7 +153,7 @@ public class Cash implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Cash [cid=" + cid + ", csuid=" + csuid + ", cmoeny=" + cmoeny + ", ccard=" + ccard + ", corder="
+		return "Cash [cid=" + cid + ", csuid=" + csuid + ", cmoeny=" + cmoney + ", ccard=" + ccard + ", corder="
 				+ corder + ", ctime=" + ctime + ", cstate=" + cstate + ", cfigure=" + cfigure + ", cpoundage="
 				+ cpoundage + ", cip=" + cip + "]";
 	}
