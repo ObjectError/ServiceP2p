@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.p2p.pojo.Recharge;
 import com.p2p.services.RechargeService;
@@ -44,5 +45,11 @@ public class RechargeController {
 		return "redirect:/recharge/list";
 	}
 	
-	
+	@RequestMapping("/getby")
+	@ResponseBody
+	public Object openUserEdit(String chid){
+		Integer id = Integer.parseInt(chid);
+		Recharge recharge = rechargeService.getById(id);
+		return recharge;
+	}
 }

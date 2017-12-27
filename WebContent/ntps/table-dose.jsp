@@ -91,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="#" title="Sample page 1">表动态</a>
+                <li><a href="#" title="Sample page 1">用户表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -121,6 +121,81 @@ String path = request.getContextPath();
                                     </a>
                                 </div>
                             </div>
+                            
+                            
+                             <!-- 修改拟态框（Modal） -->
+							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							    <form action="update" method="post">
+							        <div class="modal-content">
+							        	<input type="hidden" name="suid" id="suid">
+							            <div class="modal-header">
+							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							                    &times;
+							                </button>
+							                <h4 class="modal-title" id="myModalLabel">
+							                		    修改
+							                </h4>
+							            </div>
+							            <div class="modal-body">
+							                <div class="input-group">
+												<div class="form-group">
+													<label>用户名:</label>
+										            <input name="suusername" id="suusername" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+							                        <label>登入密码:</label>
+							                		<input name="supassword" id="supassword" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>真实姓名:</label>
+										            <input name="suname" id="suname" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>手机号:</label>
+										            <input name="suphone" id="suphone" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>身份证:</label>
+										            <input name="sucard" id="sucard" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>邮箱:</label>
+										            <input name="suemail" id="suemail" type="text"  style="color:black;">
+							                    </div>
+							                    
+							                    <div class="form-group">
+													<label>银行卡:</label>
+										            <input name="subankcard" id="subankcard" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>账号余额:</label>
+										            <input name="subanktype" id="subanktype" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>信用额度:</label>
+										            <input name="sucredit" id="sucredit" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>ip地址:</label>
+										            <input name="suip" id="suip" type="text"  style="color:black;">
+							                    </div>
+							                </div>
+							            </div>
+							            <div class="modal-footer">
+							                <button type="button" class="btn btn-default" data-dismiss="modal">
+							                	关闭
+							                </button>
+							               
+							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
+							            </div>
+							        </div>
+							        </form>
+							        <!-- /.modal-content -->
+							    </div><!-- /.modal -->
+							</div>        
+                            
+                            
 
                             <div class="body-nest" id="Footable">
                              <table class="table-striped footable-res footable metro-blue" data-page-size="7">
@@ -151,7 +226,7 @@ String path = request.getContextPath();
                                          	  银行卡类型
                                          </th>
                                          <th data-hide="phone,tablet">
-                                         	  账户类型
+                                         	  账户余额
                                          </th>
                                          <th data-hide="phone,tablet">
                                          	  信用额度
@@ -177,7 +252,7 @@ String path = request.getContextPath();
 										<td>${user.sumoney}</td>
 										<td>${user.sucredit}</td>
 										<td>${user.suip}</td>
-										<td><a href="user/openUserEdit/${user.suid }"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
+										<td><a href="javascript:void(-1);" onclick="show_update(${user.suid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 											<a href="user/delete/${user.suid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 									</tr>
 								</tbody>
@@ -451,6 +526,40 @@ String path = request.getContextPath();
         });
     });
     </script>
-
+	
+	
+	<!-- 修改拟态框 -->
+    <script>
+    function show_update(id) {
+    	var url =  "getby";
+    	$.post(
+    			url,
+    			{
+    				suid:id
+    			},
+	    			function(data){
+	    				var obj = JSON.parse(data);
+	    				$('#suid').val(obj.suid);
+	    				$('#suusername').val(obj.suusername);
+	    				$('#suname').val(obj.suname);
+	    				$('#suphone').val(obj.suphone);
+	    				$('#sucard').val(obj.sucard);
+	    				$('#suemail').val(obj.suemail);
+	    				$('#supassword').val(obj.supassword);
+	    				$('#subankcard').val(obj.subankcard);
+	    				$('#subanktype').val(obj.subanktype);
+	    				$('#sumoney').val(obj.sumoney);
+	    				$('#sucredit').val(obj.sucredit);
+	    				$('#suip').val(obj.suip);
+	    			}
+		    );	
+	    	
+	         $('#myupdate').modal('show');
+	         
+	         $('#tb_role').bootstrapTable('refresh');
+	    }
+	    
+	</script>
+	
 	</body>
 </html>

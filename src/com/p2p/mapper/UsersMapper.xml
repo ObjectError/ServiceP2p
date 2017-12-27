@@ -25,24 +25,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 增加 -->
 	<select id="add" parameterType="com.p2p.pojo.Users">
-		insert into users(su_username,su_name,su_phone,su_card,su_email,su_bankcard
+		insert into users(su_id,su_username,su_name,su_phone,su_card,su_email,su_bankcard
 		su_banktype,su_money,su_credit,su_ip,su_password,su_paypassword) 
-		values(#{su_username},#{su_name},#{su_phone},#{su_card},#{su_email},
-		#{su_bankcard},#{su_banktype},#{su_money},#{su_credit},#{su_ip},#{su_password},
-		#{su_paypassword})
+		values(#{suid},#{suusername},#{suname},#{suphone},#{sucard},#{suemail},
+		#{subankcard},#{subanktype},#{sumoney},#{sucredit},#{suip},#{supassword},
+		#{supaypassword})
 	</select>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="java.lang.Integer">
-		delete from users where su_id = #{su_id}
+		delete from users where su_id = #{suid}
 	</delete>
 	<!-- 修改 -->
 	<update id="update" parameterType="com.p2p.pojo.Users">
-		update users set su_username = #{su_username}, su_name = #{su_name}, su_phone = #{su_phone}, su_card = #{su_card}, su_email = #{su_email},
-		su_bankcard = #{su_bankcard},su_banktype = #{su_banktype},su_money = #{su_money},su_credit = #{su_credit},su_ip = #{su_ip},su_password = #{su_password},su_paypassword = #{su_paypassword}
-			where su_id = #{su_id}
+		update users set su_username = #{suusername}, su_name = #{suname}, su_phone = #{suphone}, su_card = #{sucard}, su_email = #{suemail},
+		su_bankcard = #{subankcard},su_banktype = #{subanktype},su_money = #{sumoney},su_credit = #{sucredit},su_ip = #{suip},su_password = #{supassword}
+			where su_id = #{suid}
 	</update>
 	<!-- 根据id查用户 -->
 	<select id="getById" resultMap="userssm" parameterType="java.lang.Integer">
-		select * from users where su_id = #{su_id}
+		select * from users where su_id = #{suid}
 	</select>
 </mapper>

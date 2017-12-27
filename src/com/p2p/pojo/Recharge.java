@@ -24,11 +24,11 @@ public class Recharge implements Serializable{
 	@TableField("ch_suid")
 	private Integer chsuid;//用户id
 	
-	@TableField("ch_moeny")
-	private double chmoeny;//充值金额
+	@TableField("ch_money")
+	private double chmoney;//充值金额
 	
 	@TableField("ch_order")
-	private Integer chorder;//订单号
+	private String chorder;//订单号
 	
 	@TableField("ch_state")
 	private String chstate; //充值状态
@@ -44,24 +44,6 @@ public class Recharge implements Serializable{
 	
 	@TableField("ch_ip")
 	private String chip;	//需要充值的IP地址
-
-	public Recharge(Integer chid, Integer chsuid, double chmoeny, Integer chorder, String chstate, String chtime,
-			Integer chbankid, String chtype, String chip) {
-		super();
-		this.chid = chid;
-		this.chsuid = chsuid;
-		this.chmoeny = chmoeny;
-		this.chorder = chorder;
-		this.chstate = chstate;
-		this.chtime = chtime;
-		this.chbankid = chbankid;
-		this.chtype = chtype;
-		this.chip = chip;
-	}
-
-	public Recharge() {
-		super();
-	}
 
 	public Integer getChid() {
 		return chid;
@@ -79,19 +61,19 @@ public class Recharge implements Serializable{
 		this.chsuid = chsuid;
 	}
 
-	public double getChmoeny() {
-		return chmoeny;
+	public double getChmoney() {
+		return chmoney;
 	}
 
-	public void setChmoeny(double chmoeny) {
-		this.chmoeny = chmoeny;
+	public void setChmoney(double chmoney) {
+		this.chmoney = chmoney;
 	}
 
-	public Integer getChorder() {
+	public String getChorder() {
 		return chorder;
 	}
 
-	public void setChorder(Integer chorder) {
+	public void setChorder(String chorder) {
 		this.chorder = chorder;
 	}
 
@@ -127,10 +109,6 @@ public class Recharge implements Serializable{
 		this.chtype = chtype;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
 	public String getChip() {
 		return chip;
 	}
@@ -139,12 +117,36 @@ public class Recharge implements Serializable{
 		this.chip = chip;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Recharge(Integer chid, Integer chsuid, double chmoney, String chorder, String chstate, String chtime,
+			Integer chbankid, String chtype, String chip) {
+		super();
+		this.chid = chid;
+		this.chsuid = chsuid;
+		this.chmoney = chmoney;
+		this.chorder = chorder;
+		this.chstate = chstate;
+		this.chtime = chtime;
+		this.chbankid = chbankid;
+		this.chtype = chtype;
+		this.chip = chip;
+	}
+
+	public Recharge() {
+		super();
+	}
+
 	@Override
 	public String toString() {
-		return "Recharge [chid=" + chid + ", chsuid=" + chsuid + ", chmoeny=" + chmoeny + ", chorder=" + chorder
+		return "Recharge [chid=" + chid + ", chsuid=" + chsuid + ", chmoney=" + chmoney + ", chorder=" + chorder
 				+ ", chstate=" + chstate + ", chtime=" + chtime + ", chbankid=" + chbankid + ", chtype=" + chtype
 				+ ", chip=" + chip + "]";
 	}
+
+	
 
 	
 }

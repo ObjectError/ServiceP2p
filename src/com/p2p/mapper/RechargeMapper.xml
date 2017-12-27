@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<resultMap type="com.p2p.pojo.Recharge" id="rechargema">
 			<result column="ch_id" property="chid"/>
 			<result column="ch_suid" property="chsuid"/>
-			<result column="ch_money" property="chmoeny"/>
+			<result column="ch_money" property="chmoney"/>
 			<result column="ch_order" property="chorder"/>
 			<result column="ch_state" property="chstate"/>
 			<result column="ch_time" property="chtime"/>
@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- 增加 -->
 		<select id="add" parameterType="com.p2p.pojo.Recharge">
 			insert into recharge(ch_id,ch_suid,ch_money,ch_order,ch_state,ch_time,ch_bankid,ch_type,ch_ip)
-			values (#{ch_id},#{ch_suid},#{ch_money},#{ch_order},#{ch_state},#{ch_time},#{ch_bankid},#{ch_type},#{ch_ip} )
+			values (#{chid},#{chsuid},#{chmoney},#{chorder},#{chstate},#{chtime},#{chbankid},#{chtype},#{chip} )
 		</select>
 		
 		<!-- 删除 -->
@@ -34,8 +34,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 修改 -->
 		<update id="update" parameterType="com.p2p.pojo.Recharge">
-			update recharge set ch_id = #{ch_id},ch_suid = #{ch_suid},ch_money = #{ch_money},ch_order = #{ch_order},
-			ch_state = #{ch_state},ch_time = #{ch_time},ch_bankid = #{ch_bankid},ch_type = #{ch_type},ch_ip = #{ch_ip}
+			update recharge set ch_suid = #{chsuid},ch_money = #{chmoney},ch_order = #{chorder},
+			ch_state = #{chstate},ch_time = #{chtime},ch_bankid = #{chbankid},ch_type = #{chtype},ch_ip = #{chip}
+			where ch_id = #{chid}
 		</update>
 		
 		<!-- 根据id查用户 -->
