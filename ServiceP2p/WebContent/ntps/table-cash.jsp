@@ -147,6 +147,9 @@
                                             <th data-hide="phone,tablet">
                                             	    手续费
                                             </th>
+                                            <th data-hide="phone,tablet">
+                                            	    ip地址
+                                            </th>
                                              <th data-hide="phone,tablet">
                                             	   操作
                                             </th>
@@ -163,7 +166,8 @@
 												<td>${cash.cstate}</td>
 												<td>${cash.cfigure}</td>
 												<td>${cash.cpoundage}</td>
-												<td><a href="cash/openUserEdit/${cash.cid }"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
+												<td>${cash.cip}</td>
+												<td><a href="cash/update/${cash.cid }"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 													<a href="cash/delete/${cash.cid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
 											</tbody>
@@ -373,12 +377,6 @@
     <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/main.js"></script>
 
 
-
-
-
-
-
-
     <!-- /MAIN EFFECT -->
     <!-- GAGE -->
     <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/toggle_close.js"></script>
@@ -387,10 +385,6 @@
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.filter.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
-
-
-
-
 
     <script type="text/javascript">
     $(function() {

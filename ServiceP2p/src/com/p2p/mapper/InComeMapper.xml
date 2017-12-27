@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 增加 -->
 		<select id="add" parameterType="com.p2p.pojo.Income">
-			insert into income(i_suid,i_money,i_time,i_ip,i_type) values(#{i_suid},#{i_money},#{i_time},#{i_ip},#{i_type})
+			insert into income(i_suid,i_money,i_time,i_ip,i_type) values(#{isuid},#{imoney},#{itime},#{iip},#{itype})
 		</select>
 		
 		<!-- 删除 -->
@@ -30,8 +30,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 修改 -->
 		<update id="update" parameterType="com.p2p.pojo.Income">
-			update income set i_suid = #{i_suid}, i_money = #{i_money}, i_time = #{i_time}, i_ip = #{i_ip}, i_type = #{i_type}
-				where i_id = #{i_id}
+			update income set i_suid = #{isuid}, i_money = #{imoney}, i_time = #{itime}, i_ip = #{iip}, i_type = #{itype}
+				where i_id = #{iid}
 		</update>
 		
 		<!-- 根据id查用户 -->
