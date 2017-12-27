@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<resultMap type="com.p2p.pojo.Income" id="incomemapp">
 			<result column="i_id" property="iid"/>
 			<result column="i_suid" property="isuid"/>
-			<result column="i_money" property="imoeny"/>
+			<result column="i_moeny" property="imoeny"/>
 			<result column="i_time" property="itime"/>
 			<result column="i_type" property="itype"/>
 			<result column="i_ip" property="iip"/>
@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 增加 -->
 		<select id="add" parameterType="com.p2p.pojo.Income">
-			insert into income(i_suid,i_money,i_time,i_ip,i_type) values(#{isuid},#{imoney},#{itime},#{iip},#{itype})
+			insert into income(i_suid,i_moeny,i_time,i_ip,i_type) values(#{isuid},#{imoeny},#{itime},#{iip},#{itype})
 		</select>
 		
 		<!-- 删除 -->
@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 修改 -->
 		<update id="update" parameterType="com.p2p.pojo.Income">
-			update income set i_suid = #{isuid}, i_money = #{imoney}, i_time = #{itime}, i_ip = #{iip}, i_type = #{itype}
+			update income set i_suid = #{isuid}, i_moeny = #{imoeny}, i_time = #{itime}, i_ip = #{iip}, i_type = #{itype}
 				where i_id = #{iid}
 		</update>
 		

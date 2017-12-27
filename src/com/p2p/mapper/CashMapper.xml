@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<resultMap type="com.p2p.pojo.Cash" id="cashcc">
 			<result column="c_id" property="cid"/>
 			<result column="c_suid" property="csuid"/>
-			<result column="c_money" property="cmoeny"/>
+			<result column="c_money" property="cmoney"/>
 			<result column="c_card" property="ccard"/>
 			<result column="c_order" property="corder"/>
 			<result column="c_time" property="ctime"/>
