@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.p2p.pojo.Income;
+import com.p2p.pojo.Recharge;
 import com.p2p.services.InComeService;
 
 @Controller
@@ -42,5 +44,13 @@ public class InComeController {
 	public String add(Income income) {
 		inComeService.add(income);
 		return "redirect:/income/list";
+	}
+	
+	@RequestMapping("/getby")
+	@ResponseBody
+	public Object openUserEdit(String iid){
+		Integer id = Integer.parseInt(iid);
+		Income income  = inComeService.getById(id);
+		return income;
 	}
 }
