@@ -23,6 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- 增加 -->
 		<select id="add" parameterType="com.p2p.pojo.Loans">
 			insert into loans(l_id,l_suid,l_suids,l_money,l_time,l_state,l_ip,l_ips) values
+			(#{l_id},#{l_suid},#{l_suids},#{l_money},#{l_time},#{l_state},#{lip},#{lips}) 
 			(#{lid},#{lsuid},#{lsuids},#{lmoney},#{ltime},#{lstate},#{lip},#{lips}) 
 		</select>
 		
