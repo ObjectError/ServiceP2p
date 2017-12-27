@@ -148,7 +148,10 @@ String path = request.getContextPath();
                                          	转账订单
                                          </th>
                                          <th>
-                                         	ip地址
+                                         	转账人ip
+                                         </th>
+                                         <th>
+                                         	收账人ip
                                          </th>
                                          <th>
                                         	操作 
@@ -165,7 +168,7 @@ String path = request.getContextPath();
 										<td>${tranli.tstate}</td>
 										<td>${tranli.torder}</td>
 										<td>${tranli.tip}</td>
-										
+										<td>${tranli.tips}</td>
 										<td><a href="user/openUserEdit/${tranli.iid}"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 											<a href="user/delete/${tranli.iid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 									</tr>

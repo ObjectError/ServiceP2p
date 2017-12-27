@@ -23,7 +23,10 @@ public class Loans implements Serializable{
 	private Integer lid;//主键id
 	
 	@TableField("l_suid")
-	private Integer lsuid;//用户id
+	private Integer lsuid;//放款用户id
+	
+	@TableField("l_suids")
+	private Integer lsuids;//借款用户id
 	
 	@TableField("l_moeny")
 	private double lmoeny;//放款金额
@@ -35,21 +38,10 @@ public class Loans implements Serializable{
 	private String lstate;//放款状态
 	
 	@TableField("l_ip")
-	private String lip;//ip地址
-
-	public Loans(Integer lid, Integer lsuid, double lmoeny, String ltime, String lstate, String lip) {
-		super();
-		this.lid = lid;
-		this.lsuid = lsuid;
-		this.lmoeny = lmoeny;
-		this.ltime = ltime;
-		this.lstate = lstate;
-		this.lip = lip;
-	}
-
-	public Loans() {
-		super();
-	}
+	private String lip;//放款ip
+	
+	@TableField("l_ips")
+	private String lips;//借款ip
 
 	public Integer getLid() {
 		return lid;
@@ -65,6 +57,14 @@ public class Loans implements Serializable{
 
 	public void setLsuid(Integer lsuid) {
 		this.lsuid = lsuid;
+	}
+
+	public Integer getLsuids() {
+		return lsuids;
+	}
+
+	public void setLsuids(Integer lsuids) {
+		this.lsuids = lsuids;
 	}
 
 	public double getLmoeny() {
@@ -99,15 +99,42 @@ public class Loans implements Serializable{
 		this.lip = lip;
 	}
 
+	public String getLips() {
+		return lips;
+	}
+
+	public void setLips(String lips) {
+		this.lips = lips;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+	public Loans(Integer lid, Integer lsuid, Integer lsuids, double lmoeny, String ltime, String lstate, String lip,
+			String lips) {
+		super();
+		this.lid = lid;
+		this.lsuid = lsuid;
+		this.lsuids = lsuids;
+		this.lmoeny = lmoeny;
+		this.ltime = ltime;
+		this.lstate = lstate;
+		this.lip = lip;
+		this.lips = lips;
+	}
+
+	public Loans() {
+		super();
+	}
+
 	@Override
 	public String toString() {
-		return "Loans [lid=" + lid + ", lsuid=" + lsuid + ", lmoeny=" + lmoeny + ", ltime=" + ltime + ", lstate="
-				+ lstate + ", lip=" + lip + "]";
+		return "Loans [lid=" + lid + ", lsuid=" + lsuid + ", lsuids=" + lsuids + ", lmoeny=" + lmoeny + ", ltime="
+				+ ltime + ", lstate=" + lstate + ", lip=" + lip + ", lips=" + lips + "]";
 	}
+
+	
 		
 	
 }
