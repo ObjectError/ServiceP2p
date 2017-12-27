@@ -44,18 +44,23 @@ public class Cash implements Serializable{
 	
 	@TableField("c_poundage")
 	private double cpoundage;//手续费
+	
+	@TableField("c_ip")
+	private String cip;		//ip地址
 
-	public Cash(Integer cid, Integer csuid, double cmoeny, Integer ccard, String ctime, String cstate, double cfigure,
-			double cpoundage) {
+	public Cash(Integer cid, Integer csuid, double cmoeny, Integer ccard, Integer corder, String ctime, String cstate,
+			double cfigure, double cpoundage, String cip) {
 		super();
 		this.cid = cid;
 		this.csuid = csuid;
 		this.cmoeny = cmoeny;
 		this.ccard = ccard;
+		this.corder = corder;
 		this.ctime = ctime;
 		this.cstate = cstate;
 		this.cfigure = cfigure;
 		this.cpoundage = cpoundage;
+		this.cip = cip;
 	}
 
 	public Cash() {
@@ -137,12 +142,20 @@ public class Cash implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	public String getCip() {
+		return cip;
+	}
+
+	public void setCip(String cip) {
+		this.cip = cip;
+	}
 
 	@Override
 	public String toString() {
-		return "Cash [cid=" + cid + ", csuid=" + csuid + ", cmoeny=" + cmoeny + ", ccard=" + ccard + ", ctime=" + ctime
-				+ ", cstate=" + cstate + ", cfigure=" + cfigure + ", cpoundage=" + cpoundage + "]";
+		return "Cash [cid=" + cid + ", csuid=" + csuid + ", cmoeny=" + cmoeny + ", ccard=" + ccard + ", corder="
+				+ corder + ", ctime=" + ctime + ", cstate=" + cstate + ", cfigure=" + cfigure + ", cpoundage="
+				+ cpoundage + ", cip=" + cip + "]";
 	}
-	
-	
+
 }

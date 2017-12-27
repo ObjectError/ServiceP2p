@@ -284,6 +284,9 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                                             	    交易IP
                                             </th>
+                                             <th data-hide="phone,tablet">
+                                            	    操作
+                                            </th>
                                         </tr>
                                         <c:forEach items="${detailList }" var="detail">
                                         <tbody>

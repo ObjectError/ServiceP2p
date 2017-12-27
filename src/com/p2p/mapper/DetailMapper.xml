@@ -22,7 +22,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 增加 -->
 		<select id="add" parameterType="com.p2p.pojo.Detail">
-			insert into detail(d_id,d_suid,d_money,d_time,d_ip,d_type,d_order,d_state) values(#{did},#{dsuid},#{dmoney},#{dtime},#{dip},#{dtype},#{dorder},#{dstate})
+			insert into detail(d_suid,d_money,d_time,d_ip,d_type,d_order,d_state) 
+			values(#{dsuid},#{dmoney},#{dtime},#{dip},#{dtype},#{dorder},#{dstate})
 		</select>
 		
 		<!-- 删除 -->

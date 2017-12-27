@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 增加 -->
 	<select id="add" parameterType="com.p2p.pojo.Bank">
 		insert into bank(b_suid,b_code,b_type,b_money,b_state,b_card,b_name,b_phone,b_time) 
-		values(#{bsuid},#{bcode},#{btype},#{bmoney},#{bstate},#{b_card},#{b_card},#{b_name},#{b_phone},#{b_time})
+		values(#{bsuid},#{bcode},#{btype},#{bmoney},#{bstate},#{bcard},#{bname},#{bphone},#{btime})
 	</select>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="java.lang.Integer">
@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 修改 -->
 	<update id="update" parameterType="com.p2p.pojo.Bank">
 		update bank set b_suid = #{bsuid}, b_code = #{bcode}, b_type = #{btype}, b_money = #{bmoney}, b_state = #{bstate},
-			b_card = #{b_card},b_name = #{b_name},b_phone = #{b_phone},b_time = #{b_time}
+			b_card = #{bcard},b_name = #{bname},b_phone = #{bphone},b_time = #{btime}
 			where b_id = #{bid}
 	</update>
 	<!-- 根据id查用户 -->
