@@ -91,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="#" title="Sample page 1">表动态</a>
+                <li><a href="#" title="Sample page 1">转账表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -121,6 +121,70 @@ String path = request.getContextPath();
                                     </a>
                                 </div>
                             </div>
+                            
+                            
+                            <!-- 修改拟态框（Modal） -->
+							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							    <form action="update" method="post">
+							        <div class="modal-content">
+							        	<input type="hidden" name="tid" id="tid">
+							            <div class="modal-header">
+							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							                    &times;
+							                </button>
+							                <h4 class="modal-title" id="myModalLabel">
+							                		    修改
+							                </h4>
+							            </div>
+							            <div class="modal-body">
+							                <div class="input-group">
+												<div class="form-group">
+													<label>转账人id:</label>
+										            <input name="tsuid" id="tsuid" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+							                        <label>收账人id:</label>
+							                		<input name="tsuids" id="tsuids" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+							                        <label>转账金额:</label>
+							                		<input name="tmoney" id="tmoney" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>转账时间:</label>
+										            <input name="ttime" id="ttime" type="text" class="laydate-icon"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>转账状态:</label>
+										            <input name="tstate" id="tstate" type="text" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>转账订单:</label>
+										            <input name="torder" id="torder" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>转账人ip:</label>
+										            <input name="tip" id="tip" type="text" style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>收账人ip:</label>
+										            <input name="tips" id="tips" type="text"  style="color:black;">
+							                    </div>
+							                </div>
+							            </div>
+							            <div class="modal-footer">
+							                <button type="button" class="btn btn-default" data-dismiss="modal">
+							                	关闭
+							                </button>
+							               
+							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
+							            </div>
+							        </div>
+							        </form>
+							        <!-- /.modal-content -->
+							    </div><!-- /.modal -->
+							</div>
 
                             <div class="body-nest" id="Footable">
                              <table class="table-striped footable-res footable metro-blue" data-page-size="7">
@@ -160,17 +224,17 @@ String path = request.getContextPath();
                                      <c:forEach items="${listtran}" var="tranli">
                                      <tbody>
 									<tr>
-										<td>${tranli.iid}</td>
-										<td>${tranli.isuid}</td>
-										<td>${tranli.isuids}</td>
-										<td>${tranli.tmoeny}</td>
+										<td>${tranli.tid}</td>
+										<td>${tranli.tsuid}</td>
+										<td>${tranli.tsuids}</td>
+										<td>${tranli.tmoney}</td>
 										<td>${tranli.ttime}</td>
 										<td>${tranli.tstate}</td>
 										<td>${tranli.torder}</td>
 										<td>${tranli.tip}</td>
 										<td>${tranli.tips}</td>
-										<td><a href="user/openUserEdit/${tranli.iid}"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-											<a href="user/delete/${tranli.iid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
+										<td><a href="javascript:void(-1);" onclick="show_update(${tranli.tid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
+											<a href="user/delete/${tranli.tid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 									</tr>
 								</tbody>
 							</c:forEach>
@@ -393,7 +457,7 @@ String path = request.getContextPath();
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.filter.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
-
+	<script src="/ServiceP2p/ntps/js/laydate.js" type="text/javascript"></script>
 
 
 
@@ -443,6 +507,92 @@ String path = request.getContextPath();
         });
     });
     </script>
+    
+    
+    <!-- 修改拟态框 -->
+    <script>
+    function show_update(id) {
+    	var url =  "getby";
+    	$.post(
+    			url,
+    			{
+    				tid:id
+    			},
+	    			function(data){
+	    				var obj = JSON.parse(data);
+	    				$('#tid').val(obj.tid);
+	    				$('#tsuid').val(obj.tsuid);
+	    				$('#tsuids').val(obj.tsuids);
+	    				$('#tmoney').val(obj.tmoney);
+	    				$('#ttime').val(obj.ttime);
+	    				$('#tstate').val(obj.tstate);
+	    				$('#torder').val(obj.torder);
+	    				$('#tip').val(obj.tip);
+	    				$('#tips').val(obj.tips);
+	    			}
+		    );	
+	    	
+	         $('#myupdate').modal('show');
+	         
+	         $('#tb_role').bootstrapTable('refresh');
+	    }
+	    
+	</script>
+	
+	<!-- 时间控制 -->
+	<script type="text/javascript">
+	!function(){
+		laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#ttime'});//绑定元素
+	}();
+	
+	//日期范围限制
+	var start = {
+	    elem: '#start',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '2099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+	
+	var end = {
+	    elem: '#end',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(),
+	    max: '2099-06-16',
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，充值开始日的最大日期
+	    }
+	};
+	laydate(start);
+	laydate(end);
+	
+	//自定义日期格式
+	laydate({
+	    elem: '#test1',
+	    format: 'YYYY年MM月DD日',
+	    festival: true, //显示节日
+	    choose: function(datas){ //选择日期完毕的回调
+	        alert('得到：'+datas);
+	    }
+	});
+	
+	//日期范围限定在昨天到明天
+	laydate({
+	    elem: '#hello3',
+	    min: laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+	    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+	});
+	</script>
+    
+    
 
 	</body>
 </html>
