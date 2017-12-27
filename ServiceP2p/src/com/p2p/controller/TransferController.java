@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.p2p.pojo.Detail;
 import com.p2p.pojo.Transfer;
 import com.p2p.services.TransferService;
 
@@ -45,4 +47,11 @@ public class TransferController {
 		
 	}
 	
+	@RequestMapping("/getby")
+	@ResponseBody
+	public Object openUserEdit(String tid){
+		Integer id = Integer.parseInt(tid);
+		Transfer transfer = transser.getById(id);
+		return transfer;
+	}
 }

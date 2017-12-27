@@ -19,16 +19,16 @@ public class Transfer implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@TableField("t_id")
-	private Integer iid;//主键id
+	private Integer tid;//主键id
 	
 	@TableField("t_suid")
-	private Integer isuid;//转账人id
+	private Integer tsuid;//转账人id
 	
 	@TableField("t_suids")
-	private Integer isuids;//收账人id
+	private Integer tsuids;//收账人id
 	
-	@TableField("t_moeny")
-	private double tmoeny;//转账金额
+	@TableField("t_money")
+	private double tmoney;//转账金额
 	
 	@TableField("t_time")
 	private String ttime;//转账时间
@@ -45,36 +45,36 @@ public class Transfer implements Serializable{
 	@TableField("t_ips")
 	private String tips;//收账人ip
 
-	public Integer getIid() {
-		return iid;
+	public Integer getTid() {
+		return tid;
 	}
 
-	public void setIid(Integer iid) {
-		this.iid = iid;
+	public void setTid(Integer tid) {
+		this.tid = tid;
 	}
 
-	public Integer getIsuid() {
-		return isuid;
+	public Integer getTsuid() {
+		return tsuid;
 	}
 
-	public void setIsuid(Integer isuid) {
-		this.isuid = isuid;
+	public void setTsuid(Integer tsuid) {
+		this.tsuid = tsuid;
 	}
 
-	public Integer getIsuids() {
-		return isuids;
+	public Integer getTsuids() {
+		return tsuids;
 	}
 
-	public void setIsuids(Integer isuids) {
-		this.isuids = isuids;
+	public void setTsuids(Integer tsuids) {
+		this.tsuids = tsuids;
 	}
 
-	public double getTmoeny() {
-		return tmoeny;
+	public double getTmoney() {
+		return tmoney;
 	}
 
-	public void setTmoeny(double tmoeny) {
-		this.tmoeny = tmoeny;
+	public void setTmoney(double tmoney) {
+		this.tmoney = tmoney;
 	}
 
 	public String getTtime() {
@@ -121,13 +121,13 @@ public class Transfer implements Serializable{
 		return serialVersionUID;
 	}
 
-	public Transfer(Integer iid, Integer isuid, Integer isuids, double tmoeny, String ttime, String tstate,
+	public Transfer(Integer tid, Integer tsuid, Integer tsuids, double tmoney, String ttime, String tstate,
 			Integer torder, String tip, String tips) {
 		super();
-		this.iid = iid;
-		this.isuid = isuid;
-		this.isuids = isuids;
-		this.tmoeny = tmoeny;
+		this.tid = tid;
+		this.tsuid = tsuid;
+		this.tsuids = tsuids;
+		this.tmoney = tmoney;
 		this.ttime = ttime;
 		this.tstate = tstate;
 		this.torder = torder;
@@ -141,11 +141,9 @@ public class Transfer implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Transfer [iid=" + iid + ", isuid=" + isuid + ", isuids=" + isuids + ", tmoeny=" + tmoeny + ", ttime="
+		return "Transfer [tid=" + tid + ", tsuid=" + tsuid + ", tsuids=" + tsuids + ", tmoney=" + tmoney + ", ttime="
 				+ ttime + ", tstate=" + tstate + ", torder=" + torder + ", tip=" + tip + ", tips=" + tips + "]";
 	}
-
-	
 	
 	
 }
