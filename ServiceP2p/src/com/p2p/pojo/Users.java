@@ -55,7 +55,7 @@ public class Users implements Serializable{
 	private String suip;	//ip地址
 
 	@TableField("su_password")
-	private String supassword;
+	private String supassword; //登入密码
 
 	public Integer getSuid() {
 		return suid;
