@@ -40,24 +40,10 @@ public class Transfer implements Serializable{
 	private Integer torder;//转账订单
 	
 	@TableField("t_ip")
-	private String tip;//ip地址
-
-	public Transfer(Integer iid, Integer isuid, Integer isuids, double tmoeny, String ttime, String tstate,
-			Integer torder, String tip) {
-		super();
-		this.iid = iid;
-		this.isuid = isuid;
-		this.isuids = isuids;
-		this.tmoeny = tmoeny;
-		this.ttime = ttime;
-		this.tstate = tstate;
-		this.torder = torder;
-		this.tip = tip;
-	}
-
-	public Transfer() {
-		super();
-	}
+	private String tip;//转账人ip
+	
+	@TableField("t_ips")
+	private String tips;//收账人ip
 
 	public Integer getIid() {
 		return iid;
@@ -123,15 +109,43 @@ public class Transfer implements Serializable{
 		this.tip = tip;
 	}
 
+	public String getTips() {
+		return tips;
+	}
+
+	public void setTips(String tips) {
+		this.tips = tips;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Transfer(Integer iid, Integer isuid, Integer isuids, double tmoeny, String ttime, String tstate,
+			Integer torder, String tip, String tips) {
+		super();
+		this.iid = iid;
+		this.isuid = isuid;
+		this.isuids = isuids;
+		this.tmoeny = tmoeny;
+		this.ttime = ttime;
+		this.tstate = tstate;
+		this.torder = torder;
+		this.tip = tip;
+		this.tips = tips;
+	}
+
+	public Transfer() {
+		super();
 	}
 
 	@Override
 	public String toString() {
 		return "Transfer [iid=" + iid + ", isuid=" + isuid + ", isuids=" + isuids + ", tmoeny=" + tmoeny + ", ttime="
-				+ ttime + ", tstate=" + tstate + ", torder=" + torder + ", tip=" + tip + "]";
+				+ ttime + ", tstate=" + tstate + ", torder=" + torder + ", tip=" + tip + ", tips=" + tips + "]";
 	}
+
+	
 	
 	
 }

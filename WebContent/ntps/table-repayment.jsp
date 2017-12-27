@@ -127,7 +127,10 @@ String path = request.getContextPath();
                                                		编号
                                             </th>
                                             <th>
-                                           			 用户id
+                                           			 还款用户id
+                                            </th>
+                                            <th>
+                                           			 收款用户id
                                             </th>
                                             <th data-hide="phone,tablet">
                                         		           还款金额
@@ -139,7 +142,10 @@ String path = request.getContextPath();
                                                 	还款状态
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	ip地址
+                                                	还款人ip
+                                            </th >
+                                            <th data-hide="phone,tablet">
+                                                	收款人ip
                                             </th >
                                             <th data-hide="phone,tablet">
                                             		操作
@@ -150,10 +156,12 @@ String path = request.getContextPath();
 											<tr>
 												<td>${repayy.rid}</td>
 												<td>${repayy.rsuid}</td>
+												<td>${repayy.rsuids}</td>
 												<td>${repayy.rmoeny}</td>
 												<td>${repayy.rtime}</td>
 												<td>${repayy.rstate}</td>
 												<td>${repayy.rip}</td>
+												<td>${repayy.rips}</td>
 												<td><a href="repayment/openUserEdit/${repayy.rid}"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 													<a href="repayment/delete/${repayy.rid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>

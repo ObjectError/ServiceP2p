@@ -13,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="t_state" property="tstate"/>
 			<result column="t_order" property="torder"/>
 			<result column="t_ip" property="tip"/>
+			<result column="t_ips" property="tips"/>
 		</resultMap>
 		
 		<!-- 查所有 -->
@@ -22,8 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 增加 -->
 		<select id="add" parameterType="com.p2p.pojo.Transfer">
-			insert into transfer(t_suid,t_suids,t_money,t_time,t_state,t_order,t_ip)
-			values(#{t_suid},#{t_suids},#{t_money},#{t_time},#{t_state},#{t_order},#{t_ip})		
+			insert into transfer(t_suid,t_suids,t_money,t_time,t_state,t_order,t_ip,t_ips)
+			values(#{t_suid},#{t_suids},#{t_money},#{t_time},#{t_state},#{t_order},#{t_ip},#{t_ips})		
 		</select>
 		
 		<!-- 删除 -->
@@ -34,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- 修改  -->
 		<update id="update" parameterType="com.p2p.pojo.Transfer">
 			update transfer set t_suid = #{t_suid},t_suids = #{t_suids},t_money = #{t_money},
-			t_time = #{t_time},t_state = #{t_state},t_order = #{t_order},t_ip = #{t_ip} where 
+			t_time = #{t_time},t_state = #{t_state},t_order = #{t_order},t_ip = #{t_ip},t_ips = #{t_ips} where 
 			t_id = #{t_id}
 		</update>
 		

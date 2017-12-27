@@ -22,7 +22,10 @@ public class Repayment implements Serializable{
 	private Integer rid;//主键id
 	
 	@TableField("r_suid")
-	private Integer rsuid;//用户id
+	private Integer rsuid;//还款用户id
+	
+	@TableField("r_suids")
+	private Integer rsuids;//收款用户id
 	
 	@TableField("r_moeny")
 	private double rmoeny;//还款金额
@@ -34,21 +37,10 @@ public class Repayment implements Serializable{
 	private String rstate;//还款状态
 	
 	@TableField("r_ip")
-	private String rip;//ip地址
-
-	public Repayment(Integer rid, Integer rsuid, double rmoeny, String rtime, String rstate, String rip) {
-		super();
-		this.rid = rid;
-		this.rsuid = rsuid;
-		this.rmoeny = rmoeny;
-		this.rtime = rtime;
-		this.rstate = rstate;
-		this.rip = rip;
-	}
-
-	public Repayment() {
-		super();
-	}
+	private String rip;//还款人ip
+	
+	@TableField("r_ips")
+	private String rips;//收款人ip
 
 	public Integer getRid() {
 		return rid;
@@ -64,6 +56,14 @@ public class Repayment implements Serializable{
 
 	public void setRsuid(Integer rsuid) {
 		this.rsuid = rsuid;
+	}
+
+	public Integer getRsuids() {
+		return rsuids;
+	}
+
+	public void setRsuids(Integer rsuids) {
+		this.rsuids = rsuids;
 	}
 
 	public double getRmoeny() {
@@ -98,16 +98,41 @@ public class Repayment implements Serializable{
 		this.rip = rip;
 	}
 
+	public String getRips() {
+		return rips;
+	}
+
+	public void setRips(String rips) {
+		this.rips = rips;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+	public Repayment(Integer rid, Integer rsuid, Integer rsuids, double rmoeny, String rtime, String rstate, String rip,
+			String rips) {
+		super();
+		this.rid = rid;
+		this.rsuid = rsuid;
+		this.rsuids = rsuids;
+		this.rmoeny = rmoeny;
+		this.rtime = rtime;
+		this.rstate = rstate;
+		this.rip = rip;
+		this.rips = rips;
+	}
+
 	@Override
 	public String toString() {
-		return "Repayment [rid=" + rid + ", rsuid=" + rsuid + ", rmoeny=" + rmoeny + ", rtime=" + rtime + ", rstate="
-				+ rstate + ", rip=" + rip + "]";
+		return "Repayment [rid=" + rid + ", rsuid=" + rsuid + ", rsuids=" + rsuids + ", rmoeny=" + rmoeny + ", rtime="
+				+ rtime + ", rstate=" + rstate + ", rip=" + rip + ", rips=" + rips + "]";
 	}
-	
+
+	public Repayment() {
+		super();
+	}
+
 	
 	
 	

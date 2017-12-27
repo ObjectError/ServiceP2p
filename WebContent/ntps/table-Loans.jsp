@@ -127,7 +127,10 @@ String path = request.getContextPath();
                                                		编号
                                             </th>
                                             <th>
-                                           			 用户id
+                                           			 放款用户id
+                                            </th>
+                                            <th>
+                                           			 借款用户id
                                             </th>
                                             <th data-hide="phone,tablet">
                                         		     放款金额
@@ -139,7 +142,10 @@ String path = request.getContextPath();
                                                 	放款状态
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	ip地址
+                                                	放款人ip
+                                            </th >
+                                            <th data-hide="phone,tablet">
+                                                	借款人ip
                                             </th >
                                             <th data-hide="phone,tablet">
 													操作
@@ -150,10 +156,12 @@ String path = request.getContextPath();
 											<tr>
 												<td>${loanss.lid}</td>
 												<td>${loanss.lsuid}</td>
+												<td>${loanss.lsuids}</td>
 												<td>${loanss.lmoeny}</td>
 												<td>${loanss.ltime}</td>
 												<td>${loanss.lstate}</td>
 												<td>${loanss.lip}</td>
+												<td>${loanss.lips}</td>
 												
 												<td><a href="loans/update/${loanss.lid}"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 													<a href="loans/delete/${loanss.lid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
