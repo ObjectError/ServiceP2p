@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.p2p.pojo.UserBindCard;
 import com.p2p.services.UserBindCardService;
@@ -43,5 +44,13 @@ public class UserBindCardController {
 		ubcservice.add(userBindCard);
 		return "redirect:/userBindCard/list";
 	}
-
+	
+	@RequestMapping("/getby")
+	@ResponseBody
+	public Object openUserEdit(String uid){
+		Integer id = Integer.parseInt(uid);
+		UserBindCard userBindCard = ubcservice.getById(id);
+		return userBindCard;
+	}
+	
 }

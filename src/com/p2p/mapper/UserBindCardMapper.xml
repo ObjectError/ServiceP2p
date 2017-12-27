@@ -21,13 +21,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 增加 -->
 		<select id="add" parameterType="com.p2p.pojo.UserBindCard">
-			insert into userbindcard(u_id,,u_suid,u_bankcode,u_type,u_time,u_state,u_ip) values(#{u_id},#{u_suid},#{u_bankcode},#{u_type},#{u_time},#{u_state},#{u_ip})
+			insert into userbindcard(u_id,,u_suid,u_bankcode,u_type,u_time,u_state,u_ip) values(#{uid},#{usuid},#{ubankcode},#{utype},#{utime},#{ustate},#{uip})
 		</select>
 		
 		<!-- 修改 -->
 		<update id="update" parameterType="com.p2p.pojo.UserBindCard">
-			update userbindcard set u_suid = #{u_suid}, u_bankcode = #{u_bankcode}, u_type = #{u_type}, u_state = #{u_state}, u_ip = #{u_ip}
-				where u_id = #{u_id}
+			update userbindcard set u_suid = #{usuid}, u_bankcode = #{ubankcode}, u_type = #{utype}, u_state = #{ustate}, u_ip = #{uip},u_time = #{utime}
+				where u_id = #{uid}
 		</update>
 		
 		<!-- 根据id查用户 -->
