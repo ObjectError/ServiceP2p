@@ -124,11 +124,9 @@ String path = request.getContextPath();
         <div class="skin-part">
             <div id="tree-wrap">
                 <div class="side-bar">
-                 
-
                     <ul class="topnav menu-left-nest">
                         <li>
-                            <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+                            <a style="border-left:0px solid!important;" class="title-menu-left">
 
                                 <span class="design-kit"></span>
                                 <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
@@ -138,7 +136,7 @@ String path = request.getContextPath();
 
                         <li>
                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/index.jsp" title="Dashboard">
-                                <i class="icon-window"></i>
+                                <i class="entypo-home"></i>
                                 <span>首页</span>
 
                             </a>
@@ -150,45 +148,76 @@ String path = request.getContextPath();
                                 <span>表单</span>
                             </a>
                             <ul>
-                                
+                               
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/bank/list" title="Table Dynamic"><i class="entypo-menu"></i><span>银行卡表</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/initiativeTender/list" title="Table Dynamic"><i class="entypo-menu"></i><span>主动投标表</span></a>
                                 </li>
+                             
                                 <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/admin/list" title="Table Dynamic"><i class="entypo-menu"></i><span>管理员表</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        
+                         <li>
+                            <a class="tooltip-tip ajax-load" href="#" title="Dashboard">
+                                <i class="entypo-user"></i>
+                                <span>用户相关</span>
+                            </a>
+                            <ul>
+                            	 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/user/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户表</span></a>
                                 </li>
-                                <li>
+                                   <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/userBindCard/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户绑卡表</span></a>
+                                </li>
+                                 <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/bank/list" title="Table Dynamic"><i class="entypo-menu"></i><span>银行卡表</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                          <li>
+                            <a class="tooltip-tip ajax-load" href="#" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>账目明细</span>
+                            </a>
+                            <ul>
+                            	 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/income/list" title="Table Dynamic"><i class="entypo-menu"></i><span>收益表</span></a>
                                 </li>
                                 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/cash/list" title="Table Dynamic"><i class="entypo-menu"></i><span>提现表</span></a>
                                 </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/detail/list" title="Table Dynamic"><i class="entypo-menu"></i><span>账单明细表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/initiativeTender/list" title="Table Dynamic"><i class="entypo-menu"></i><span>主动投标表</span></a>
-                                </li>
+                            	
                                 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/transfer/list" title="Table Dynamic"><i class="entypo-menu"></i><span>转账表</span></a>
                                 </li>
                                  <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/recharge/list" title="Table Dynamic"><i class="entypo-menu"></i><span>充值表</span></a>
                                 </li>
-                                <li>
+                                 <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/detail/list" title="Table Dynamic"><i class="entypo-menu"></i><span>账单明细表</span></a>
+                                </li>
+                            </ul>
+                           </li>
+                           
+                           
+                          <li>
+                            <a class="tooltip-tip ajax-load" href="#" title="Dashboard">
+                                <i class="entypo-palette"></i>
+                                <span>还款放款</span>
+                            </a>
+                            <ul>
+                            	 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/repayment/list" title="Table Dynamic"><i class="entypo-menu"></i><span>自动还款表</span></a>
                                 </li>
                                 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/loans/list" title="Table Dynamic"><i class="entypo-menu"></i><span>放款表</span></a>
                                 </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/userBindCard/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户绑卡表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/admin/list" title="Table Dynamic"><i class="entypo-menu"></i><span>管理员表</span></a>
-                                </li>
-                            </ul>
-                        </li>
+                        	</ul>
+                          </li>
 
                         <li>
                             <a class="tooltip-tip" href="#" title="Extra Pages">
