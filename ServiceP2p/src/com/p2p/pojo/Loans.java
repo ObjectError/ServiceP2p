@@ -29,7 +29,7 @@ public class Loans implements Serializable{
 	private Integer lsuids;//借款用户id
 	
 	@TableField("l_moeny")
-	private double lmoeny;//放款金额
+	private double lmoney;//放款金额
 	
 	@TableField("l_time")
 	private String ltime;//放款时间
@@ -67,12 +67,12 @@ public class Loans implements Serializable{
 		this.lsuids = lsuids;
 	}
 
-	public double getLmoeny() {
-		return lmoeny;
+	public double getLmoney() {
+		return lmoney;
 	}
 
-	public void setLmoeny(double lmoeny) {
-		this.lmoeny = lmoeny;
+	public void setLmoney(double lmoney) {
+		this.lmoney = lmoney;
 	}
 
 	public String getLtime() {
@@ -111,13 +111,13 @@ public class Loans implements Serializable{
 		return serialVersionUID;
 	}
 
-	public Loans(Integer lid, Integer lsuid, Integer lsuids, double lmoeny, String ltime, String lstate, String lip,
+	public Loans(Integer lid, Integer lsuid, Integer lsuids, double lmoney, String ltime, String lstate, String lip,
 			String lips) {
 		super();
 		this.lid = lid;
 		this.lsuid = lsuid;
 		this.lsuids = lsuids;
-		this.lmoeny = lmoeny;
+		this.lmoney = lmoney;
 		this.ltime = ltime;
 		this.lstate = lstate;
 		this.lip = lip;
@@ -130,11 +130,9 @@ public class Loans implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Loans [lid=" + lid + ", lsuid=" + lsuid + ", lsuids=" + lsuids + ", lmoeny=" + lmoeny + ", ltime="
+		return "Loans [lid=" + lid + ", lsuid=" + lsuid + ", lsuids=" + lsuids + ", lmoney=" + lmoney + ", ltime="
 				+ ltime + ", lstate=" + lstate + ", lip=" + lip + ", lips=" + lips + "]";
 	}
 
-	
-		
 	
 }

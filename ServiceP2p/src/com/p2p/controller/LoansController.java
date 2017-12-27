@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.p2p.pojo.Loans;
 import com.p2p.services.LoansService;
@@ -42,6 +43,14 @@ public class LoansController {
 	public String add(Loans loans) {
 		loansService.add(loans);
 		return "redirect:/loans/list";
+	}
+	
+	@RequestMapping("/getby")
+	@ResponseBody
+	public Object openUserEdit(String lid){
+		Integer id = Integer.parseInt(lid);
+		Loans loans = loansService.getById(id);
+		return loans;
 	}
 	
 }

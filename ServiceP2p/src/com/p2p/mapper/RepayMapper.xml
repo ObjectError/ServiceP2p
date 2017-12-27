@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="r_id" property="rid"/>
 			<result column="r_suid" property="rsuid"/>
 			<result column="r_suids" property="rsuids"/>
-			<result column="r_money" property="rmoeny"/>
+			<result column="r_moeny" property="rmoeny"/>
 			<result column="r_time" property="rtime"/>
 			<result column="r_state" property="rstate"/>
 			<result column="r_ip" property="rip"/>
@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 增加 -->
 		<select id="add" parameterType="com.p2p.pojo.Repayment">
-			insert into repayment (r_id,r_suid,r_suids,r_money,r_time,r_state,r_ip,r_ips) values(#{r_id},#{r_suid},#{r_suids},#{r_money},#{r_time},#{r_state},#{r_ip},#{r_ips})
+			insert into repayment (r_suid,r_suids,r_moeny,r_time,r_state,r_ip,r_ips) values(#{rsuid},#{rsuids},#{rmoeny},#{rtime},#{rstate},#{rip},#{rips})
 		</select>
 		
 		<!-- 删除 -->
@@ -32,8 +32,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 修改 -->
 		<update id="update" parameterType="com.p2p.pojo.Repayment">
-			update repayment set r_suids = #{r_suids},r_suid = #{r_suid},r_money = #{r_money},r_time = #{r_time},r_state = #{r_state},r_ip = #{r_ip},r_ips = #{r_ips} 
-			where r_id = #{r_id}
+			update repayment set r_suids = #{rsuids},r_suid = #{rsuid},r_moeny = #{rmoeny},r_time = #{rtime},r_state = #{rstate},r_ip = #{rip},r_ips = #{rips} 
+			where r_id = #{rid}
 		</update>
 		
 		<!-- 根据id查用户 -->

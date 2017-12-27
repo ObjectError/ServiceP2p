@@ -91,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="bank/list" title="Sample page 1">银行卡管理表</a>
+                <li><a href="bank/list" title="Sample page 1">用户绑卡表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -117,7 +117,65 @@ String path = request.getContextPath();
                                     </a>
                                 </div>
                             </div>
-
+							
+							<!-- 修改拟态框（Modal） -->
+							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							    <form action="userBindCard/update" method="post">
+							        <div class="modal-content">
+							        	<input type="hidden" name="uid" id="uid">
+							            <div class="modal-header">
+							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							                    &times;
+							                </button>
+							                <h4 class="modal-title" id="myModalLabel">
+							                		    修改
+							                </h4>
+							            </div>
+							            <div class="modal-body">
+							                <div class="input-group">
+												<div class="form-group">
+													<label>用户id:</label>
+										            <input name="usuid" id="usuid" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+							                        <label>银行卡号:</label>
+							                		<input name="ubankcode" id="ubankcode" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>银行卡类型:</label>
+										            <input name="utype" id="utype" type="text"  style="color:black;">
+							                    </div>
+							                    
+							                    <div class="form-group">
+													<label>绑卡时间:</label>
+										            <input name="utime" id="utime" type="text" class="laydate-icon"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>绑卡状态:</label>
+										            <input name="ustate" id="ustate" type="text"  style="color:black;">
+							                    </div>
+							                    
+							                    <div class="form-group">
+													<label>ip地址:</label>
+										            <input name="uip" id="uip" type="text"  style="color:black;">
+							                    </div>
+							                </div>
+							            </div>
+							            <div class="modal-footer">
+							                <button type="button" class="btn btn-default" data-dismiss="modal">
+							                	关闭
+							                </button>
+							               
+							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
+							            </div>
+							        </div>
+							        </form>
+							        <!-- /.modal-content -->
+							    </div><!-- /.modal -->
+							</div> 
+							
+							
                             <div class="body-nest" id="Footable">
                             	<a href="income/list"><span class="glyphicon glyphicon-plus"></span>新增</a>
                                 <table class="table-striped footable-res footable metro-blue" data-page-size="7">
@@ -158,7 +216,7 @@ String path = request.getContextPath();
 												<td>${ubcards.utime}</td>
 												<td>${ubcards.ustate}</td>
 												<td>${ubcards.uip}</td>
-												<td><a href="userBindCard/update/${ubcards.uid}"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
+												<td><a href="javascript:void(-1);" onclick="show_update(${ubcards.uid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 													<a href="userBindCard/delete/${ubcards.uid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
 											</tbody>
@@ -382,7 +440,7 @@ String path = request.getContextPath();
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.filter.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
-
+	<script src="/ServiceP2p/ntps/js/laydate.js" type="text/javascript"></script>
 
 
 
@@ -432,6 +490,88 @@ String path = request.getContextPath();
         });
     });
     </script>
+    
+    
+    <!-- 修改拟态框 -->
+    <script>
+    function show_update(id) {
+    	var url =  "userBindCard/getby";
+    	$.post(
+    			url,
+    			{
+    				uid:id
+    			},
+	    			function(data){
+	    				var obj = JSON.parse(data);
+	    				$('#uid').val(obj.uid);
+	    				$('#usuid').val(obj.usuid);
+	    				$('#ubankcode').val(obj.ubankcode);
+	    				$('#utype').val(obj.utype);
+	    				$('#utime').val(obj.utime);
+	    				$('#ustate').val(obj.ustate);
+	    				$('#uip').val(obj.uip);
+	    			}
+		    );	
+	    	
+	         $('#myupdate').modal('show');
+	         
+	         $('#tb_role').bootstrapTable('refresh');
+	    }
+	    
+	</script>
+	
+	<!-- 时间控制 -->
+	<script type="text/javascript">
+	!function(){
+		laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#utime'});//绑定元素
+	}();
+	
+	//日期范围限制
+	var start = {
+	    elem: '#start',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '2099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+	
+	var end = {
+	    elem: '#end',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(),
+	    max: '2099-06-16',
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，充值开始日的最大日期
+	    }
+	};
+	laydate(start);
+	laydate(end);
+	
+	//自定义日期格式
+	laydate({
+	    elem: '#test1',
+	    format: 'YYYY年MM月DD日',
+	    festival: true, //显示节日
+	    choose: function(datas){ //选择日期完毕的回调
+	        alert('得到：'+datas);
+	    }
+	});
+	
+	//日期范围限定在昨天到明天
+	laydate({
+	    elem: '#hello3',
+	    min: laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+	    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+	});
+	</script>
 
 	</body>
 </html>
