@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 增加 -->
 		<select id="add" parameterType="com.p2p.pojo.UserBindCard">
-			insert into userbindcard(u_id,,u_suid,u_bankcode,u_type,u_time,u_state,u_ip) values(#{uid},#{usuid},#{ubankcode},#{utype},#{utime},#{ustate},#{uip})
+			insert into userbindcard(u_id,u_suid,u_bankcode,u_type,u_time,u_state,u_ip) values(#{uid},#{usuid},#{ubankcode},#{utype},#{utime},#{ustate},#{uip})
 		</select>
 		
 		<!-- 修改 -->
