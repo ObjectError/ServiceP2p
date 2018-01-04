@@ -53,7 +53,7 @@ String path = request.getContextPath();
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>表动态
+                            <span>转账表
                             </span>
                         </h2>
 
@@ -261,7 +261,7 @@ String path = request.getContextPath();
                                  -->
                                  <tfoot>
                                      <tr>
-                                         <td colspan="5">
+                                         <td colspan="10">
                                              <div class="pagination pagination-centered"></div>
                                          </td>
                                      </tr>

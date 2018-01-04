@@ -3,7 +3,6 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.p2p.mapper.TransferMapper">
-		<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
 		<resultMap type="com.p2p.pojo.Transfer" id="transff">
 			<result column="t_id" property="tid"/>
 			<result column="t_suid" property="tsuid"/>

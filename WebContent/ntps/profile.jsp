@@ -26,261 +26,7 @@
 	
 	<body> 
     <!-- Preloader -->
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
-    <!-- TOP NAVBAR -->
-    <nav role="navigation" class="navbar navbar-static-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
-                    <span class="entypo-menu"></span>
-                </button>
-                <button class="navbar-toggle toggle-menu-mobile toggle-left" type="button">
-                    <span class="entypo-list-add"></span>
-                </button>
-
-                <div id="logo-mobile" class="visible-xs">
-                   <h1>WEB管理<span>v1.2</span></h1>
-                </div>
-
-            </div>
-
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
-                        </ul>
-                    </li>
-                    <li><a><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
-                    </li>
-
-                </ul>
-                <div >    
-                  
-                </div>
-
-                <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
-                    <li>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" class="admin-pic img-circle" src="/ServiceP2p/ntps/assets/img/307327_205.jpg">欢迎你，admin <b class="caret"></b>
-                        </a>
-                        <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
-                            <li>
-                                <a href="/ServiceP2p/admin/list">
-                                    <span class="entypo-user"></span>&#160;&#160;个人信息</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="/ServiceP2p/ntps/login.jsp">
-                                    <span class="entypo-picasa"></span>&#160;&#160; 登入</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="fontawesome-magic"></span>&#160;&#160;主题更改</a>
-                        <ul role="menu" class="dropdown-setting dropdown-menu">
-
-                            <li class="theme-bg">
-                                <div id="button-bg"></div>
-                                <div id="button-bg2"></div>
-                                <div id="button-bg3"></div>
-                                <div id="button-bg5"></div>
-                                <div id="button-bg6"></div>
-                                <div id="button-bg7"></div>
-                                <div id="button-bg8"></div>
-                                <div id="button-bg9"></div>
-                                <div id="button-bg10"></div>
-                                <div id="button-bg11"></div>
-                                <div id="button-bg12"></div>
-                                <div id="button-bg13"></div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!-- /END OF TOP NAVBAR -->
-
-    <!-- SIDE MENU -->
-    <div id="skin-select">
-        <div id="logo">
-         <h1>CloudSoft<span>v1.2</span></h1>
-        </div>
-
-        <a id="toggle">
-            <span class="entypo-menu"></span>
-        </a>
-        <div class="dark">
-            <form action="#">
-                <span>
-                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus="">
-                </span>
-            </form>
-        </div>
-
-        <div class="search-hover">
-            <form id="demo-2">
-                <input type="search" placeholder="Search Menu..." class="id_search">
-            </form>
-        </div>
-
-
-
-
-        <div class="skin-part">
-            <div id="tree-wrap">
-                <div class="side-bar">
-                 
-
-                    <ul class="topnav menu-left-nest">
-                        <li>
-                            <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
-
-                                <span class="design-kit"></span>
-                                <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
-
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/index.jsp" title="Dashboard">
-                                <i class="icon-window"></i>
-                                <span>首页</span>
-
-                            </a>
-                        </li>
-
-                       <li>
-                            <a class="tooltip-tip" href="#" title="Tables">
-                                <i class="icon-view-thumb"></i>
-                                <span>表单</span>
-                            </a>
-                            <ul>
-                                
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/bank/list" title="Table Dynamic"><i class="entypo-menu"></i><span>银行卡表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/user/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/income/list" title="Table Dynamic"><i class="entypo-menu"></i><span>收益表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/cash/list" title="Table Dynamic"><i class="entypo-menu"></i><span>提现表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/detail/list" title="Table Dynamic"><i class="entypo-menu"></i><span>账单明细表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/initiativeTender/list" title="Table Dynamic"><i class="entypo-menu"></i><span>主动投标表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/transfer/list" title="Table Dynamic"><i class="entypo-menu"></i><span>转账表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/repayment/list" title="Table Dynamic"><i class="entypo-menu"></i><span>自动还款表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/loans/list" title="Table Dynamic"><i class="entypo-menu"></i><span>放款表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/userBindCard/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户绑卡表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/admin/list" title="Table Dynamic"><i class="entypo-menu"></i><span>管理员表</span></a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a class="tooltip-tip" href="#" title="Extra Pages">
-                                <i class="icon-document-new"></i>
-                                <span>其它的页面</span>
-                            </a>
-                            <ul>
-                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/profile.jsp" title="Profile Page"><i class="icon-user"></i><span>资料页面</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/404.jsp" title="404 Error Page"><i class="icon-thumbs-down"></i><span>404 错误页面</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/500.jsp" title="500 Error Page"><i class="icon-thumbs-down"></i><span>500 错误页面</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2" href="/ServiceP2p/ntps/404/lock-screen.jsp" title="Lock Screen"><i class="icon-lock"></i><span>锁屏</span></a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                    </ul>
-
-                    <ul id="menu-showhide" class="topnav menu-left-nest">
-                        <li>
-                            <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
-
-                                <span class="component"></span>
-                                <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
-
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a class="tooltip-tip" href="#" title="UI Element">
-                                <i class="icon-monitor"></i>
-                                <span>界面元素</span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/element.jsp" title="Element"><i class="icon-attachment"></i><span>元素</span></a>
-                                </li>
-                                <li><a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/button.jsp" title="Button"><i class="icon-view-list-large"></i><span>按钮</span> <div class="noft-blue-number">10</div></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/calendar.jsp" title="Calender"><i class="icon-calendar"></i><span>日历</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/tree.jsp" title="Tree View"><i class="icon-view-list"></i><span>树视图</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/grids.jsp" title="Grids"><i class="icon-menu"></i><span>网格</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/ntps/element/chart.jsp" title="Chart"><i class="icon-graph-pie"></i><span>图表</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/element/typhography.jsp" title="Typhoghrapy">
-                                        <i class="icon-information"></i>
-                                        <span>字体</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                         <li>
-                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/ntps/icon.jsp" title="Icons">
-                                <i class="icon-preview"></i>
-                                <span>图标</span>
-                                <div class="noft-blue" style="display: inline-block; float: none;">289</div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+   <jsp:include page="./head/head.jsp"></jsp:include>
     <!-- END OF SIDE MENU -->
 
 
@@ -333,12 +79,6 @@
                 <li><a href="#" title="Sample page 1">个人中心</a>
                 </li>
 
-                <li class="pull-right">
-                    <div class="input-group input-widget">
-
-                        <input style="border-radius:15px" type="text" placeholder="Search..." class="form-control">
-                    </div>
-                </li>
             </ul>
 
             <!-- END OF BREADCRUMB -->
@@ -364,14 +104,6 @@
                                                 <strong>昵称</strong>
                                             </span>${admin.aname }</li>
 										</c:forEach>
-                                        <li class="list-group-item text-right">
-                                            <span class="pull-left">
-                                                <strong>注册时间</strong>
-                                            </span>12.23.2017</li>
-                                        <li class="list-group-item text-right">
-                                            <span class="pull-left">
-                                                <strong>最后一次登录</strong>
-                                            </span>12.29.2017</li>
                                         
                                     </ul>
 									
@@ -398,44 +130,11 @@
                                         <dt>电话</dt>
                                         <dd>${admin.aphone}</dd>
 
-                                        <dt>注册时间</dt>
-                                        <dd>12-23-2017</dd>
-
-                                        <dt>最后一次登录时间</dt>
-                                        <dd>12-29-2017</dd>
                                     </dl>
                                     </c:forEach>
                                     <hr>
 									
-                                    <h5>
-                                        <span class="entypo-arrows-ccw"></span>&nbsp;&nbsp;近期活动</h5>
-
-                                    <div class="table-responsive">
-                                        <table class="table table-hover table-striped table-condensed">
-
-                                            <tbody>
-                                                <tr>
-                                                    <td><i class="pull-right fa fa-edit"></i> Today, 1:00 - Jeff Manzi liked your post.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><i class="pull-right fa fa-edit"></i> Today, 12:23 - Mark Friendo liked and shared your post.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><i class="pull-right fa fa-edit"></i> Today, 12:20 - You posted a new blog entry title "Why social media is".</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><i class="pull-right fa fa-edit"></i> Yesterday - Karen P. liked your post.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><i class="pull-right fa fa-edit"></i> 2 Days Ago - Philip W. liked your post.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><i class="pull-right fa fa-edit"></i> 2 Days Ago - Jeff Manzi liked your post.</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
+                                   
                                 </div>
 
                             </div>
@@ -455,6 +154,7 @@
                                     <button class="btn btn-default btn-block">
                                         <span class="fa fa-user"></span>&nbsp;&nbsp;</button>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

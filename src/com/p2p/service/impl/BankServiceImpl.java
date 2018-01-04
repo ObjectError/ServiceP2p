@@ -49,4 +49,10 @@ public class BankServiceImpl implements BankService{
 		return bankmapper.getById(id);
 	}
 
+	@Override
+	public Bank selectBankCard(String card) {
+		// TODO Auto-generated method stub
+		return bankmapper.selectBankCard(card);
+	}
+
 }

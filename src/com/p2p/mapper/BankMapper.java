@@ -5,4 +5,5 @@ import com.p2p.pojo.Bank;
 
 public interface BankMapper extends IBaseDao<Integer, Bank>{
 
+	Bank selectBankCard(String card);
 }

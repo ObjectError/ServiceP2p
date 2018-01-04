@@ -58,7 +58,7 @@ String path = request.getContextPath();
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>表动态
+                            <span>账单明细表
                             </span>
                         </h2>
 
@@ -124,134 +124,10 @@ String path = request.getContextPath();
                             </div>
 
                             <div class="body-nest" id="Footable">
-                            	<a href="javascript:void(-1);" onclick="show_modal();">
-                            		<span class="glyphicon glyphicon-plus"></span>新增
-                            	</a>    
                             <!-- 新增拟态框（Modal） -->
                             
-							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="detail/add" method="post">
-							        <div class="modal-content">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    新增
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-							                	<div class="form-group">
-							                        <label>编号:</label>
-							                		<input name="did" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-							                        <label>用户id:</label>
-							                		<input name="dsuid" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>金额:</label>
-										            <input name="dmoney" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>明细类型:</label>
-										            <input name="dtype" type="text" value="" style="color:black;">
-							                    </div>
-												<div class="form-group">
-													<label>受理时间:</label>
-										            <input name="dtime" type="text" value="" class="laydate-icon" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>订单号:</label>
-										            <input name="dorder" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>交易状态:</label>
-										            <input name="dstate" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>交易IP:</label>
-										            <input name="dip" type="text" value="" style="color:black;">
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               <!--  <button type="button"  id="id_ad_search" onclick="javascrtpt:window.location.href='bank/add'">
-							                  	  提交
-							                </button> -->
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_ad_search">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div>
 							
                             <!-- 修改拟态框（Modal） -->
-							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="detail/update" method="post">
-							        <div class="modal-content">
-							        	<input type="hidden" name="did" id="did">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    修改
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-							                    <div class="form-group">
-							                        <label>用户id:</label>
-							                		<input name="dsuid" id="dsuid" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>金额:</label>
-										            <input name="dmoney" type="text" id="dmoney" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>明细类型:</label>
-										            <input name="dtype" type="text" id="dtype" style="color:black;">
-							                    </div>
-												<div class="form-group">
-													<label>受理时间:</label>
-										            <input name="dtime" type="text" id="dtime" data-options="required:true,showSeconds:false" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>订单号:</label>
-										            <input name="dorder" type="text" id="dorder" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>交易状态:</label>
-										            <input name="dstate" type="text" id="dstate" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>交易IP:</label>
-										            <input name="dip" type="text" id="dip" style="color:black;">
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               <!--  <button type="button"  id="id_ad_search" onclick="javascrtpt:window.location.href='bank/add'">
-							                  	  提交
-							                </button> -->
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div>    
                                 
 
                                 
@@ -284,9 +160,6 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                                             	    交易IP
                                             </th>
-                                             <th data-hide="phone,tablet">
-                                            	    操作
-                                            </th>
                                         </tr>
                                         <c:forEach items="${detailList }" var="detail">
                                         <tbody>
@@ -299,8 +172,6 @@ String path = request.getContextPath();
 												<td>${detail.dtime }</td>
 												<td>${detail.dstate }</td>
 												<td>${detail.dip }</td>
-												<td><a href="javascript:void(-1);" onclick="show_update(${detail.did})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-													<a href="bank/delete/${detail.did }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
 											</tbody>
 										</c:forEach>

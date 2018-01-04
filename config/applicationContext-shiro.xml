@@ -37,9 +37,9 @@
         <!-- 装配 securityManager -->
         <property name="securityManager" ref="securityManager"/>
         <!-- 配置登陆页面 -->
-        <property name="loginUrl" value="/back/login"/>
+        <property name="loginUrl" value="/ntps/login.jsp"/>
         <!-- 登陆成功后的一面(请求) -->
-        <property name="successUrl" value="/back/list"/>
+        <property name="successUrl" value="/ntps/index"/>
         <property name="unauthorizedUrl" value="/static/page/pageNotFind.jsp"/>
         <!-- 具体配置需要拦截哪些 URL, 以及访问对应的 URL 时使用 Shiro 的什么 Filter 进行拦截.  -->
         <property name="filterChainDefinitions">
@@ -56,7 +56,8 @@
                 /back/** = user
                 /front/** = user
                 -->
-                /** = anon           
+                /ntps/login.jsp = anon   
+                /ntps/index.jsp=user        
             </value>
         </property>
     </bean>

@@ -28,7 +28,7 @@ public class Cash implements Serializable{
 	private double cmoney;//提现金额
 	
 	@TableField("c_card")
-	private Integer ccard;//提现卡号
+	private String ccard;//提现卡号
 	
 	@TableField("c_order")
 	private Integer corder;//提现订单号
@@ -48,20 +48,8 @@ public class Cash implements Serializable{
 	@TableField("c_ip")
 	private String cip;		//ip地址
 
-	public Cash(Integer cid, Integer csuid, double cmoney, Integer ccard, Integer corder, String ctime, String cstate,
-			double cfigure, double cpoundage, String cip) {
-		super();
-		this.cid = cid;
-		this.csuid = csuid;
-		this.cmoney = cmoney;
-		this.ccard = ccard;
-		this.corder = corder;
-		this.ctime = ctime;
-		this.cstate = cstate;
-		this.cfigure = cfigure;
-		this.cpoundage = cpoundage;
-		this.cip = cip;
-	}
+	private Users user;		//user对象
+	
 
 	public Cash() {
 		super();
@@ -99,11 +87,11 @@ public class Cash implements Serializable{
 		this.cmoney = cmoeny;
 	}
 
-	public Integer getCcard() {
+	public String getCcard() {
 		return ccard;
 	}
 
-	public void setCcard(Integer ccard) {
+	public void setCcard(String ccard) {
 		this.ccard = ccard;
 	}
 
@@ -153,9 +141,35 @@ public class Cash implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Cash [cid=" + cid + ", csuid=" + csuid + ", cmoeny=" + cmoney + ", ccard=" + ccard + ", corder="
+		return "Cash [cid=" + cid + ", csuid=" + csuid + ", cmoney=" + cmoney + ", ccard=" + ccard + ", corder="
 				+ corder + ", ctime=" + ctime + ", cstate=" + cstate + ", cfigure=" + cfigure + ", cpoundage="
-				+ cpoundage + ", cip=" + cip + "]";
+				+ cpoundage + ", cip=" + cip + ", user=" + user + "]";
 	}
+
+	public Cash(Integer cid, Integer csuid, double cmoney, String ccard, Integer corder, String ctime, String cstate,
+			double cfigure, double cpoundage, String cip, Users user) {
+		super();
+		this.cid = cid;
+		this.csuid = csuid;
+		this.cmoney = cmoney;
+		this.ccard = ccard;
+		this.corder = corder;
+		this.ctime = ctime;
+		this.cstate = cstate;
+		this.cfigure = cfigure;
+		this.cpoundage = cpoundage;
+		this.cip = cip;
+		this.user = user;
+	}
+
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
+	
 
 }

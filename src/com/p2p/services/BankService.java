@@ -6,4 +6,5 @@ import com.p2p.pojo.Bank;
 
 public interface BankService extends IBaseService<Integer, Bank>{
 
+	Bank selectBankCard(String card);
 }

@@ -5,4 +5,5 @@ import com.p2p.pojo.Admin;
 
 public interface AdminMapper extends IBaseDao<Integer, Admin>{
 
+	Admin login(String phone);
 }

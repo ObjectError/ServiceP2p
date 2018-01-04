@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<meta charset="utf-8">
+	<base href="<%=path%>/">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>表格</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -34,8 +35,7 @@ String path = request.getContextPath();
     <link rel="shortcut icon" href="/ServiceP2p/ntps/assets/ico/minus.png">
 	
 	<body> 
-    <!-- Preloader -->
- 	<jsp:include page="./head/head.jsp"></jsp:include>
+	<jsp:include page="./head/head.jsp"></jsp:include>
 
 
     <!--  PAPER WRAP -->
@@ -53,7 +53,7 @@ String path = request.getContextPath();
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>表动态
+                            <span>用户表
                             </span>
                         </h2>
 
@@ -91,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="#" title="Sample page 1">用户表</a>
+                <li><a href="bank/list" title="Sample page 1">用户表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -109,182 +109,69 @@ String path = request.getContextPath();
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="nest" id="FootableClose">
-                            <div class="title-alt">
-                                <div class="titleClose">
-                                    <a class="gone" href="#FootableClose">
-                                        <span class="entypo-cancel"></span>
-                                    </a>
-                                </div>
-                                <div class="titleToggle">
-                                    <a class="nav-toggle-alt" href="#Footable">
-                                        <span class="entypo-up-open"></span>
-                                    </a>
-                                </div>
-                            </div>
+                           
                             
                             
-                             <!-- 修改拟态框（Modal） -->
-							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="update" method="post">
-							        <div class="modal-content">
-							        	<input type="hidden" name="suid" id="suid">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    修改
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-												<div class="form-group">
-													<label>用户名:</label>
-										            <input name="suusername" id="suusername" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-							                        <label>登入密码:</label>
-							                		<input name="supassword" id="supassword" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>真实姓名:</label>
-										            <input name="suname" id="suname" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>手机号:</label>
-										            <input name="suphone" id="suphone" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>身份证:</label>
-										            <input name="sucard" id="sucard" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>邮箱:</label>
-										            <input name="suemail" id="suemail" type="text"  style="color:black;">
-							                    </div>
-							                    
-							                    <div class="form-group">
-													<label>银行卡:</label>
-										            <input name="subankcard" id="subankcard" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>账号余额:</label>
-										            <input name="subanktype" id="subanktype" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>信用额度:</label>
-										            <input name="sucredit" id="sucredit" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>ip地址:</label>
-										            <input name="suip" id="suip" type="text"  style="color:black;">
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div>        
+                            <!-- 修改拟态框（Modal） -->
+							
                             
                             
 
                             <div class="body-nest" id="Footable">
-                             <table class="table-striped footable-res footable metro-blue" data-page-size="7">
-                                 <thead>
-                                     <tr>
-                                         <th>
-                                            id
-                                         </th>
-                                         <th>
-                                        	用户名
-                                         </th>
-                                         <th data-hide="phone,tablet">
-                                     		姓名
-                                         </th>
-                                         <th data-hide="phone,tablet">
-                                         	手机号
-                                         </th>
-                                         <th data-hide="phone,tablet">
-                                         	身份证
-                                         </th>
-                                         <th data-hide="phone,tablet">
-                                          	  邮箱
-                                         </th >
-                                         <th data-hide="phone,tablet">
-                                         	  银行卡
-                                         </th>
-                                         <th data-hide="phone,tablet">
-                                         	  银行卡类型
-                                         </th>
-                                         <th data-hide="phone,tablet">
-                                         	  账户余额
-                                         </th>
-                                         <th data-hide="phone,tablet">
-                                         	  信用额度
-                                         </th>
-                                         <th data-hide="phone,tablet">
-                                         	ip地址
-                                         </th>
-                                         <th data-hide="phone,tablet">
-                                         	操作
-                                         </th>
-                                     </tr>
-                                     <c:forEach items="${userList}" var="user">
-                                     <tbody>
-									<tr>
-										<td>${user.suid}</td>
-										<td>${user.suusername}</td>
-										<td>${user.suname}</td>
-										<td>${user.suphone}</td>
-										<td>${user.sucard}</td>
-										<td>${user.suemail}</td>
-										<td>${user.subankcard}</td>
-										<td>${user.subanktype}</td>
-										<td>${user.sumoney}</td>
-										<td>${user.sucredit}</td>
-										<td>${user.suip}</td>
-										<td><a href="javascript:void(-1);" onclick="show_update(${user.suid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-											<a href="user/delete/${user.suid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
-									</tr>
-								</tbody>
-							</c:forEach>
-                                 </thead>
-                                 <!-- <tbody>
-                                     <tr>
-                                         <td>Isidra</td>
-                                         <td><a href="#">Boudreaux</a>
-                                         </td>
-                                         <td>Traffic Court Referee</td>
-                                         <td data-value="78025368997">22 Jun 1972</td>
-                                         <td data-value="1">
-                                           <button type="button" class="btn  ladda-label">
-                                 				<span class="entypo-pencil"></span>&nbsp;&nbsp;修改
-                                 			</button>
-                                 			
-                                 			 <button type="button" class="btn  ladda-label">
-                                 				<span class="entypo-plus-squared"></span>&nbsp;&nbsp;增加
-                                 			</button>
-                                         </td>
-                                     </tr>
-
-                                 </tbody> 
-                                 -->
-                                 <tfoot>
-                                     <tr>
-                                         <td colspan="5">
-                                             <div class="pagination pagination-centered"></div>
-                                         </td>
-                                     </tr>
-                                 </tfoot>
+                                <table class="table-striped footable-res footable metro-blue" data-page-size="7">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                               		用户名
+                                            </th>
+                                            <th>
+                                           			 真实姓名
+                                            </th>
+                                            <th data-hide="phone,tablet">
+                                        		    手机号
+                                            </th>
+                                            <th data-hide="phone,tablet">
+                          							身份证
+                                            </th>
+                                            <th data-hide="phone,tablet">
+                                                	邮箱
+                                            </th>
+                                            <th data-hide="phone,tablet">
+                                                	账户余额
+                                            </th >
+                                            <th data-hide="phone,tablet">
+                                            		信用额度
+                                            </th >
+                                            
+                                            <th data-hide="phone,tablet">
+                                            		ip地址
+                                            </th >
+                                            
+                                        </tr>
+                                        <c:forEach items="${userList}" var="user">
+                                        <tbody>
+											<tr>
+												<td>${user.suusername}</td>
+												<td>${user.suname}</td>
+												<td>${user.suphone}</td>
+												<td>${user.sucard}</td>
+												<td>${user.suemail}</td>
+												<td>${user.sumoney}</td>
+												<td>${user.sucredit}</td>
+												<td>${user.suip}</td>
+												
+												</tr>
+											</tbody>
+										</c:forEach>
+                                    </thead>
+                                    
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div class="pagination pagination-centered"></div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -476,6 +363,7 @@ String path = request.getContextPath();
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.filter.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
+    <script src="/ServiceP2p/ntps/js/laydate.js" type="text/javascript"></script>
 
 
 
@@ -531,26 +419,23 @@ String path = request.getContextPath();
 	<!-- 修改拟态框 -->
     <script>
     function show_update(id) {
-    	var url =  "getby";
+    	var url =  "recharge/getby";
     	$.post(
     			url,
     			{
-    				suid:id
+    				chid:id
     			},
 	    			function(data){
 	    				var obj = JSON.parse(data);
-	    				$('#suid').val(obj.suid);
-	    				$('#suusername').val(obj.suusername);
-	    				$('#suname').val(obj.suname);
-	    				$('#suphone').val(obj.suphone);
-	    				$('#sucard').val(obj.sucard);
-	    				$('#suemail').val(obj.suemail);
-	    				$('#supassword').val(obj.supassword);
-	    				$('#subankcard').val(obj.subankcard);
-	    				$('#subanktype').val(obj.subanktype);
-	    				$('#sumoney').val(obj.sumoney);
-	    				$('#sucredit').val(obj.sucredit);
-	    				$('#suip').val(obj.suip);
+	    				$('#chid').val(obj.chid);
+	    				$('#chsuid').val(obj.chsuid);
+	    				$('#chmoney').val(obj.chmoney);
+	    				$('#chorder').val(obj.chorder);
+	    				$('#chstate').val(obj.chstate);
+	    				$('#chtime').val(obj.chtime);
+	    				$('#chbankid').val(obj.chbankid);
+	    				$('#chtype').val(obj.chtype);
+	    				$('#chip').val(obj.chip);
 	    			}
 		    );	
 	    	
@@ -561,5 +446,57 @@ String path = request.getContextPath();
 	    
 	</script>
 	
+	<!-- 时间控制 -->
+	<script type="text/javascript">
+	!function(){
+		laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
+		laydate({elem: '#chtime'});//绑定元素
+	}();
+	
+	//日期范围限制
+	var start = {
+	    elem: '#start',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(), //设定最小日期为当前日期
+	    max: '2099-06-16', //最大日期
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	         end.min = datas; //开始日选好后，重置结束日的最小日期
+	         end.start = datas //将结束日的初始值设定为开始日
+	    }
+	};
+	
+	var end = {
+	    elem: '#end',
+	    format: 'YYYY-MM-DD',
+	    min: laydate.now(),
+	    max: '2099-06-16',
+	    istime: true,
+	    istoday: false,
+	    choose: function(datas){
+	        start.max = datas; //结束日选好后，充值开始日的最大日期
+	    }
+	};
+	laydate(start);
+	laydate(end);
+	
+	//自定义日期格式
+	laydate({
+	    elem: '#test1',
+	    format: 'YYYY年MM月DD日',
+	    festival: true, //显示节日
+	    choose: function(datas){ //选择日期完毕的回调
+	        alert('得到：'+datas);
+	    }
+	});
+	
+	//日期范围限定在昨天到明天
+	laydate({
+	    elem: '#hello3',
+	    min: laydate.now(-1), //-1代表昨天，-2代表前天，以此类推
+	    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
+	});
+	</script>
 	</body>
 </html>

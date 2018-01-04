@@ -48,4 +48,10 @@ public class AdminServiceImpl implements AdminService{
 		return adminmapper.getById(id);
 	}
 
+	@Override
+	public Admin login(String phone) {
+		// TODO Auto-generated method stub
+		return adminmapper.login(phone);
+	}
+
 }

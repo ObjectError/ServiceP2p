@@ -50,7 +50,7 @@
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>表动态
+                            <span>提现表
                             </span>
                         </h2>
 
@@ -132,45 +132,45 @@
 							            <div class="modal-body">
 							                <div class="input-group">
 												<div class="form-group">
-													<label>用户id:</label>
-										            <input name="csuid" id="csuid" type="text"  style="color:black;">
+										            <input name="csuid" id="csuid" type="hidden"  style="color:black;">
 							                    </div>
 							                    <div class="form-group">
 							                        <label>提现金额:</label>
-							                		<input name="cmoeny" id="cmoeny" type="text"  style="color:black;">
+							                		<input name="cmoeny" id="cmoeny" type="text"  style="color:black;" readonly="readonly">
 							                    </div>
 							                    <div class="form-group">
 							                        <label>提现卡号:</label>
-							                		<input name="ccard" id="ccard" type="text"  style="color:black;">
+							                		<input name="ccard" id="ccard" type="text"  style="color:black;" readonly="readonly">
 							                    </div>
 							                    <div class="form-group">
 													<label>提现订单号:</label>
-										            <input name="corder" id="corder" type="text"   style="color:black;">
+										            <input name="corder" id="corder" type="text"   style="color:black;" readonly="readonly">
 							                    </div>
 							                    <div class="form-group">
 													<label>提现时间:</label>
-										            <input name="ctime" id="ctime" type="text" class="laydate-icon" style="color:black;">
+										            <input name="ctime" id="ctime" type="text" class="laydate-icon" style="color:black;" readonly="readonly">
 							                    </div>
-							                    <div class="form-group">
-													<label>提现状态:</label>
-										            <input name="cstate" id="cstate" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>提现后客户端余额:</label>
-										            <input name="cfigure" id="cfigure" type="text" style="color:black;">
-							                    </div>
+							                   
 							                    <div class="form-group">
 													<label>手续费:</label>
-										            <input name="cpoundage" id="cpoundage" type="text"  style="color:black;">
+										            <input name="cpoundage" id="cpoundage" type="text"  style="color:black;" readonly="readonly">
 							                    </div>
 							                    <div class="form-group">
 													<label>ip地址:</label>
-										            <input name="cip" id="cip" type="text"  style="color:black;">
+										            <input name="cip" id="cip" type="text"  style="color:black;" readonly="readonly">
+							                    </div>
+							                     <div class="form-group">
+													<label>提现状态:</label>
+										            <select name="cstate" >
+										            	<option value=1>待审核</option>
+										            	<option value=2>提现成功</option>
+										            	<option value=3>提现失败</option>
+										            </select>
 							                    </div>
 							                </div>
 							            </div>
 							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
+							                <button type="button" class="btn btn-default" data-dismiss="modal" >
 							                	关闭
 							                </button>
 							               
@@ -183,15 +183,11 @@
 							</div> 
 
                             <div class="body-nest" id="Footable">
-                            	<a href="bank/list"><span class="glyphicon glyphicon-plus"></span>新增</a>
                                 <table class="table-striped footable-res footable metro-blue" data-page-size="7">
                                     <thead>
                                         <tr>
                                             <th>
-                                               		编号
-                                            </th>
-                                            <th>
-                                           			 用户id
+                                           			 用户名
                                             </th>
                                             <th data-hide="phone,tablet">
                                         		    提现金额   
@@ -205,12 +201,9 @@
                                             <th data-hide="phone,tablet">
                                                 	提现时间
                                             </th >
-                                            <th data-hide="phone,tablet">
+                                          <!--   <th data-hide="phone,tablet">
                                             	    提现状态
-                                            </th>
-                                            <th data-hide="phone,tablet">
-                                            	    提现后余额
-                                            </th>
+                                            </th> -->
                                             <th data-hide="phone,tablet">
                                             	    手续费
                                             </th>
@@ -224,19 +217,38 @@
                                         <c:forEach items="${listcash}" var="cash">
                                         <tbody>
 											<tr>
-												<td>${cash.cid}</td>
-												<td>${cash.csuid}</td>
+												
+												<td>${cash.user.suname}</td>
 												<td>${cash.cmoeny}</td>
 												<td>${cash.ccard}</td>
 												<td>${cash.corder}</td>
 												<td>${cash.ctime}</td>
-												<td>${cash.cstate}</td>
-												<td>${cash.cfigure}</td>
+												<%-- <td>
+													<c:if test="${cash.cstate==1}">
+														待审核
+													</c:if>
+													<c:if test="${cash.cstate==2}">
+														提现成功
+													</c:if>
+													<c:if test="${cash.cstate==3}">
+														提现失败
+													</c:if>
+												</td> --%>
 												<td>${cash.cpoundage}</td>
 												<td>${cash.cip}</td>
-												<td><a href="javascript:void(-1);" onclick="show_update(${cash.cid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-													<a href="cash/delete/${cash.cid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
+												<td>
+													<c:if test="${cash.cstate==1}">
+														<a href="javascript:void(-1);" onclick="show_update(${cash.cid})"><span class="glyphicon glyphicon-list-alt"></span>待审核</a>
+													</c:if>
+													<c:if test="${cash.cstate==2}">
+														<span class="entypo-lock"></span>审核通过
+													</c:if>
+													<c:if test="${cash.cstate==3}">
+														<span class="entypo-lock"></span>审核失败
+													</c:if>
+												</td>
 											</tr>
+											
 											</tbody>
 										</c:forEach>
                                     </thead>
@@ -262,7 +274,7 @@
                                     -->
                                     <tfoot>
                                         <tr>
-                                            <td colspan="5">
+                                            <td colspan="11">
                                                 <div class="pagination pagination-centered"></div>
                                             </td>
                                         </tr>

@@ -21,6 +21,8 @@ public class Users implements Serializable{
 	@TableField("su_id")
 	private Integer suid;//主键id
 	
+	private Integer id;	//前台传递的suid
+	
 	@TableField("su_username")
 	private String suusername; //用户名
 	
@@ -35,16 +37,7 @@ public class Users implements Serializable{
 	
 	@TableField("su_email")
 	private String suemail; //邮箱
-	
-	@TableField("supay_password")
-	private String supaypassword;		//支付密码
-	
-	@TableField("su_bankcard")
-	private String subankcard; //银行卡
-	
-	@TableField("su_banktype")
-	private String subanktype; //银行卡类型
-	
+
 	@TableField("su_money")
 	private double sumoney; //账户余额
 	
@@ -54,8 +47,7 @@ public class Users implements Serializable{
 	@TableField("su_ip")
 	private String suip;	//ip地址
 
-	@TableField("su_password")
-	private String supassword; //登入密码
+
 
 	public Integer getSuid() {
 		return suid;
@@ -105,22 +97,6 @@ public class Users implements Serializable{
 		this.suemail = suemail;
 	}
 
-	public String getSubankcard() {
-		return subankcard;
-	}
-
-	public void setSubankcard(String subankcard) {
-		this.subankcard = subankcard;
-	}
-
-	public String getSubanktype() {
-		return subanktype;
-	}
-
-	public void setSubanktype(String subanktype) {
-		this.subanktype = subanktype;
-	}
-
 	public double getSumoney() {
 		return sumoney;
 	}
@@ -145,56 +121,45 @@ public class Users implements Serializable{
 		this.suip = suip;
 	}
 
-	public String getSupassword() {
-		return supassword;
-	}
-
-	public void setSupassword(String supassword) {
-		this.supassword = supassword;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-
-	
-	public String getSupaypassword() {
-		return supaypassword;
-	}
-
-	public void setSupaypassword(String supaypassword) {
-		this.supaypassword = supaypassword;
 	}
 
 	public Users() {
 		super();
 	}
 
-	public Users(Integer suid, String suusername, String suname, String suphone, String sucard, String suemail,
-			String supaypassword, String subankcard, String subanktype, double sumoney, Integer sucredit, String suip,
-			String supassword) {
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Users(Integer suid, Integer id, String suusername, String suname, String suphone, String sucard,
+			String suemail,double sumoney,Integer sucredit, String suip) {
 		super();
 		this.suid = suid;
+		this.id = id;
 		this.suusername = suusername;
 		this.suname = suname;
 		this.suphone = suphone;
 		this.sucard = sucard;
 		this.suemail = suemail;
-		this.supaypassword = supaypassword;
-		this.subankcard = subankcard;
-		this.subanktype = subanktype;
 		this.sumoney = sumoney;
 		this.sucredit = sucredit;
 		this.suip = suip;
-		this.supassword = supassword;
 	}
 
 	@Override
 	public String toString() {
-		return "Users [suid=" + suid + ", suusername=" + suusername + ", suname=" + suname + ", suphone=" + suphone
-				+ ", sucard=" + sucard + ", suemail=" + suemail + ", supaypassword=" + supaypassword + ", subankcard="
-				+ subankcard + ", subanktype=" + subanktype + ", sumoney=" + sumoney + ", sucredit=" + sucredit
-				+ ", suip=" + suip + ", supassword=" + supassword + "]";
+		return "Users [suid=" + suid + ", id=" + id + ", suusername=" + suusername + ", suname=" + suname + ", suphone="
+				+ suphone + ", sucard=" + sucard + ", suemail=" + suemail + ", supaypassword=" 
+				+ ", subankcard=" + ", sumoney=" + sumoney + ", sucredit="
+				+ sucredit + ", suip=" + suip + "]";
 	}
 
+	
 }

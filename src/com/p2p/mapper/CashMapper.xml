@@ -3,7 +3,6 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.p2p.mapper.CashMapper">
-		<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
 		<resultMap type="com.p2p.pojo.Cash" id="cashcc">
 			<result column="c_id" property="cid"/>
 			<result column="c_suid" property="csuid"/>
@@ -15,11 +14,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="c_figure" property="cfigure"/>
 			<result column="c_poundage" property="cpoundage"/>
 			<result column="c_ip" property="cip"/>
+			<association property="user" javaType="com.p2p.pojo.Users">
+				<result property="suname" column="su_name"/>
+			</association>
 		</resultMap>
 		
 		<!-- 查询所有 -->
 		<select id="list" resultMap="cashcc">
-			select * from cash
+			select * from cash c ,users u
 		</select>
 		
 		<!-- 增加 -->

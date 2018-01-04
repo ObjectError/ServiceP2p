@@ -3,7 +3,6 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.p2p.mapper.RechargeMapper">
-		<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
 		<resultMap type="com.p2p.pojo.Recharge" id="rechargema">
 			<result column="ch_id" property="chid"/>
 			<result column="ch_suid" property="chsuid"/>

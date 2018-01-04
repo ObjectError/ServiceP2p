@@ -33,47 +33,18 @@ String path = request.getContextPath();
         <![endif]-->
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="/ServiceP2p/ntps/assets/ico/minus.png">
-	<!-- 开启拟态框 -->
-	<link rel="stylesheet" href="/ServiceP2p/ntps/assets/css/omodal.css">
-    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/towmodal.js"></script>
-    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/omodal.js"></script>
-    <script type="text/javascript" src="/ServiceP2p/ntps/assets/js/jquery.js"></script>
-    <script type="text/javascript">
-    	$(document).ready(function(){
-    		$('#bank').blur(function(){
-    			var bank=$('#bank').val();
-    			var b= /^([1-9]{1})(\d{14}|\d{18})$/g;
-    			if(!b.test(bank)){
-    				alert("银行卡号格式不正确");
-    				//$('#bank').val("");
-    				return;
-    			}
-    			$.ajax({
-    				url:'bank/bankType',
-    				data:{'bank':bank},
-    				type:'post',
-    				dataType:'json',
-    				success:function(data){
-    					//alert(data.name);
-    					$('#banktype').val(data.name);
-    					if(data.name==""){
-    	    				alert("银行卡号格式错误，请输入正确的银行卡号");
-    	    				//$('#bank').val("");
-    	    				return;
-    	    			}
-    				}
-    			});
-    			
-    		})
-    	})
-    </script>
-	<body>
-    <!-- Preloader -->
+	
+	<body> 
 	<jsp:include page="./head/head.jsp"></jsp:include>
+
 
     <!--  PAPER WRAP -->
     <div class="wrap-fluid">
         <div class="container-fluid paper-wrap bevel tlbr">
+
+
+
+
 
             <!-- CONTENT -->
             <!--TITLE -->
@@ -82,7 +53,7 @@ String path = request.getContextPath();
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>表动态
+                            <span>银行卡管理表
                             </span>
                         </h2>
 
@@ -109,7 +80,7 @@ String path = request.getContextPath();
             </div>
             <!--/ TITLE -->
 
-            <!-- BREADCRUMB -->
+         <!-- BREADCRUMB -->
             <ul id="breadcrumb">
                 <li>
                     <span class="entypo-home"></span>
@@ -138,173 +109,21 @@ String path = request.getContextPath();
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="nest" id="FootableClose">
-                            <div class="title-alt">
-                                
-                                <div class="titleToggle">
-                                    <a class="nav-toggle-alt" href="#Footable">
-                                        <span class="entypo-up-open"></span>
-                                    </a>
-                                </div>
-                            </div>
 
                             <div class="body-nest" id="Footable">
-                            	<a href="javascript:void(-1);" onclick="show_modal();">
-                            		<span class="glyphicon glyphicon-plus"></span>新增
-                            	</a>    
-                            <!-- 新增拟态框（Modal） -->
-                            
-							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="bank/add" method="post">
-							        <div class="modal-content">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    新增
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-							                	<div class="form-group">
-							                        <label>编号:</label>
-							                		<input name="bid" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-							                        <label>用户id:</label>
-							                		<input name="bsuid" type="text" value="" style="color:black;">
-							                    </div>
-												<div class="form-group">
-													<label>银行卡号:</label>
-										            <input id="bank" name="bcode" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>银行卡类型:</label>
-										            <input name="btype" id="banktype" type="text" readonly="readonly" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>银行卡余额:</label>
-										            <input name="bmoney" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>银行卡状态:</label>
-										            <input name="bstate" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>身份证号码:</label>
-										            <input name="bcard" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>真实姓名:</label>
-										            <input name="bname" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>银行预留手机号:</label>
-										            <input name="bphone" type="text" value="" style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>申请银行卡时间:</label>
-										            <input name="btime" type="text" value="" style="color:black;">
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               <!--  <button type="button"  id="id_ad_search" onclick="javascrtpt:window.location.href='bank/add'">
-							                  	  提交
-							                </button> -->
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_ad_search">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div>
-							
-                            <!-- 修改拟态框（Modal） -->
-							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="bank/update" method="post">
-							        <div class="modal-content">
-							        	<input type="hidden" name="bid" id="bid">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    修改
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-							                    <div class="form-group">
-							                        <label>用户id:</label>
-							                		<input name="bsuid" id="bsuid" type="text"  style="color:black;">
-							                    </div>
-												<div class="form-group">
-													<label>银行卡号:</label>
-										            <input name="bcode" id="bcode" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>银行卡类型:</label>
-										            <input name="btype" id="btype" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>银行卡余额:</label>
-										            <input name="bmoney" id="bmoney" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>银行卡状态:</label>
-										            <input name="bstate" id="bstate" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>身份证号码:</label>
-										            <input name="bcard" id="bcard" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>真实姓名:</label>
-										            <input name="bname" id="bname" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>银行预留手机号:</label>
-										            <input name="bphone" id="bphone" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>申请银行卡时间:</label>
-										            <input name="btime" id="btime" type="text" class="laydate-icon" style="color:black;">
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               <!--  <button type="button"  id="id_ad_search" onclick="javascrtpt:window.location.href='bank/add'">
-							                  	  提交
-							                </button> -->
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div>    
-                                
-
-                                
-                                
+                            	
                                 
                                 <table class="table-striped footable-res footable metro-blue" id="tb_role" data-page-size="6">
                                     <thead>
                                         <tr>
                                             <th data-hide="phone,tablet">
-                                               		编号
+                                               		真实姓名
                                             </th>
                                             <th data-hide="phone,tablet">
-                                           			 用户id
+                                           			银行预留手机号
+                                            </th>
+                                             <th data-hide="phone,tablet">
+                                            	   身份证号码
                                             </th>
                                             <th data-hide="phone,tablet">
                                         		       银行卡号
@@ -318,45 +137,29 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                                                 	银行卡状态
                                             </th >
-                                            <th data-hide="phone,tablet">
-                                            	   身份证号码
-                                            </th>
-                                            <th data-hide="phone,tablet">
-                                            	 真实姓名
-                                            </th>
-                                            <th data-hide="phone,tablet">
-                                            	   银行预留手机号
-                                            </th>
-                                            <th data-hide="phone,tablet">
+                                            <th >
                                             	申请银行卡时间
-                                            </th>
-                                            <th data-hide="phone,tablet">
-												操作
                                             </th>
                                         </tr>
                                         <c:forEach items="${bankList }" var="bank">
                                         <tbody>
 											<tr>
-												<td>${bank.bid }</td>
-												<td>${bank.bsuid }</td>
+												<td>${bank.bname }</td>
+												<td>${bank.bphone }</td>
+												<td>${bank.bcard }</td>
 												<td>${bank.bcode }</td>
 												<td>${bank.btype }</td>
 												<td>${bank.bmoney }</td>
 												<td>${bank.bstate }</td>
-												<td>${bank.bcard }</td>
-												<td>${bank.bname }</td>
-												<td>${bank.bphone }</td>
 												<td>${bank.btime }</td>
-												<td><a href="javascript:void(-1);" onclick="show_update(${bank.bid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-													<a href="bank/delete/${bank.bid }"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
 											</tbody>
 										</c:forEach>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="5">
-                                                <div class="pagination pagination-centered"></div>
+                                            <td colspan="8">
+                                                <div class="pagination pagination-centered">1 2 3</div>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -383,7 +186,7 @@ String path = request.getContextPath();
                     <p id="clock">
                 </div>
                 <div class="copyright">Make with Love
-                    <span class="entypo-heart"></span>Collect from <a href="#" title="网页模板" target="_blank">后台管理</a> All Rights Reserved</div>
+                    <span class="entypo-heart"></span>Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> All Rights Reserved</div>
                 <div class="devider-footer"></div>
 
             </div>
@@ -551,7 +354,8 @@ String path = request.getContextPath();
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.filter.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
-	<script src="/ServiceP2p/ntps/js/laydate.js" type="text/javascript"></script>
+    <script src="/ServiceP2p/ntps/js/laydate.js" type="text/javascript"></script>
+
 
 
 
@@ -601,51 +405,28 @@ String path = request.getContextPath();
         });
     });
     </script>
-    
-    <!-- 新增拟态框 -->
+	
+	
+	<!-- 修改拟态框 -->
     <script>
-	    function show_modal() {
-	         $('#myModal').modal('show');
-	         $('#tb_role').bootstrapTable('refresh');
-	    }
-	   /*  $(function () {
-	        $('#id_ad_search').click(function () {
-	           var name = $('#id_name').val();
-	            $.ajax({
-	                url:'bank/add',
-	                data:{name:name},
-	                complete:function () {
-	                    $('#myModal').modal('hide');
-	                }
-	            })
-	
-	        });
-	
-	    }); */
-	
-	</script>
-    
-     <!-- 修改拟态框 -->
-    <script>
-	    function show_update(id) {
-	    	var url =  "bank/getby";
-	    	$.post(
-	    			url,
-	    			{
-	    				bid:id
-	    			},
+    function show_update(id) {
+    	var url =  "recharge/getby";
+    	$.post(
+    			url,
+    			{
+    				chid:id
+    			},
 	    			function(data){
 	    				var obj = JSON.parse(data);
-	    				$('#bid').val(obj.bid);
-	    				$('#bsuid').val(obj.bsuid);
-	    				$('#bcode').val(obj.bcode);
-	    				$('#btype').val(obj.btype);
-	    				$('#bmoney').val(obj.bmoney);
-	    				$('#bstate').val(obj.bstate);
-	    				$('#bcard').val(obj.bcard);
-	    				$('#bname').val(obj.bname);
-	    				$('#bphone').val(obj.bphone);
-	    				$('#btime').val(obj.btime);
+	    				$('#chid').val(obj.chid);
+	    				$('#chsuid').val(obj.chsuid);
+	    				$('#chmoney').val(obj.chmoney);
+	    				$('#chorder').val(obj.chorder);
+	    				$('#chstate').val(obj.chstate);
+	    				$('#chtime').val(obj.chtime);
+	    				$('#chbankid').val(obj.chbankid);
+	    				$('#chtype').val(obj.chtype);
+	    				$('#chip').val(obj.chip);
 	    			}
 		    );	
 	    	
@@ -656,12 +437,11 @@ String path = request.getContextPath();
 	    
 	</script>
 	
-	
 	<!-- 时间控制 -->
 	<script type="text/javascript">
 	!function(){
 		laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
-		laydate({elem: '#btime'});//绑定元素
+		laydate({elem: '#chtime'});//绑定元素
 	}();
 	
 	//日期范围限制
@@ -709,8 +489,5 @@ String path = request.getContextPath();
 	    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
 	});
 	</script>
-	
-	
-	
 	</body>
 </html>
