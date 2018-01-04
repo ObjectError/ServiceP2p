@@ -150,7 +150,14 @@ String path = request.getContextPath();
 												<td>${bank.bcode }</td>
 												<td>${bank.btype }</td>
 												<td>${bank.bmoney }</td>
-												<td>${bank.bstate }</td>
+												<td>
+													<c:if test="${bank.bstate==1 }">
+														正常
+													</c:if>
+													<c:if test="${bank.bstate==2 }">
+														冻结
+													</c:if>
+												</td>
 												<td>${bank.btime }</td>
 											</tr>
 											</tbody>

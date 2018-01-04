@@ -10,11 +10,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="i_time" property="itime"/>
 			<result column="i_type" property="itype"/>
 			<result column="i_ip" property="iip"/>
+			<association property="user" javaType="com.p2p.pojo.Users">
+				<result property="suname" column="su_name"/>
+			</association>
 		</resultMap>
 		
 		<!-- 查询所有 -->
 		<select id="list" resultMap="incomemapp">
-			select * from income
+			select i.*,u.su_name from income i,users u where i.i_suid=u.id
 		</select>
 		
 		<!-- 增加 -->

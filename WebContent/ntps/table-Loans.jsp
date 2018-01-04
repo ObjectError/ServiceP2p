@@ -220,7 +220,17 @@ String path = request.getContextPath();
 												<td>${loanss.lsuids}</td>
 												<td>${loanss.lmoney}</td>
 												<td>${loanss.ltime}</td>
-												<td>${loanss.lstate}</td>
+												<td>
+													<c:if test="${loanss.lstate==1}">
+														审核中
+													</c:if>
+													<c:if test="${loanss.lstate==2}">
+														放款成功
+													</c:if>
+													<c:if test="${loanss.lstate==3}">
+														放款失败
+													</c:if>
+												</td>
 												<td>${loanss.lip}</td>
 												<td>${loanss.lips}</td>
 												

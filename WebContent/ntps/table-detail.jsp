@@ -137,10 +137,7 @@ String path = request.getContextPath();
                                     <thead>
                                         <tr>
                                             <th data-hide="phone,tablet">
-                                               		编号
-                                            </th>
-                                            <th data-hide="phone,tablet">
-                                           			 用户id
+                                           			 用户名
                                             </th>
                                             <th data-hide="phone,tablet">
                                         		       订单号
@@ -164,13 +161,22 @@ String path = request.getContextPath();
                                         <c:forEach items="${detailList }" var="detail">
                                         <tbody>
 											<tr>
-												<td>${detail.did }</td>
-												<td>${detail.dsuid }</td>
+												<td>${detail.user.suname }</td>
 												<td>${detail.dorder }</td>
 												<td>${detail.dtype }</td>
 												<td>${detail.dmoney }</td>
 												<td>${detail.dtime }</td>
-												<td>${detail.dstate }</td>
+												<td>
+													<c:if test="${detail.dstate==1 }">
+														审核中
+													</c:if>
+													<c:if test="${detail.dstate==2 }">
+														交易成功
+													</c:if>
+													<c:if test="${detail.dstate==3 }">
+														交易失败
+													</c:if>
+												</td>
 												<td>${detail.dip }</td>
 											</tr>
 											</tbody>
@@ -178,7 +184,7 @@ String path = request.getContextPath();
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="5">
+                                            <td colspan="7">
                                                 <div class="pagination pagination-centered"></div>
                                             </td>
                                         </tr>

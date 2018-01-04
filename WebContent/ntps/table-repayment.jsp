@@ -222,7 +222,17 @@ String path = request.getContextPath();
 												<td>${repayy.rsuids}</td>
 												<td>${repayy.rmoeny}</td>
 												<td>${repayy.rtime}</td>
-												<td>${repayy.rstate}</td>
+												<td>
+													<c:if test="${repayy.rstate==1}">
+														审核中
+													</c:if>
+													<c:if test="${repayy.rstate==2}">
+														还款成功
+													</c:if>
+													<c:if test="${repayy.rstate==3}">
+														还款失败
+													</c:if>
+												</td>
 												<td>${repayy.rip}</td>
 												<td>${repayy.rips}</td>
 												<td><a href="javascript:void(-1);" onclick="show_update(${repayy.rid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|

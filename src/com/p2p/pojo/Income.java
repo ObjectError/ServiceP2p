@@ -35,9 +35,11 @@ public class Income implements Serializable{
 	
 	@TableField("i_ip")
 	private String iip;//ip地址
+	private Users user;
 
-	public Income(Integer iid, Integer isuid, double imoeny, String itime, String itype, String iip) {
+	public Income(Users user,Integer iid, Integer isuid, double imoeny, String itime, String itype, String iip) {
 		super();
+		this.user=user;
 		this.iid = iid;
 		this.isuid = isuid;
 		this.imoeny = imoeny;
@@ -98,13 +100,21 @@ public class Income implements Serializable{
 		this.iip = iip;
 	}
 
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "Income [iid=" + iid + ", isuid=" + isuid + ", imoeny=" + imoeny + ", itime=" + itime + ", itype="
+		return "Income [user=" + user + ",iid=" + iid + ", isuid=" + isuid + ", imoeny=" + imoeny + ", itime=" + itime + ", itype="
 				+ itype + ", iip=" + iip + "]";
 	}
 	
