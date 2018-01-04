@@ -187,6 +187,18 @@ String path = request.getContextPath();
                             	 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/income/list" title="Table Dynamic"><i class="entypo-menu"></i><span>收益表</span></a>
                                 </li>
+                               
+                                 <li>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/detail/list" title="Table Dynamic"><i class="entypo-menu"></i><span>账单明细表</span></a>
+                                </li>
+                            </ul>
+                           </li>
+                           <li>
+                            <a class="tooltip-tip ajax-load" href="#" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>资金变动</span>
+                            </a>
+                            <ul>
                                 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/cash/list" title="Table Dynamic"><i class="entypo-menu"></i><span>提现表</span></a>
                                 </li>
@@ -197,12 +209,8 @@ String path = request.getContextPath();
                                  <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/recharge/list" title="Table Dynamic"><i class="entypo-menu"></i><span>充值表</span></a>
                                 </li>
-                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/detail/list" title="Table Dynamic"><i class="entypo-menu"></i><span>账单明细表</span></a>
-                                </li>
                             </ul>
                            </li>
-                           
                            
                           <li>
                             <a class="tooltip-tip ajax-load" href="#" title="Dashboard">

@@ -53,7 +53,7 @@ String path = request.getContextPath();
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>表动态
+                            <span>用户绑卡表
                             </span>
                         </h2>
 
@@ -109,75 +109,10 @@ String path = request.getContextPath();
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="nest" id="FootableClose">
-                            <div class="title-alt">
-                                
-                                <div class="titleToggle">
-                                    <a class="nav-toggle-alt" href="#Footable">
-                                        <span class="entypo-up-open"></span>
-                                    </a>
-                                </div>
-                            </div>
-							
-							<!-- 修改拟态框（Modal） -->
-							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="userBindCard/update" method="post">
-							        <div class="modal-content">
-							        	<input type="hidden" name="uid" id="uid">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    修改
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-												<div class="form-group">
-													<label>用户id:</label>
-										            <input name="usuid" id="usuid" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-							                        <label>银行卡号:</label>
-							                		<input name="ubankcode" id="ubankcode" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>银行卡类型:</label>
-										            <input name="utype" id="utype" type="text"  style="color:black;">
-							                    </div>
-							                    
-							                    <div class="form-group">
-													<label>绑卡时间:</label>
-										            <input name="utime" id="utime" type="text" class="laydate-icon"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>绑卡状态:</label>
-										            <input name="ustate" id="ustate" type="text"  style="color:black;">
-							                    </div>
-							                    
-							                    <div class="form-group">
-													<label>ip地址:</label>
-										            <input name="uip" id="uip" type="text"  style="color:black;">
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div> 
+                          
 							
 							
                             <div class="body-nest" id="Footable">
-                            	<a href="income/list"><span class="glyphicon glyphicon-plus"></span>新增</a>
                                 <table class="table-striped footable-res footable metro-blue" data-page-size="7">
                                     <thead>
                                         <tr>
@@ -202,9 +137,6 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                                             		ip地址
                                             </th >
-                                            <th data-hide="phone,tablet">
-                                            		操作
-                                            </th >
                                         </tr>
                                         <c:forEach items="${listubc}" var="ubcards">
                                         <tbody>
@@ -216,40 +148,20 @@ String path = request.getContextPath();
 												<td>${ubcards.utime}</td>
 												<td>${ubcards.ustate}</td>
 												<td>${ubcards.uip}</td>
-												<td><a href="javascript:void(-1);" onclick="show_update(${ubcards.uid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-													<a href="userBindCard/delete/${ubcards.uid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
 											</tbody>
 										</c:forEach>
                                     </thead>
-                                    <!-- <tbody>
-                                        <tr>
-                                            <td>Isidra</td>
-                                            <td><a href="#">Boudreaux</a>
-                                            </td>
-                                            <td>Traffic Court Referee</td>
-                                            <td data-value="78025368997">22 Jun 1972</td>
-                                            <td data-value="1">
-                                              <button type="button" class="btn  ladda-label">
-                                    				<span class="entypo-pencil"></span>&nbsp;&nbsp;修改
-                                    			</button>
-                                    			
-                                    			 <button type="button" class="btn  ladda-label">
-                                    				<span class="entypo-plus-squared"></span>&nbsp;&nbsp;增加
-                                    			</button>
-                                            </td>
-                                        </tr>
-
-                                    </tbody> 
-                                    -->
+                                   
                                     <tfoot>
                                         <tr>
-                                            <td colspan="5">
+                                            <td colspan="7">
                                                 <div class="pagination pagination-centered"></div>
                                             </td>
                                         </tr>
                                     </tfoot>
                                 </table>
+                                
                             </div>
                         </div>
                     </div>

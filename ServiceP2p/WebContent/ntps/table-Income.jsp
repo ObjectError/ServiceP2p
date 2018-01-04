@@ -53,7 +53,7 @@ String path = request.getContextPath();
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>表动态
+                            <span>收益表
                             </span>
                         </h2>
 
@@ -91,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="bank/list" title="Sample page 1">银行卡管理表</a>
+                <li><a href="bank/list" title="Sample page 1">收益表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -194,9 +194,7 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                                                 	ip地址
                                             </th >
-                                            <th data-hide="phone,tablet">
-                                            		操作
-                                            </th >
+                                            
                                         </tr>
                                         <c:forEach items="${listin}" var="incomes">
                                         <tbody>
@@ -207,9 +205,7 @@ String path = request.getContextPath();
 												<td>${incomes.itime}</td>
 												<td>${incomes.itype}</td>
 												<td>${incomes.iip}</td>
-												<td><a href="javascript:void(-1);" onclick="show_update(${incomes.iid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-													<a href="income/delete/${incomes.iid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
-											</tr>
+												</tr>
 											</tbody>
 										</c:forEach>
                                     </thead>
@@ -235,7 +231,7 @@ String path = request.getContextPath();
                                     -->
                                     <tfoot>
                                         <tr>
-                                            <td colspan="5">
+                                            <td colspan="6">
                                                 <div class="pagination pagination-centered"></div>
                                             </td>
                                         </tr>

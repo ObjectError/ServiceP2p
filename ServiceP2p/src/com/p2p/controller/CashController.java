@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.p2p.pojo.Bank;
 import com.p2p.pojo.Cash;
-import com.p2p.pojo.Income;
+import com.p2p.pojo.Users;
+import com.p2p.services.BankService;
 import com.p2p.services.CashService;
+import com.p2p.services.UsersService;
 
 @Controller
 @RequestMapping("/cash")
@@ -20,6 +23,10 @@ public class CashController {
 	
 	@Resource(name="cashServiceImpl")
 	private CashService cashService;
+	@Resource(name="usersServiceImpl")
+	private UsersService userService;
+	@Resource(name="bankServiceImpl")
+	private BankService bankService;
 	
 	@RequestMapping("/list")
 	public String list(Model model) {
@@ -37,6 +44,12 @@ public class CashController {
 	@RequestMapping("/update")
 	public String update(Cash cash) {
 		cashService.update(cash);
+		Users u=userService.getById(cash.getCsuid());
+		u.setSumoney(u.getSumoney()-cash.getCmoeny());
+		userService.update(u);
+		Bank b=bankService.selectBankCard(cash.getCcard());
+		b.setBmoney(b.getBmoney()+cash.getCmoeny());
+		bankService.update(b);
 		return "redirect:/cash/list";
 	}
 	

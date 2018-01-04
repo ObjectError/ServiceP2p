@@ -3,7 +3,6 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.p2p.mapper.UsersMapper">
-	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"></cache>
 	<resultMap type="com.p2p.pojo.Users" id="userssm">
 			<result column="su_id" property="suid"/>
 			<result column="su_username" property="suusername"/>
@@ -25,11 +24,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 增加 -->
 	<select id="add" parameterType="com.p2p.pojo.Users">
-		insert into users(su_id,su_username,su_name,su_phone,su_card,su_email,su_bankcard
-		su_banktype,su_money,su_credit,su_ip,su_password,su_paypassword) 
-		values(#{suid},#{suusername},#{suname},#{suphone},#{sucard},#{suemail},
-		#{subankcard},#{subanktype},#{sumoney},#{sucredit},#{suip},#{supassword},
-		#{supaypassword})
+		insert into users(id,su_username,su_name,su_phone,su_card,su_email,
+		su_money,su_credit,su_ip) 
+		values(#{id},#{suusername},#{suname},#{suphone},#{sucard},#{suemail},
+		#{sumoney},#{sucredit},#{suip})
 	</select>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="java.lang.Integer">
@@ -43,6 +41,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<!-- 根据id查用户 -->
 	<select id="getById" resultMap="userssm" parameterType="java.lang.Integer">
-		select * from users where su_id = #{suid}
+		select * from users where id = #{id}
 	</select>
 </mapper>
