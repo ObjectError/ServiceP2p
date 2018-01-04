@@ -12,11 +12,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="d_type" property="dtype"/>
 			<result column="d_state" property="dstate"/>
 			<result column="d_ip" property="dip"/>
+			<association property="user" javaType="com.p2p.pojo.Users">
+				<result column="su_name" property="suname"/>
+			</association>
 		</resultMap>
 		
 		<!-- 查询所有 -->
 		<select id="list" resultMap="detail">
-			SELECT * from detail
+			SELECT d.*,u.su_name from detail d,users u where d.d_suid=u.id
 		</select>
 		
 		<!-- 增加 -->

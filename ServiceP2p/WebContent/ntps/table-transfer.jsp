@@ -229,7 +229,17 @@ String path = request.getContextPath();
 										<td>${tranli.tsuids}</td>
 										<td>${tranli.tmoney}</td>
 										<td>${tranli.ttime}</td>
-										<td>${tranli.tstate}</td>
+										<td>
+											<c:if test="${tranli.tstate==1}">
+												审核中
+											</c:if>
+											<c:if test="${tranli.tstate==2}">
+												转账成功
+											</c:if>
+											<c:if test="${tranli.tstate==3}">
+												转账失败
+											</c:if>
+										</td>
 										<td>${tranli.torder}</td>
 										<td>${tranli.tip}</td>
 										<td>${tranli.tips}</td>

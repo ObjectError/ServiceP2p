@@ -201,9 +201,9 @@
                                             <th data-hide="phone,tablet">
                                                 	提现时间
                                             </th >
-                                          <!--   <th data-hide="phone,tablet">
+                                          <th data-hide="phone,tablet">
                                             	    提现状态
-                                            </th> -->
+                                            </th>
                                             <th data-hide="phone,tablet">
                                             	    手续费
                                             </th>
@@ -223,7 +223,7 @@
 												<td>${cash.ccard}</td>
 												<td>${cash.corder}</td>
 												<td>${cash.ctime}</td>
-												<%-- <td>
+												<td>
 													<c:if test="${cash.cstate==1}">
 														待审核
 													</c:if>
@@ -233,7 +233,7 @@
 													<c:if test="${cash.cstate==3}">
 														提现失败
 													</c:if>
-												</td> --%>
+												</td>
 												<td>${cash.cpoundage}</td>
 												<td>${cash.cip}</td>
 												<td>

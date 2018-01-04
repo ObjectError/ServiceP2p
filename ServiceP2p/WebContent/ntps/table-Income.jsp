@@ -117,70 +117,13 @@ String path = request.getContextPath();
                                     </a>
                                 </div>
                             </div>
-                            
-                            <!-- 修改拟态框（Modal） -->
-							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="income/update" method="post">
-							        <div class="modal-content">
-							        	<input type="hidden" name="iid" id="iid">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    修改
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-												<div class="form-group">
-													<label>用户id:</label>
-										            <input name="isuid" id="isuid" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-							                        <label>收益金额:</label>
-							                		<input name="imoeny" id="imoeny" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>收益时间:</label>
-										            <input name="itime" id="itime" type="text" class="laydate-icon"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>收益类型:</label>
-										            <input name="itype" id="itype" type="text"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-													<label>ip地址:</label>
-										            <input name="iip" id="iip" type="text"  style="color:black;">
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div> 
-                            
-                            
 
                             <div class="body-nest" id="Footable">
-                            	<a href="income/list"><span class="glyphicon glyphicon-plus"></span>新增</a>
                                 <table class="table-striped footable-res footable metro-blue" data-page-size="7">
                                     <thead>
                                         <tr>
                                             <th>
-                                               		编号
-                                            </th>
-                                            <th>
-                                           			 用户id
+                                           			 用户名
                                             </th>
                                             <th data-hide="phone,tablet">
                                         		     收益金额
@@ -199,8 +142,7 @@ String path = request.getContextPath();
                                         <c:forEach items="${listin}" var="incomes">
                                         <tbody>
 											<tr>
-												<td>${incomes.iid}</td>
-												<td>${incomes.isuid}</td>
+												<td>${incomes.user.suname}</td>
 												<td>${incomes.imoeny}</td>
 												<td>${incomes.itime}</td>
 												<td>${incomes.itype}</td>

@@ -146,7 +146,14 @@ String path = request.getContextPath();
 												<td>${ubcards.ubankcode}</td>
 												<td>${ubcards.utype}</td>
 												<td>${ubcards.utime}</td>
-												<td>${ubcards.ustate}</td>
+												<td>
+													<c:if test="${ubcards.ustate==1}">
+														绑定成功
+													</c:if>
+													<c:if test="${ubcards.ustate==2}">
+														绑定失败
+													</c:if>
+												</td>
 												<td>${ubcards.uip}</td>
 											</tr>
 											</tbody>

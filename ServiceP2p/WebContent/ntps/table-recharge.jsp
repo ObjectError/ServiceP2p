@@ -228,7 +228,14 @@ String path = request.getContextPath();
 												<td>${rechargess.chsuid}</td>
 												<td>${rechargess.chmoney}</td>
 												<td>${rechargess.chorder}</td>
-												<td>${rechargess.chstate}</td>
+												<td>
+													<c:if test="${rechargess.chstate==1}">
+														充值成功
+													</c:if>
+													<c:if test="${rechargess.chstate==2}">
+														充值失败
+													</c:if>
+												</td>
 												<td>${rechargess.chtime}</td>
 												<td>${rechargess.chbankid}</td>
 												<td>${rechargess.chtype}</td>

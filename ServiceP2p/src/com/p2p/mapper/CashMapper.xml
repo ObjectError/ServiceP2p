@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 查询所有 -->
 		<select id="list" resultMap="cashcc">
-			select * from cash c ,users u
+			select * from cash c ,users u where c.c_suid=u.id
 		</select>
 		
 		<!-- 增加 -->

@@ -35,6 +35,7 @@ public class Detail implements Serializable{
 	@TableField("d_ip")
 	private String dip;//交易ip
 
+	private Users user;
 	public Integer getDid() {
 		return did;
 	}
@@ -99,13 +100,22 @@ public class Detail implements Serializable{
 		this.dip = dip;
 	}
 
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	public Detail(Integer did, String dsuid, String dmoney, String dtime, String dtype, String dstate, String dorder,
+	public Detail(Users user,Integer did, String dsuid, String dmoney, String dtime, String dtype, String dstate, String dorder,
 			String dip) {
 		super();
+		this.user=user;
 		this.did = did;
 		this.dsuid = dsuid;
 		this.dmoney = dmoney;
@@ -122,7 +132,7 @@ public class Detail implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Detail [did=" + did + ", dsuid=" + dsuid + ", dmoney=" + dmoney + ", dtime=" + dtime + ", dtype="
+		return "Detail [user=" + user + ",[did=" + did + ", dsuid=" + dsuid + ", dmoney=" + dmoney + ", dtime=" + dtime + ", dtype="
 				+ dtype + ", dstate=" + dstate + ", dorder=" + dorder + ", dip=" + dip + "]";
 	}
 
