@@ -13,11 +13,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="ch_bankid" property="chbankid"/>
 			<result column="ch_type" property="chtype"/>
 			<result column="ch_ip" property="chip"/>
+			<association property="user" javaType="com.p2p.pojo.Users">
+				<result column="su_name" property="suname"/>
+			</association>
 		</resultMap>
 		
 		<!-- 查询所有 -->
 		<select id="list" resultMap="rechargema">
-			select * from recharge
+			select * from recharge r,users u where u.id=r.ch_suid
 		</select>
 		
 		<!-- 增加 -->

@@ -53,7 +53,7 @@ String path = request.getContextPath();
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>充值表
+                            <span>银行卡管理表
                             </span>
                         </h2>
 
@@ -80,7 +80,7 @@ String path = request.getContextPath();
             </div>
             <!--/ TITLE -->
 
-            <!-- BREADCRUMB -->
+         <!-- BREADCRUMB -->
             <ul id="breadcrumb">
                 <li>
                     <span class="entypo-home"></span>
@@ -91,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="bank/list" title="Sample page 1">充值表</a>
+                <li><a href="bank/list" title="Sample page 1">银行卡管理表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -109,181 +109,46 @@ String path = request.getContextPath();
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="nest" id="FootableClose">
-                            <div class="title-alt">
-                                
-                                <div class="titleToggle">
-                                    <a class="nav-toggle-alt" href="#Footable">
-                                        <span class="entypo-up-open"></span>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            
-                            <!-- 修改拟态框（Modal） -->
-							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							    <div class="modal-dialog">
-							    <form action="recharge/update" method="post">
-							        <div class="modal-content">
-							        	<input type="hidden" name="chid" id="chid">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							                    &times;
-							                </button>
-							                <h4 class="modal-title" id="myModalLabel">
-							                		    修改
-							                </h4>
-							            </div>
-							            <div class="modal-body">
-							                <div class="input-group">
-												<div class="form-group">
-													<!-- <label>用户id:</label> -->
-										            <input name="chsuid" id="chsuid" type="hidden"  style="color:black;">
-							                    </div>
-							                    <div class="form-group">
-							                        <label>充值金额:</label>
-							                		<input name="chmoney" id="chmoney" type="text"  style="color:black;" readonly="readonly">
-							                    </div>
-							                    <div class="form-group">
-													<label>订单号:</label>
-										            <input name="chorder" id="chorder" type="text"  style="color:black;"readonly="readonly">
-							                    </div>
-							                   
-							                    <div class="form-group">
-													<label>充值时间:</label>
-										            <input name="chtime" id="chtime" type="text"  style="color:black;" readonly="readonly">
-							                    </div>
-							                    <div class="form-group">
-													<label>充值卡:</label>
-										            <input name="chbankid" id="chbankid" type="text"  style="color:black;" readonly="readonly">
-							                    </div>
-							                    
-							                    <div class="form-group">
-													<label>充值类型:</label>
-										            <input name="chtype" id="chtype" type="text"  style="color:black;" readonly="readonly">
-							                    </div>
-							                    <div class="form-group">
-													<label>充值ip地址:</label>
-										            <input name="chip" id="chip" type="text"  style="color:black;" readonly="readonly">
-							                    </div>
-							                     <div class="form-group">
-													<label>充值状态:</label>
-										           <!--  <input name="chstate" id="chstate" type="text"   > -->
-										            <select name="chstate" style="color:black;">
-										            	<option value="1">等待审核</option>
-										            	<option value="2">审核通过</option>
-										            	<option value="3">审核失败</option>
-										            </select>
-							                    </div>
-							                </div>
-							            </div>
-							            <div class="modal-footer">
-							                <button type="button" class="btn btn-default" data-dismiss="modal">
-							                	关闭
-							                </button>
-							               
-							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
-							            </div>
-							        </div>
-							        </form>
-							        <!-- /.modal-content -->
-							    </div><!-- /.modal -->
-							</div> 
-                            
-                            
 
                             <div class="body-nest" id="Footable">
-                            	<a href="income/list"><span class="glyphicon glyphicon-plus"></span>新增</a>
-                                <table class="table-striped footable-res footable metro-blue" data-page-size="7">
+                            	
+                                
+                                <table class="table-striped footable-res footable metro-blue" id="tb_role" data-page-size="6">
                                     <thead>
                                         <tr>
-                                            <th>
-                                           			 用户名
+                                            <th data-hide="phone,tablet">
+                                               		姓名
+                                            </th>
+                                           
+                                             <th data-hide="phone,tablet">
+                                            	   身份证号码
+                                            </th>
+                                             <th data-hide="phone,tablet">
+                                           			手机号
                                             </th>
                                             <th data-hide="phone,tablet">
-                                        		     充值金额
+                                                	邮箱
                                             </th>
                                             <th data-hide="phone,tablet">
-                          							订单号
+                                                	头像
                                             </th>
-                                            <th data-hide="phone,tablet">
-                                                	充值状态
-                                            </th>
-                                            <th data-hide="phone,tablet">
-                                                	充值时间
-                                            </th >
-                                            <th data-hide="phone,tablet">
-                                            		充值卡号
-                                            </th >
-                                            <th data-hide="phone,tablet">
-                                            		充值类型
-                                            </th >
-                                            <th data-hide="phone,tablet">
-                                            		ip地址
-                                            </th >
-                                            <th data-hide="phone,tablet">
-													操作
-                                            </th >
                                         </tr>
-                                        <c:forEach items="${rechlist}" var="rechargess">
+                                        <c:forEach items="${adminList }" var="bank">
                                         <tbody>
 											<tr>
-												<td>${rechargess.user.suname}</td>
-												<td>${rechargess.chmoney}</td>
-												<td>${rechargess.chorder}</td>
-												<td>
-													<c:if test="${rechargess.chstate==1}">
-														审核中
-													</c:if>
-													<c:if test="${rechargess.chstate==2}">
-														充值成功
-													</c:if>
-													<c:if test="${rechargess.chstate==3}">
-														充值失败
-													</c:if>
-												</td>
-												<td>${rechargess.chtime}</td>
-												<td>${rechargess.chbankid}</td>
-												<td>${rechargess.chtype}</td>
-												<td>${rechargess.chip}</td>
-												<td>
-													<c:if test="${rechargess.chstate==1}">
-														<a href="javascript:void(-1);" onclick="show_update(${rechargess.chid})"><span class="glyphicon glyphicon-list-alt"></span>待审核</a>
-													</c:if>
-													<c:if test="${rechargess.chstate==2}">
-														<span class="entypo-lock"></span>审核通过
-													</c:if>
-													<c:if test="${rechargess.chstate==3}">
-														<span class="entypo-lock"></span>审核失败
-													</c:if>
-												</td>
+												<td>${bank.aname }</td>
+												<td>${bank.acard }</td>
+												<td>${bank.aphone }</td>
+												<td>${bank.amail }</td>
+												<td>${bank.aimg }</td>
 											</tr>
 											</tbody>
 										</c:forEach>
                                     </thead>
-                                    <!-- <tbody>
-                                        <tr>
-                                            <td>Isidra</td>
-                                            <td><a href="#">Boudreaux</a>
-                                            </td>
-                                            <td>Traffic Court Referee</td>
-                                            <td data-value="78025368997">22 Jun 1972</td>
-                                            <td data-value="1">
-                                              <button type="button" class="btn  ladda-label">
-                                    				<span class="entypo-pencil"></span>&nbsp;&nbsp;修改
-                                    			</button>
-                                    			
-                                    			 <button type="button" class="btn  ladda-label">
-                                    				<span class="entypo-plus-squared"></span>&nbsp;&nbsp;增加
-                                    			</button>
-                                            </td>
-                                        </tr>
-
-                                    </tbody> 
-                                    -->
                                     <tfoot>
                                         <tr>
-                                            <td colspan="10">
-                                                <div class="pagination pagination-centered"></div>
+                                            <td colspan="5">
+                                                <div class="pagination pagination-centered">1 2 3</div>
                                             </td>
                                         </tr>
                                     </tfoot>

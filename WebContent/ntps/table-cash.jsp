@@ -118,7 +118,7 @@
                              <!-- 修改拟态框（Modal） -->
 							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							    <div class="modal-dialog">
-							    <form action="cash/update" method="post">
+							    <form action="withdrawals/update" method="post">
 							        <div class="modal-content">
 							        	<input type="hidden" name="cid" id="cid">
 							            <div class="modal-header">
@@ -133,10 +133,11 @@
 							                <div class="input-group">
 												<div class="form-group">
 										            <input name="csuid" id="csuid" type="hidden"  style="color:black;">
+										             <input name="cid" id="cid" type="hidden"  style="color:black;">
 							                    </div>
 							                    <div class="form-group">
 							                        <label>提现金额:</label>
-							                		<input name="cmoeny" id="cmoeny" type="text"  style="color:black;" readonly="readonly">
+							                		<input name="cmoney" id="cmoeny" type="text"  style="color:black;" readonly="readonly">
 							                    </div>
 							                    <div class="form-group">
 							                        <label>提现卡号:</label>
@@ -148,7 +149,7 @@
 							                    </div>
 							                    <div class="form-group">
 													<label>提现时间:</label>
-										            <input name="ctime" id="ctime" type="text" class="laydate-icon" style="color:black;" readonly="readonly">
+										            <input name="ctime" id="ctime" type="text"  style="color:black;" readonly="readonly">
 							                    </div>
 							                   
 							                    <div class="form-group">
@@ -219,7 +220,7 @@
 											<tr>
 												
 												<td>${cash.user.suname}</td>
-												<td>${cash.cmoeny}</td>
+												<td>${cash.cmoney}</td>
 												<td>${cash.ccard}</td>
 												<td>${cash.corder}</td>
 												<td>${cash.ctime}</td>
@@ -517,7 +518,7 @@
 	<!-- 修改拟态框 -->
     <script>
     function show_update(id) {
-    	var url =  "cash/getby";
+    	var url =  "withdrawals/getby";
     	$.post(
     			url,
     			{
@@ -527,7 +528,7 @@
 	    				var obj = JSON.parse(data);
 	    				$('#cid').val(obj.cid);
 	    				$('#csuid').val(obj.csuid);
-	    				$('#cmoeny').val(obj.cmoeny);
+	    				$('#cmoeny').val(obj.cmoney);
 	    				$('#ccard').val(obj.ccard);
 	    				$('#corder').val(obj.corder);
 	    				$('#ctime').val(obj.ctime);

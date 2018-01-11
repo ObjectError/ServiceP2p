@@ -143,28 +143,52 @@ String path = request.getContextPath();
                         </li>
 
                        <li>
-                            <a class="tooltip-tip" href="#" title="Tables">
-                                <i class="icon-view-thumb"></i>
-                                <span>表单</span>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/admin/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>管理员表</span>
                             </a>
-                            <ul>
-                               
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/initiativeTender/list" title="Table Dynamic"><i class="entypo-menu"></i><span>主动投标表</span></a>
-                                </li>
-                             
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/admin/list" title="Table Dynamic"><i class="entypo-menu"></i><span>管理员表</span></a>
-                                </li>
-                            </ul>
+                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/admin/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>主动投标表</span>
+                            </a>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/user/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>用户表</span>
+                            </a>
+                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/bank/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>银行卡表</span>
+                            </a>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/income/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>收益表</span>
+                            </a>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/detail/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>账单明细表</span>
+                            </a>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/withdrawals/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>提现表</span>
+                            </a>
+                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/recharge/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>充值表</span>
+                            </a>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/repayment/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>还款表</span>
+                            </a>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/repayment/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>放款表</span>
+                            </a>
+                            
                         </li>
                         
                         
-                         <li>
-                            <a class="tooltip-tip ajax-load" href="#" title="Dashboard">
-                                <i class="entypo-user"></i>
-                                <span>用户相关</span>
-                            </a>
+                      <!--    <li>
+                            
                             <ul>
                             	 <li>
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/user/list" title="Table Dynamic"><i class="entypo-menu"></i><span>用户表</span></a>
@@ -200,7 +224,7 @@ String path = request.getContextPath();
                             </a>
                             <ul>
                                 <li>
-                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/cash/list" title="Table Dynamic"><i class="entypo-menu"></i><span>提现表</span></a>
+                                    <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/withdrawals/list" title="Table Dynamic"><i class="entypo-menu"></i><span>提现表</span></a>
                                 </li>
                             	
                                 <li>
@@ -225,9 +249,9 @@ String path = request.getContextPath();
                                     <a class="tooltip-tip2 ajax-load" href="/ServiceP2p/loans/list" title="Table Dynamic"><i class="entypo-menu"></i><span>放款表</span></a>
                                 </li>
                         	</ul>
-                          </li>
+                          </li> -->
 
-                        <li>
+                        <!-- <li>
                             <a class="tooltip-tip" href="#" title="Extra Pages">
                                 <i class="icon-document-new"></i>
                                 <span>其它的页面</span>
@@ -296,7 +320,7 @@ String path = request.getContextPath();
                                 <span>图标</span>
                                 <div class="noft-blue" style="display: inline-block; float: none;">289</div>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

@@ -49,4 +49,10 @@ public class DetailServiceImpl implements DetailService{
 		return detailmapper.getById(id);
 	}
 
+	@Override
+	public Detail getDetail(Detail detail) {
+		// TODO Auto-generated method stub
+		return detailmapper.getDetail(detail);
+	}
+
 }

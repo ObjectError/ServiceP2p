@@ -18,68 +18,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.p2p.pojo.Bank;
 import com.p2p.pojo.Detail;
-import com.p2p.pojo.Recharge;
+import com.p2p.pojo.Income;
 import com.p2p.pojo.Users;
+import com.p2p.pojo.Withdrawals;
 import com.p2p.services.BankService;
+import com.p2p.services.CashService;
 import com.p2p.services.DetailService;
 import com.p2p.services.InComeService;
-import com.p2p.services.RechargeService;
 import com.p2p.services.UsersService;
+import com.p2p.services.WithdrawalsService;
 import com.p2p.util.SendServiceUtil;
 
 @Controller
-@RequestMapping("/recharge")
-public class RechargeController {
-	
-	@Resource(name="rechargeServiceImpl")
-	private RechargeService rechargeService;
+@RequestMapping("withdrawals")
+public class WithdrawalsController {
+
+	@Resource(name="withdrawalsServiceImpl")
+	private WithdrawalsService withdrawalsService;
+	@Resource(name="cashServiceImpl")
+	private CashService cashService;
 	@Resource(name="usersServiceImpl")
-	private UsersService usersService;
+	private UsersService userService;
 	@Resource(name="bankServiceImpl")
 	private BankService bankService;
 	@Resource(name="inComeServiceImpl")
-	private InComeService inComeService;
+	private InComeService inComeService; 
 	@Resource(name="detailServiceImpl")
 	private DetailService detailService;
 	
-	@RequestMapping("/list")
-	public String list(Model model) {
-		List<Recharge> rechlist = rechargeService.list();
-		model.addAttribute("rechlist", rechlist);
-		return "/ntps/table-recharge";
-	}
-	
-	@RequestMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id) {
-		rechargeService.delete(id);
-		return "redirect:/recharge/list";
-	}
-	
-	@RequestMapping("/update")
-	public String update(Recharge recharge,HttpServletRequest request) throws Exception {
-		Users users=usersService.getById(recharge.getChsuid());
-		users.setSumoney(users.getSumoney()+recharge.getChmoney());
-		usersService.update(users);
-		request.getSession().setAttribute("user", users);
-		
-		rechargeService.update(recharge);
-		
-		Bank ba = bankService.selectBankCard(recharge.getChbankid());
-		ba.setBmoney(ba.getBmoney()-recharge.getChmoney());
-		bankService.update(ba);
-		
-		Detail detail=new Detail();
-		detail.setDorder(recharge.getChorder());
-		Detail d=detailService.getDetail(detail);
-		d.setDstate(2);
-		detailService.update(d);
-		
-		
-		SendServiceUtil.list(ba, "192.168.137.98:8080/Finances/recharge");
-		return "redirect:/recharge/list";
-	}
-	
-	@RequestMapping("/add")
+	@RequestMapping("add")
 	public void add(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		 String ip = request.getRemoteHost(); 
 			
@@ -100,24 +67,22 @@ public class RechargeController {
 		    //jackJson    
 	        ObjectMapper o=new ObjectMapper();
 	        
-	        Recharge u=o.readValue(inputString.toString(), Recharge.class);
+	        Withdrawals u=o.readValue(inputString.toString(), Withdrawals.class);
 	        System.out.println("接收的报文为= "+u);
-	        u.setChip(ip);
-	        u.setChtype("银行卡");
-	        rechargeService.add(u);
-	        Detail d=new Detail();
-	        d.setDip(ip);
-	        d.setDmoney(u.getChmoney());
-	        d.setDorder(u.getChorder());
-	        d.setDstate(1);
-	        d.setDsuid(u.getChsuid());
-	        d.setDtime(u.getChtime());
-	        d.setDtype("充值");
-	        detailService.add(d);
-	        // 要返回的报文  
+	        u.setCip(ip);
+	        withdrawalsService.add(u);
+	       // 要返回的报文  
 	       StringBuffer resultBuffer = new StringBuffer();  
 	       resultBuffer.append("1");
-	     
+	       Detail d=new Detail();
+			d.setDip(u.getCip());
+			d.setDmoney(u.getCmoney());
+			d.setDstate(1);
+			d.setDsuid(u.getCsuid());
+			d.setDtime(u.getCtime());
+			d.setDtype("提现");
+			d.setDip(u.getCip());
+			d.setDorder(u.getCorder());
 	       // 设置发送报文的格式  
 	       response.setContentType("text/xml");  
 	       response.setCharacterEncoding("UTF-8");  
@@ -143,14 +108,63 @@ public class RechargeController {
 		       out.close();  
 			e.printStackTrace();
 		}
-	     
+	}
+	
+	
+	@RequestMapping("/list")
+	public String list(Model model) {
+		List<Withdrawals> listcash = withdrawalsService.list();
+		model.addAttribute("listcash", listcash);
+		return "/ntps/table-cash";
+	}
+	
+	@RequestMapping("/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		withdrawalsService.delete(id);
+		return "redirect:/cash/list";
+	} 
+	
+	@RequestMapping("/update")
+	public String update(Withdrawals cash) throws Exception {
+		
+		Users u=userService.getById(cash.getCsuid());
+		u.setSumoney(u.getSumoney()-cash.getCmoney());
+		
+		Bank b=bankService.selectBankCard(cash.getCcard());
+		b.setBmoney(b.getBmoney()+cash.getCmoney()-cash.getCpoundage());
+		
+		Income ic=new Income();
+		ic.setImoeny(cash.getCmoney());
+		ic.setIsuid(u.getSuid());
+		ic.setItype("提现");
+		ic.setItime(cash.getCtime());
+		ic.setIip(cash.getCip());
+		
+		Detail detail=new Detail();
+		detail.setDorder(cash.getCorder());
+		Detail d=detailService.getDetail(detail);
+		d.setDstate(2);
+		
+		
+		
+		int with = SendServiceUtil.list(cash, "192.168.137.98:8080/Finances/front/withdrawals");
+		
+		int bank = SendServiceUtil.list(b, "192.168.137.98:8080/Finances/idcard/updateBank");
+		if(with==1&&bank==1) {
+			bankService.update(b);
+			inComeService.add(ic);
+			detailService.update(d);
+			userService.update(u);
+			withdrawalsService.update(cash);
+		}
+		return "redirect:/withdrawals/list";
 	}
 	
 	@RequestMapping("/getby")
 	@ResponseBody
-	public Object openUserEdit(String chid){
-		Integer id = Integer.parseInt(chid);
-		Recharge recharge = rechargeService.getById(id);
-		return recharge;
+	public Object openUserEdit(String cid){
+		Integer id = Integer.parseInt(cid);
+		Withdrawals cash  = withdrawalsService.getById(id);
+		return cash;
 	}
 }

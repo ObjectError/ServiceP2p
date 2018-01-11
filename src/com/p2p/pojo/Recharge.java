@@ -37,13 +37,15 @@ public class Recharge implements Serializable{
 	private String chtime; //充值时间
 	
 	@TableField("ch_bankid")
-	private Integer chbankid;//充值卡id
+	private String chbankid;//充值卡号
 	
 	@TableField("ch_type")
 	private String chtype; //充值类型
 	
 	@TableField("ch_ip")
 	private String chip;	//需要充值的IP地址
+	
+	private Users user;
 
 	public Integer getChid() {
 		return chid;
@@ -93,11 +95,11 @@ public class Recharge implements Serializable{
 		this.chtime = chtime;
 	}
 
-	public Integer getChbankid() {
+	public String getChbankid() {
 		return chbankid;
 	}
 
-	public void setChbankid(Integer chbankid) {
+	public void setChbankid(String chbankid) {
 		this.chbankid = chbankid;
 	}
 
@@ -121,8 +123,27 @@ public class Recharge implements Serializable{
 		return serialVersionUID;
 	}
 
+	public Recharge() {
+		super();
+	}
+
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "Recharge [chid=" + chid + ", chsuid=" + chsuid + ", chmoney=" + chmoney + ", chorder=" + chorder
+				+ ", chstate=" + chstate + ", chtime=" + chtime + ", chbankid=" + chbankid + ", chtype=" + chtype
+				+ ", chip=" + chip + ", user=" + user + "]";
+	}
+
 	public Recharge(Integer chid, Integer chsuid, double chmoney, String chorder, String chstate, String chtime,
-			Integer chbankid, String chtype, String chip) {
+			String chbankid, String chtype, String chip, Users user) {
 		super();
 		this.chid = chid;
 		this.chsuid = chsuid;
@@ -133,20 +154,7 @@ public class Recharge implements Serializable{
 		this.chbankid = chbankid;
 		this.chtype = chtype;
 		this.chip = chip;
+		this.user = user;
 	}
 
-	public Recharge() {
-		super();
-	}
-
-	@Override
-	public String toString() {
-		return "Recharge [chid=" + chid + ", chsuid=" + chsuid + ", chmoney=" + chmoney + ", chorder=" + chorder
-				+ ", chstate=" + chstate + ", chtime=" + chtime + ", chbankid=" + chbankid + ", chtype=" + chtype
-				+ ", chip=" + chip + "]";
-	}
-
-	
-
-	
 }

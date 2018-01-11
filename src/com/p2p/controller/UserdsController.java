@@ -76,7 +76,7 @@ public class UserdsController {
 	        
 	        Users u=o.readValue(inputString.toString(), Users.class);
 	        System.out.println("接收的报文为= "+u);
-	        Users use=userService.getById(u.getId());
+	        Users use=userService.getById(u.getSuid());
 	        if(use==null) {
 	        	u.setSuip(ip);
 	  	       	u.setId(u.getSuid());
