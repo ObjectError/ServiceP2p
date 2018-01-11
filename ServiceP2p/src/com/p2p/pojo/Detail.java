@@ -15,10 +15,10 @@ public class Detail implements Serializable{
 	private Integer did;//主键id
 	
 	@TableField("d_suid")
-	private String dsuid;//用户id
+	private Integer dsuid;//用户id
 	
 	@TableField("d_money")
-	private String dmoney;//金额
+	private double dmoney;//金额
 	
 	@TableField("d_time")
 	private String dtime;//交易时间
@@ -27,7 +27,7 @@ public class Detail implements Serializable{
 	private String dtype;//明细类型
 	
 	@TableField("d_state")
-	private String dstate;//交易状态
+	private Integer dstate;//交易状态
 	
 	@TableField("d_order")
 	private String dorder;//订单号
@@ -44,19 +44,19 @@ public class Detail implements Serializable{
 		this.did = did;
 	}
 
-	public String getDsuid() {
+	public Integer getDsuid() {
 		return dsuid;
 	}
 
-	public void setDsuid(String dsuid) {
+	public void setDsuid(Integer dsuid) {
 		this.dsuid = dsuid;
 	}
 
-	public String getDmoney() {
+	public double getDmoney() {
 		return dmoney;
 	}
 
-	public void setDmoney(String dmoney) {
+	public void setDmoney(double dmoney) {
 		this.dmoney = dmoney;
 	}
 
@@ -76,11 +76,11 @@ public class Detail implements Serializable{
 		this.dtype = dtype;
 	}
 
-	public String getDstate() {
+	public Integer getDstate() {
 		return dstate;
 	}
 
-	public void setDstate(String dstate) {
+	public void setDstate(Integer dstate) {
 		this.dstate = dstate;
 	}
 
@@ -112,7 +112,7 @@ public class Detail implements Serializable{
 		return serialVersionUID;
 	}
 
-	public Detail(Users user,Integer did, String dsuid, String dmoney, String dtime, String dtype, String dstate, String dorder,
+	public Detail(Users user,Integer did, Integer dsuid, double dmoney, String dtime, String dtype, Integer dstate, String dorder,
 			String dip) {
 		super();
 		this.user=user;

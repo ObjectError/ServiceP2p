@@ -5,4 +5,5 @@ import com.p2p.pojo.Detail;
 
 public interface DetailService extends IBaseService<Integer, Detail>{
 
+	Detail getDetail(Detail detail);
 }

@@ -73,13 +73,17 @@ public class BankedController {
 	        
 	        Bank bank=o.readValue(inputString.toString(), Bank.class);
 	        //System.out.println("接收的报文为= "+u);
-	        Users user=userService.getById(bank.getBsuid());
-	        bank.setBcard(user.getSucard());
-	        bank.setBname(user.getSuname());
-	        bank.setBphone(user.getSuphone());
-	        SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
-	        bank.setBtime(sf.format(new Date()));
-	        bankService.add(bank);
+	        Bank b=bankService.selectBankCard(bank.getBcode());
+	        if(b==null) {
+	        	Users user=userService.getById(bank.getBsuid());
+		        bank.setBcard(user.getSucard());
+		        bank.setBname(user.getSuname());
+		        bank.setBphone(user.getSuphone());
+		        SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
+		        bank.setBtime(sf.format(new Date()));
+		        bankService.add(bank);
+	        }
+	        
 	              
 	       // 要返回的报文  
 	       StringBuffer resultBuffer = new StringBuffer();  

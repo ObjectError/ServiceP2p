@@ -35,7 +35,7 @@ String path = request.getContextPath();
     <link rel="shortcut icon" href="/ServiceP2p/ntps/assets/ico/minus.png">
 	
 	<body> 
-	<jsp:include page="./head/head.jsp"></jsp:include>
+ 	<jsp:include page="./head/head.jsp"></jsp:include>
 
 
     <!--  PAPER WRAP -->
@@ -53,7 +53,7 @@ String path = request.getContextPath();
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>用户表
+                            <span>用户绑卡表
                             </span>
                         </h2>
 
@@ -91,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="bank/list" title="Sample page 1">用户表</a>
+                <li><a href="bank/list" title="Sample page 1">用户绑卡表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
@@ -109,24 +109,19 @@ String path = request.getContextPath();
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="nest" id="FootableClose">
-                           
-                            
-                            
-                            <!-- 修改拟态框（Modal） -->
+                          
 							
-                            
-                            
-
+							
                             <div class="body-nest" id="Footable">
-                                <table class="table-striped footable-res footable metro-blue" data-page-size="7">
+                                <table class="table-striped footable-res footable" data-page-size="7">
                                     <thead>
                                         <tr>
-                                            <th>
+                                            <th data-hide="phone,tablet">
                                                		用户名
                                             </th>
-                                            <th>
+                                            <th data-hide="phone,tablet">
                                            			 真实姓名
-                                            </th>
+                                            </th >
                                             <th data-hide="phone,tablet">
                                         		    手机号
                                             </th>
@@ -164,7 +159,7 @@ String path = request.getContextPath();
 											</tbody>
 										</c:forEach>
                                     </thead>
-                                    
+                                   
                                     <tfoot>
                                         <tr>
                                             <td colspan="8">
@@ -173,6 +168,7 @@ String path = request.getContextPath();
                                         </tr>
                                     </tfoot>
                                 </table>
+                                
                             </div>
                         </div>
                     </div>
@@ -363,8 +359,7 @@ String path = request.getContextPath();
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.filter.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
     <script src="/ServiceP2p/ntps/assets/js/footable/js/footable.paginate.js" type="text/javascript"></script>
-    <script src="/ServiceP2p/ntps/js/laydate.js" type="text/javascript"></script>
-
+	<script src="/ServiceP2p/ntps/js/laydate.js" type="text/javascript"></script>
 
 
 
@@ -414,28 +409,26 @@ String path = request.getContextPath();
         });
     });
     </script>
-	
-	
-	<!-- 修改拟态框 -->
+    
+    
+    <!-- 修改拟态框 -->
     <script>
     function show_update(id) {
-    	var url =  "recharge/getby";
+    	var url =  "userBindCard/getby";
     	$.post(
     			url,
     			{
-    				chid:id
+    				uid:id
     			},
 	    			function(data){
 	    				var obj = JSON.parse(data);
-	    				$('#chid').val(obj.chid);
-	    				$('#chsuid').val(obj.chsuid);
-	    				$('#chmoney').val(obj.chmoney);
-	    				$('#chorder').val(obj.chorder);
-	    				$('#chstate').val(obj.chstate);
-	    				$('#chtime').val(obj.chtime);
-	    				$('#chbankid').val(obj.chbankid);
-	    				$('#chtype').val(obj.chtype);
-	    				$('#chip').val(obj.chip);
+	    				$('#uid').val(obj.uid);
+	    				$('#usuid').val(obj.usuid);
+	    				$('#ubankcode').val(obj.ubankcode);
+	    				$('#utype').val(obj.utype);
+	    				$('#utime').val(obj.utime);
+	    				$('#ustate').val(obj.ustate);
+	    				$('#uip').val(obj.uip);
 	    			}
 		    );	
 	    	
@@ -450,7 +443,7 @@ String path = request.getContextPath();
 	<script type="text/javascript">
 	!function(){
 		laydate.skin('molv');//切换皮肤，请查看skins下面皮肤库
-		laydate({elem: '#chtime'});//绑定元素
+		laydate({elem: '#utime'});//绑定元素
 	}();
 	
 	//日期范围限制
@@ -498,5 +491,8 @@ String path = request.getContextPath();
 	    max: laydate.now(+1) //+1代表明天，+2代表后天，以此类推
 	});
 	</script>
+
 	</body>
 </html>
+
+

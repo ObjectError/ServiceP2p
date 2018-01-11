@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from bank where b_id = #{b_id}
 	</select>
 	<!-- 根据卡号查询对象 -->
-	<select id="selectBankCard" parameterType="String" resultType="com.p2p.pojo.Bank">
+	<select id="selectBankCard" parameterType="String" resultMap="bankssm">
 		select * from bank where b_code=#{bcode}
 	</select>
 </mapper>

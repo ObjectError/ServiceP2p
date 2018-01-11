@@ -5,18 +5,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.p2p.mapper.UsersMapper">
 	<resultMap type="com.p2p.pojo.Users" id="userssm">
 			<result column="su_id" property="suid"/>
+			<result column="id" property="id"/>
 			<result column="su_username" property="suusername"/>
 			<result column="su_name" property="suname"/>
 			<result column="su_phone" property="suphone"/>
 			<result column="su_card" property="sucard"/>
 			<result column="su_email" property="suemail"/>
-			<result column="su_bankcard" property="subankcard"/>
-			<result column="su_banktype" property="subanktype"/>
 			<result column="su_money" property="sumoney"/>
 			<result column="su_credit" property="sucredit"/>
 			<result column="su_ip" property="suip"/>
-			<result column="su_password" property="supassword"/>	
-			<result column="su_paypassword" property="supaypassword"/>				
 	</resultMap>
 		<!-- 查所有 -->
 	<select id="list" resultMap="userssm">
@@ -35,9 +32,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	<!-- 修改 -->
 	<update id="update" parameterType="com.p2p.pojo.Users">
-		update users set su_username = #{suusername}, su_name = #{suname}, su_phone = #{suphone}, su_card = #{sucard}, su_email = #{suemail},
-		su_bankcard = #{subankcard},su_banktype = #{subanktype},su_money = #{sumoney},su_credit = #{sucredit},su_ip = #{suip},su_password = #{supassword}
-			where su_id = #{suid}
+		update users 
+		<trim prefix="set" suffixOverrides=",">
+			<if test="suusername!=null">su_username=#{suusername},</if>
+			<if test="suname!=null">su_name=#{suname},</if>
+			<if test="suphone!=null">su_phone=#{suphone},</if>
+			<if test="sucard!=null">su_card=#{sucard},</if>
+			<if test="suemail!=null">su_email=#{suemail},</if>
+			<if test="sumoney!=null">su_money=#{sumoney},</if>
+			<if test="sucredit!=null">su_credit=#{sucredit},</if>
+			<if test="suip!=null">su_ip=#{suip},</if>
+		</trim>
+		<where>
+			su_id = #{suid}
+		</where>
 	</update>
 	<!-- 根据id查用户 -->
 	<select id="getById" resultMap="userssm" parameterType="java.lang.Integer">

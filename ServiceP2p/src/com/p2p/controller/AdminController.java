@@ -34,7 +34,7 @@ public class AdminController{
 	public String list(Model model){
 		List<Admin> adminList = adminService.list();
 		model.addAttribute("adminList", adminList);
-		return "/ntps/profile";
+		return "/ntps/admin";
 	}
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id){

@@ -5,4 +5,5 @@ import com.p2p.pojo.Detail;
 
 public interface DetailMapper extends IBaseDao<Integer, Detail>{
 
+	Detail getDetail(Detail detail);
 }

@@ -35,12 +35,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		<!-- 修改 -->
 		<update id="update" parameterType="com.p2p.pojo.Detail">
-			update detail set d_suid = #{dsuid}, d_money = #{dmoney}, d_time = #{dtime}, d_ip = #{dip}, d_type = #{dtype}, d_order = #{dorder}, d_state = #{dstate}
-				where d_id = #{did}
+			update detail 
+			<trim prefix="set" suffixOverrides=",">
+				<if test="dsuid!=null">d_suid = #{dsuid},</if>
+				<if test="dtime!=null">d_time = #{dtime},</if>
+				<if test="dmoney!=null">d_money = #{dmoney},</if>
+				<if test="dip!=null">d_ip = #{dip},</if>
+				<if test="dtype!=null">d_type = #{dtype},</if>
+				<if test="dorder!=null">d_order = #{dorder},</if>
+				<if test="dstate!=null">d_state = #{dstate},</if>
+			</trim>
+			<where>
+				d_id = #{did}
+			</where>
 		</update>
 		
 		<!-- 根据id查用户 -->
-		<select id="getById" resultMap="detail" parameterType="java.lang.Integer">
+		<select id="getById" resultMap="detail" parameterType="com.p2p.pojo.Detail">
 			select * from detail where d_id = #{d_id}
+		</select>
+		<!-- 多功能查询对象 -->
+		<select id="getDetail" parameterType="com.p2p.pojo.Detail" resultMap="detail">
+			select * from detail 
+			<where>
+				1=1
+				<if test="dorder!=null">and d_order = #{dorder}</if>
+			</where>
 		</select>
 	</mapper>
