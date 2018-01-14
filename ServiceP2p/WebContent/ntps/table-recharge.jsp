@@ -93,12 +93,30 @@ String path = request.getContextPath();
                 </li>
                 <li><a href="bank/list" title="Sample page 1">充值表</a>
                 </li>
+                 <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input id="likebutton" style="border-radius:15px" type="button" value="搜索" class="form-control">
+                    </div>
+                </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
 
-                        <input style="border-radius:15px" type="text" placeholder="查找..." class="form-control">
+                        <input id="likename" style="border-radius:15px" type="text" placeholder="用户名查找查找..." class="form-control">
                     </div>
                 </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input id="likeorder" style="border-radius:15px" type="text" placeholder="订单号查找..." class="form-control">
+                    </div>
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input id="likebank" style="border-radius:15px" type="text" placeholder="银行卡号查找..." class="form-control">
+                    </div>
+                </li> 
             </ul>
 
             <!-- END OF BREADCRUMB -->
@@ -253,7 +271,7 @@ String path = request.getContextPath();
 														<span class="entypo-lock"></span>审核通过
 													</c:if>
 													<c:if test="${rechargess.chstate==3}">
-														<span class="entypo-lock"></span>审核失败
+														<span class="entypo-lock"></span><font color="red">审核超时</font>
 													</c:if>
 												</td>
 											</tr>
@@ -488,6 +506,14 @@ String path = request.getContextPath();
     $(function() {
         $('.footable-res').footable();
     });
+    $(document).ready(function(){
+    	$('#likebutton').click(function(){
+    		var name=$('#likename').val();
+    		var order=$('#likeorder').val();
+    		var bank=$('#likebank').val();
+    		parent.window.location="recharge/likelist?user.suname="+name+"&chorder="+order+"&chbankid="+bank;
+    	});
+    });
     </script>
     <script type="text/javascript">
     $(function() {
@@ -533,6 +559,7 @@ String path = request.getContextPath();
 	
 	<!-- 修改拟态框 -->
     <script>
+   
     function show_update(id) {
     	var url =  "recharge/getby";
     	$.post(

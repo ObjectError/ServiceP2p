@@ -22,8 +22,15 @@ public class InComeController {
 	private InComeService inComeService; 
 	
 	@RequestMapping("/list")
-	public String list(Model model) {
+	public String list(Model model,Income income) {
 		List<Income> listin = inComeService.list();
+		model.addAttribute("listin", listin);
+		return "/ntps/table-Income";
+	}
+	
+	@RequestMapping("/lists")
+	public String lists(Model model,Income income) {
+		List<Income> listin = inComeService.likeIncome(income);
 		model.addAttribute("listin", listin);
 		return "/ntps/table-Income";
 	}

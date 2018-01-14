@@ -37,8 +37,8 @@ public class UserdsController {
 
 	
 	@RequestMapping("/list")
-	public String list(Model model){
-		List<Users> userList = userService.list();
+	public String list(Model model,Users user){
+		List<Users> userList = userService.listLike(user);
 		model.addAttribute("userList", userList);
 		return "ntps/table-user";
 	}

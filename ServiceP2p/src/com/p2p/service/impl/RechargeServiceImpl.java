@@ -44,4 +44,10 @@ public class RechargeServiceImpl implements RechargeService{
 		return rechargemapp.getById(id);
 	}
 
+	@Override
+	public List<Recharge> listLike(Recharge recharge) {
+		
+		return rechargemapp.listLike(recharge);
+	}
+
 }

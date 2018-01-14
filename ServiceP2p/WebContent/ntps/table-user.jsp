@@ -93,11 +93,33 @@ String path = request.getContextPath();
                 </li>
                 <li><a href="bank/list" title="Sample page 1">用户绑卡表</a>
                 </li>
+                 <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                       <input id="likebutton" style="border-radius:15px" type="button" value="搜索" class="form-control">
+                    </div>
+                    
+                </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
 
-                        <input style="border-radius:15px" type="text" placeholder="查找..." class="form-control">
+                       <input id="likeName" style="border-radius:15px" name="suname" type="text" placeholder="真实姓名查找..." class="form-control">
                     </div>
+                    
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                       <input id="likephone" style="border-radius:15px" name="suphone" type="text" placeholder="电话号码查找..." class="form-control">
+                    </div>
+                    
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                       <input id="likecard" style="border-radius:15px" name="sucard" type="text" placeholder="身份证号查找..." class="form-control">
+                    </div>
+                    
                 </li>
             </ul>
 
@@ -413,6 +435,17 @@ String path = request.getContextPath();
     
     <!-- 修改拟态框 -->
     <script>
+    $(document).ready(function(){
+    	
+    	$('#likebutton').click(function(){
+    		var name=$('#likeName').val();
+    		var phone=$('#likephone').val();
+    		var card=$('#likecard').val();
+    		parent.window.location="${pageContext.request.contextPath}/user/list?suname="+name+"&suphone="+phone+"&sucard="+card;
+    	});
+    });
+    
+    
     function show_update(id) {
     	var url =  "userBindCard/getby";
     	$.post(

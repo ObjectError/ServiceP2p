@@ -98,12 +98,21 @@ String path = request.getContextPath();
                 </li>
                 <li><a href="bank/list" title="Sample page 1">账单明细表</a>
                 </li>
+               <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                       <input id="likebutton" style="border-radius:15px" type="button" value="搜索" class="form-control">
+                    </div>
+                    
+                </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
 
-                        <input style="border-radius:15px" type="text" placeholder="查找..." class="form-control">
+                       <input id="likeName" style="border-radius:15px" name="suname" type="text" placeholder="用户名查找..." class="form-control">
                     </div>
+                    
                 </li>
+               
             </ul>
 
             <!-- END OF BREADCRUMB -->
@@ -433,6 +442,13 @@ String path = request.getContextPath();
     
     <!-- 新增拟态框 -->
     <script>
+    $(document).ready(function(){
+    	$('#likebutton').click(function(){
+    		var name=$('#likeName').val();
+    		parent.window.location="${pageContext.request.contextPath}/detail/listLike?user.suname="+name;
+    	});
+    });
+    
 	    function show_modal() {
 	         $('#myModal').modal('show');
 	         $('#tb_role').bootstrapTable('refresh');

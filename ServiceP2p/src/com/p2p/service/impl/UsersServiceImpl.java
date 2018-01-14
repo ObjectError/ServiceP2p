@@ -48,6 +48,12 @@ public class UsersServiceImpl implements UsersService{
 		return usermapper.getById(id);
 	}
 
+	@Override
+	public List<Users> listLike(Users user) {
+		// TODO Auto-generated method stub
+		return usermapper.listLike(user);
+	}
+
 	
 
 }

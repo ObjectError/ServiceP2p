@@ -47,4 +47,9 @@ public class WithdrawalsServiceImpl implements WithdrawalsService {
 		return withdrawalsMapper.getById(id);
 	}
 
+	@Override
+	public List<Withdrawals> listLike(Withdrawals withdrawals) {
+		return withdrawalsMapper.listLike(withdrawals);
+	}
+
 }

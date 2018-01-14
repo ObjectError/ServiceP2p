@@ -96,7 +96,14 @@ String path = request.getContextPath();
                 <li class="pull-right">
                     <div class="input-group input-widget">
 
-                        <input style="border-radius:15px" type="text" placeholder="查找..." class="form-control">
+                        <input id="likebutton" style="border-radius:15px" type="button" value="搜索" class="form-control">
+                    </div>
+                 </li>
+                <li class="pull-right">
+              
+                    <div class="input-group input-widget">
+
+                        <input id="likeIncome" name="suname" style="border-radius:15px" type="text" placeholder="根据姓名查找" class="form-control">
                     </div>
                 </li>
             </ul>
@@ -423,6 +430,13 @@ String path = request.getContextPath();
     
     <!-- 修改拟态框 -->
     <script>
+    $(document).ready(function(){
+    	$("#likebutton").click(function(){
+    		var name = $('#likeIncome').val();
+    		parent.window.location="${pageContext.request.contextPath}/income/lists?user.suname="+name+"";
+    	});	
+    });
+    
     function show_update(id) {
     	var url =  "income/getby";
     	$.post(

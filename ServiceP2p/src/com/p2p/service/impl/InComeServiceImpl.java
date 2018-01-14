@@ -48,4 +48,9 @@ public class InComeServiceImpl implements InComeService{
 		return incomem.getById(id);
 	}
 
+	@Override
+	public List<Income> likeIncome(Income income) {
+		return incomem.likeIncome(income);
+	}
+
 }

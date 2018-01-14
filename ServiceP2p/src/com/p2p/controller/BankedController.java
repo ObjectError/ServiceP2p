@@ -36,8 +36,8 @@ public class BankedController {
 	private UsersService userService;
 	
 	@RequestMapping("/list")
-	public String list(Model model){
-		List<Bank> bankList = bankService.list();
+	public String list(Model model,Bank bank){
+		List<Bank> bankList = bankService.listLike(bank);
 		model.addAttribute("bankList", bankList);
 		return "/ntps/table-dynamic";
 	}

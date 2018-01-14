@@ -45,7 +45,7 @@ String path = request.getContextPath();
                 <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
                     <li>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" class="admin-pic img-circle" src="/ServiceP2p/ntps/assets/img/307327_205.jpg">欢迎你，admin <b class="caret"></b>
+                            <img alt="" class="admin-pic img-circle" src="/ServiceP2p/ntps/assets/img/307327_205.jpg">欢迎你，${admin.aname } <b class="caret"></b>
                         </a>
                         <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
@@ -54,8 +54,17 @@ String path = request.getContextPath();
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="/ServiceP2p/ntps/login.jsp">
-                                    <span class="entypo-picasa"></span>&#160;&#160; 登入</a>
+                            	<c:if test="${admin.aname==null }">
+                                	 <a href="/ServiceP2p/ntps/login.jsp">
+	                                    <span class="entypo-picasa"></span>&#160;&#160; 登录
+	                                </a>
+                                </c:if>
+                            	<c:if test="${admin.aname !=null }">
+	                                <a href="${pageContext.request.contextPath }/admin/exit">
+	                                    <span class="entypo-picasa"></span>&#160;&#160; 退出
+	                                </a>
+                                </c:if>
+                                
                             </li>
                         </ul>
                     </li>
