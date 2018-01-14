@@ -96,8 +96,30 @@ String path = request.getContextPath();
                 <li class="pull-right">
                     <div class="input-group input-widget">
 
-                        <input style="border-radius:15px" type="text" placeholder="查找..." class="form-control">
+                       <input id="likebutton" style="border-radius:15px" type="button" value="搜索" class="form-control">
                     </div>
+                    
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                       <input id="likeName" style="border-radius:15px" name="bname" type="text" placeholder="真实姓名查找..." class="form-control">
+                    </div>
+                    
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                       <input id="likephone" style="border-radius:15px" name="bphone" type="text" placeholder="电话号码查找..." class="form-control">
+                    </div>
+                    
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                       <input id="likecard" style="border-radius:15px" name="bcode" type="text" placeholder="银行卡号查找..." class="form-control">
+                    </div>
+                    
                 </li>
             </ul>
 
@@ -416,6 +438,17 @@ String path = request.getContextPath();
 	
 	<!-- 修改拟态框 -->
     <script>
+ $(document).ready(function(){
+    	
+    	$('#likebutton').click(function(){
+    		var name=$('#likeName').val();
+    		var phone=$('#likephone').val();
+    		var card=$('#likecard').val();
+    		parent.window.location="${pageContext.request.contextPath}/bank/list?bname="+name+"&bphone="+phone+"&bcode="+card;
+    	});
+    });
+    
+    
     function show_update(id) {
     	var url =  "recharge/getby";
     	$.post(

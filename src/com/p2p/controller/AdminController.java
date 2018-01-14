@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.p2p.pojo.Admin;
 import com.p2p.services.AdminService;
@@ -98,12 +99,21 @@ public class AdminController{
 		Admin adm=adminService.login(admin.getAphone());
 		request.getSession().setAttribute("admin",adm);
 		request.getSession().removeAttribute("message");
+		return "redirect:index";
+	}
+	@RequestMapping("index")
+	public String index() {
 		return "/ntps/index";
 	}
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		String phone="15279457626";
 		Object result = new SimpleHash("MD5", "111111", ByteSource.Util.bytes(phone), 1);
 		String pass=result.toString();
 		System.out.println(pass);
+	}*/
+	@RequestMapping("exit")
+	public String exit(HttpServletRequest request) {
+		request.getSession().removeAttribute("admin");
+		return "/ntps/login";
 	}
 }

@@ -55,4 +55,10 @@ public class BankServiceImpl implements BankService{
 		return bankmapper.selectBankCard(card);
 	}
 
+	@Override
+	public List<Bank> listLike(Bank bank) {
+		// TODO Auto-generated method stub
+		return bankmapper.listLike(bank);
+	}
+
 }

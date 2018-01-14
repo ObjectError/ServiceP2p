@@ -90,12 +90,30 @@
                 </li>
                 <li><a href="bank/list" title="Sample page 1">提现表</a>
                 </li>
+               <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input id="likebutton" style="border-radius:15px" type="button" value="搜索" class="form-control">
+                    </div>
+                </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
 
-                        <input style="border-radius:15px" type="text" placeholder="查找..." class="form-control">
+                        <input id="likename" style="border-radius:15px" type="text" placeholder="用户名查找查找..." class="form-control">
                     </div>
                 </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input id="likeorder" style="border-radius:15px" type="text" placeholder="订单号查找..." class="form-control">
+                    </div>
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input id="likebank" style="border-radius:15px" type="text" placeholder="银行卡号查找..." class="form-control">
+                    </div>
+                </li> 
             </ul>
 
             <!-- END OF BREADCRUMB -->
@@ -245,7 +263,7 @@
 														<span class="entypo-lock"></span>审核通过
 													</c:if>
 													<c:if test="${cash.cstate==3}">
-														<span class="entypo-lock"></span>审核失败
+														<span class="entypo-lock"></span><font color="red">审核超时</font>
 													</c:if>
 												</td>
 											</tr>
@@ -468,6 +486,16 @@
 	<script src="/ServiceP2p/ntps/js/laydate.js" type="text/javascript"></script>
 	
     <script type="text/javascript">
+    $(document).ready(function(){
+    	$('#likebutton').click(function(){
+    		var name=$('#likename').val();
+    		var order=$('#likeorder').val();
+    		var bank=$('#likebank').val();
+    		parent.window.location="withdrawals/likeList?user.suname="+name+"&corder="+order+"&ccard="+bank;
+    	});
+    });
+    
+    
     $(function() {
         $('.footable-res').footable();
     });

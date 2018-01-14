@@ -26,6 +26,13 @@ public class DetailController {
 		model.addAttribute("detailList", detailList);
 		return "/ntps/table-detail";
 	}
+	
+	@RequestMapping("/listLike")
+	public String listlike(Model model,Detail detail){
+		List<Detail> detailList = detailService.listLike(detail);
+		model.addAttribute("detailList", detailList);
+		return "/ntps/table-detail";
+	}
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id){
 		detailService.delete(id);

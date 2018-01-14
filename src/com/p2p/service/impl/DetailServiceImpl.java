@@ -55,4 +55,10 @@ public class DetailServiceImpl implements DetailService{
 		return detailmapper.getDetail(detail);
 	}
 
+	@Override
+	public List<Detail> listLike(Detail detail) {
+		// TODO Auto-generated method stub
+		return detailmapper.listLike(detail);
+	}
+
 }

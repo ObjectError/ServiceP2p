@@ -31,7 +31,7 @@ public class Recharge implements Serializable{
 	private String chorder;//订单号
 	
 	@TableField("ch_state")
-	private String chstate; //充值状态
+	private Integer chstate; //充值状态
 	
 	@TableField("ch_time")
 	private String chtime; //充值时间
@@ -79,11 +79,11 @@ public class Recharge implements Serializable{
 		this.chorder = chorder;
 	}
 
-	public String getChstate() {
+	public Integer getChstate() {
 		return chstate;
 	}
 
-	public void setChstate(String chstate) {
+	public void setChstate(Integer chstate) {
 		this.chstate = chstate;
 	}
 
@@ -142,7 +142,7 @@ public class Recharge implements Serializable{
 				+ ", chip=" + chip + ", user=" + user + "]";
 	}
 
-	public Recharge(Integer chid, Integer chsuid, double chmoney, String chorder, String chstate, String chtime,
+	public Recharge(Integer chid, Integer chsuid, double chmoney, String chorder, Integer chstate, String chtime,
 			String chbankid, String chtype, String chip, Users user) {
 		super();
 		this.chid = chid;

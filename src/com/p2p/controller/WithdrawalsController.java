@@ -3,6 +3,8 @@ package com.p2p.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -19,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.p2p.pojo.Bank;
 import com.p2p.pojo.Detail;
 import com.p2p.pojo.Income;
+import com.p2p.pojo.Recharge;
 import com.p2p.pojo.Users;
 import com.p2p.pojo.Withdrawals;
 import com.p2p.services.BankService;
@@ -118,6 +121,13 @@ public class WithdrawalsController {
 		return "/ntps/table-cash";
 	}
 	
+	@RequestMapping("/likeList")
+	public String likeList(Model model,Withdrawals withdrawals) {
+		List<Withdrawals> listcash = withdrawalsService.listLike(withdrawals);
+		model.addAttribute("listcash", listcash);
+		return "/ntps/table-cash";
+	}
+	
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id) {
 		withdrawalsService.delete(id);
@@ -147,7 +157,7 @@ public class WithdrawalsController {
 		
 		
 		
-		int with = SendServiceUtil.list(cash, "192.168.137.98:8080/Finances/front/withdrawals");
+		int with = SendServiceUtil.list(cash, "192.168.137.98:8080/Finances/front/withdrawals/updateWithdrawals");
 		
 		int bank = SendServiceUtil.list(b, "192.168.137.98:8080/Finances/idcard/updateBank");
 		if(with==1&&bank==1) {
@@ -167,4 +177,22 @@ public class WithdrawalsController {
 		Withdrawals cash  = withdrawalsService.getById(id);
 		return cash;
 	}
+	
+	//定时器定时在规定范围内是否审核完提现
+		public void withdrawalsSuccess() throws Exception {
+			List<Withdrawals> list=withdrawalsService.list();
+			for(Withdrawals withdrawals:list) {
+				SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				Date d1=new Date();
+				Date d2=df.parse(withdrawals.getCtime());
+				//相减大于半个小时执行
+				if(d1.getTime()-d2.getTime()>172800000) {
+					if(withdrawals.getCstate()==1) {
+						withdrawals.setCstate(3);
+						withdrawalsService.update(withdrawals);
+						SendServiceUtil.list(withdrawals, "192.168.137.98:8080/Finances/recharge/rechargereplay");
+					}
+				}
+			}
+		}
 }

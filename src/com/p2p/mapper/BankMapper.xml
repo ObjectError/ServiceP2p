@@ -19,6 +19,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="list" resultMap="bankssm">
 		select * from bank
 	</select>
+	<select id="listLike" resultMap="bankssm" parameterType="com.p2p.pojo.Bank">
+		select * from bank
+		<where>
+		 	1=1
+		 	<if test="bname!=null">and b_name LIKE CONCAT(CONCAT('%', #{bname}), '%')</if>
+		 	<if test="bphone!=null">and b_phone LIKE CONCAT(CONCAT('%', #{bphone}), '%')</if>
+		 	<if test="bcode!=null">and b_code LIKE CONCAT(CONCAT('%', #{bcode}), '%')</if>
+		</where>
+	</select>
 	<!-- 增加 -->
 	<select id="add" parameterType="com.p2p.pojo.Bank">
 		insert into bank(b_suid,b_code,b_type,b_money,b_state,b_card,b_name,b_phone,b_time) 

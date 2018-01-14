@@ -3,6 +3,9 @@ package com.p2p.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -49,6 +52,12 @@ public class RechargeController {
 		return "/ntps/table-recharge";
 	}
 	
+	@RequestMapping("/likelist")
+	public String listlike(Model model,Recharge recharge) {
+		List<Recharge> rechlist = rechargeService.listLike(recharge);
+		model.addAttribute("rechlist", rechlist);
+		return "/ntps/table-recharge";
+	}
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id) {
 		rechargeService.delete(id);
@@ -75,7 +84,7 @@ public class RechargeController {
 		detailService.update(d);
 		
 		
-		SendServiceUtil.list(ba, "192.168.137.98:8080/Finances/recharge");
+		SendServiceUtil.list(recharge, "192.168.137.98:8080/Finances/recharge/rechargereplay");
 		return "redirect:/recharge/list";
 	}
 	
@@ -152,5 +161,23 @@ public class RechargeController {
 		Integer id = Integer.parseInt(chid);
 		Recharge recharge = rechargeService.getById(id);
 		return recharge;
+	}
+	
+	//定时器定时在规定范围内是否审核完充值
+	public void rechargeSuccess() throws Exception {
+		List<Recharge> list=rechargeService.list();
+		for(Recharge recharge:list) {
+			SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date d1=new Date();
+			Date d2=df.parse(recharge.getChtime());
+			//相减大于半个小时执行
+			if(d1.getTime()-d2.getTime()>172800000) {
+				if(recharge.getChstate()==1) {
+					recharge.setChstate(3);
+					rechargeService.update(recharge);
+					SendServiceUtil.list(recharge, "192.168.137.98:8080/Finances/recharge/rechargereplay");
+				}
+			}
+		}
 	}
 }

@@ -15,9 +15,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="su_credit" property="sucredit"/>
 			<result column="su_ip" property="suip"/>
 	</resultMap>
-		<!-- 查所有 -->
 	<select id="list" resultMap="userssm">
 		select * from users
+	</select>
+		<!-- 查所有模糊查询 -->
+	<select id="listLike" resultMap="userssm" parameterType="com.p2p.pojo.Users">
+		select * from users 
+		<where>
+			1=1
+			<if test="suusername!=null">and su_username LIKE CONCAT(CONCAT('%', #{suusername}), '%')</if>
+			<if test="suname!=null">and su_name LIKE CONCAT(CONCAT('%', #{suname}), '%')</if>
+			<if test="suphone!=null">and su_phone LIKE CONCAT(CONCAT('%', #{suphone}), '%')</if>
+			<if test="sucard!=null">and su_card LIKE CONCAT(CONCAT('%', #{sucard}), '%')</if>
+			<if test="suemail!=null">and su_email LIKE CONCAT(CONCAT('%', #{suemali}), '%')</if>
+			<if test="sumoney!=null">and su_money LIKE CONCAT(CONCAT('%', #{sumoney}), '%')</if>
+			<if test="sucredit!=null">and su_credit LIKE CONCAT(CONCAT('%', #{sucredit}), '%')</if>
+			<if test="suip!=null">and su_ip LIKE CONCAT(CONCAT('%', #{suip}), '%')</if>
+		</where>
 	</select>
 	<!-- 增加 -->
 	<select id="add" parameterType="com.p2p.pojo.Users">
