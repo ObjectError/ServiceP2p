@@ -112,6 +112,18 @@ String path = request.getContextPath();
                     </div>
                     
                 </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+						<select id="likestate" style="border-radius:15px" name="suname" class="form-control">
+							<option value="">账单交易状态查询</option>
+							<option value="1">审核中</option>
+							<option value="2">交易成功</option>
+							<option value="3">交易失败</option>
+						</select>
+                       
+                    </div>
+                    
+                </li>
                
             </ul>
 
@@ -444,8 +456,9 @@ String path = request.getContextPath();
     <script>
     $(document).ready(function(){
     	$('#likebutton').click(function(){
+    		var state=$('#likestate').val();
     		var name=$('#likeName').val();
-    		parent.window.location="${pageContext.request.contextPath}/detail/listLike?user.suname="+name;
+    		parent.window.location="${pageContext.request.contextPath}/detail/listLike?user.suname="+name+"&dstate="+state;
     	});
     });
     

@@ -27,7 +27,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<where> 
 				d.d_suid=u.id
 				<if test="user.suname!=null">
-					and u.su_name LIKE CONCAT(CONCAT('%', #{user.suname}), '%')
+					and su_name LIKE CONCAT(CONCAT('%', #{user.suname}), '%')
+				</if>
+				<if test="dstate!=null">
+					and d_state LIKE CONCAT(CONCAT('%', #{dstate}), '%')
 				</if>
 			</where>
 		</select>

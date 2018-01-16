@@ -113,12 +113,8 @@ String path = request.getContextPath();
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
-						<select id="likebank" style="border-radius:15px" class="form-control">
-							<option value="">充值状态查询</option>
-							<option value="1">审核中</option>
-							<option value="2">充值成功</option>
-							<option value="3">充值失败</option>
-						</select>
+
+                        <input id="likebank" style="border-radius:15px" type="text" placeholder="银行卡号查找..." class="form-control">
                     </div>
                 </li> 
             </ul>
@@ -214,7 +210,6 @@ String path = request.getContextPath();
                             
 
                             <div class="body-nest" id="Footable">
-                            	<a href="income/list"><span class="glyphicon glyphicon-plus"></span>新增</a>
                                 <table class="table-striped footable-res footable metro-blue" data-page-size="7">
                                     <thead>
                                         <tr>
@@ -222,52 +217,48 @@ String path = request.getContextPath();
                                            			 用户名
                                             </th>
                                             <th data-hide="phone,tablet">
-                                        		     充值金额
+                                        		    标明细
                                             </th>
                                             <th data-hide="phone,tablet">
                           							订单号
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	充值状态
+                                                	标状态
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	充值时间
+                                                	金额
                                             </th >
                                             <th data-hide="phone,tablet">
-                                            		充值卡号
-                                            </th >
-                                            <th data-hide="phone,tablet">
-                                            		充值类型
+                                            		发标时间
                                             </th >
                                             <th data-hide="phone,tablet">
                                             		ip地址
                                             </th >
-                                            <th data-hide="phone,tablet">
+                                            <!-- <th data-hide="phone,tablet">
 													操作
-                                            </th >
+                                            </th > -->
                                         </tr>
-                                        <c:forEach items="${rechlist}" var="rechargess">
+                                        <c:forEach items="${listfabiao}" var="rechargess">
                                         <tbody>
 											<tr>
 												<td>${rechargess.user.suname}</td>
-												<td>${rechargess.chmoney}</td>
-												<td>${rechargess.chorder}</td>
+												<td>${rechargess.fstitle}</td>
+												<td>${rechargess.fsorder}</td>
 												<td>
-													<c:if test="${rechargess.chstate==1}">
-														审核中
+													<c:if test="${rechargess.fsstate==1}">
+														发标中
 													</c:if>
-													<c:if test="${rechargess.chstate==2}">
-														充值成功
+													<c:if test="${rechargess.fsstate==2}">
+														标满
 													</c:if>
-													<c:if test="${rechargess.chstate==3}">
-														充值失败
+													<c:if test="${rechargess.fsstate==3}">
+														流标
 													</c:if>
 												</td>
-												<td>${rechargess.chtime}</td>
-												<td>${rechargess.chbankid}</td>
-												<td>${rechargess.chtype}</td>
-												<td>${rechargess.chip}</td>
-												<td>
+												<td>${rechargess.fsmoney}</td>
+												<td>${rechargess.fstime}</td>
+												<td>${rechargess.fsip}</td>
+												<%-- <td>
 													<c:if test="${rechargess.chstate==1}">
 														<a href="javascript:void(-1);" onclick="show_update(${rechargess.chid})"><span class="glyphicon glyphicon-list-alt"></span>待审核</a>
 													</c:if>
@@ -277,7 +268,7 @@ String path = request.getContextPath();
 													<c:if test="${rechargess.chstate==3}">
 														<span class="entypo-lock"></span><font color="red">审核超时</font>
 													</c:if>
-												</td>
+												</td> --%>
 											</tr>
 											</tbody>
 										</c:forEach>
@@ -514,8 +505,8 @@ String path = request.getContextPath();
     	$('#likebutton').click(function(){
     		var name=$('#likename').val();
     		var order=$('#likeorder').val();
-    		var state=$('#likebank').val();
-    		parent.window.location="recharge/likelist?user.suname="+name+"&chorder="+order+"&chstate="+state;
+    		var bank=$('#likebank').val();
+    		parent.window.location="recharge/likelist?user.suname="+name+"&chorder="+order+"&chbankid="+bank;
     	});
     });
     </script>

@@ -34,12 +34,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	<!-- 增加 -->
-	<select id="add" parameterType="com.p2p.pojo.Users">
+	<insert id="add" parameterType="com.p2p.pojo.Users">
 		insert into users(id,su_username,su_name,su_phone,su_card,su_email,
 		su_money,su_credit,su_ip) 
 		values(#{id},#{suusername},#{suname},#{suphone},#{sucard},#{suemail},
 		#{sumoney},#{sucredit},#{suip})
-	</select>
+	</insert>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="java.lang.Integer">
 		delete from users where su_id = #{suid}

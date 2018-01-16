@@ -86,6 +86,7 @@ public class WithdrawalsController {
 			d.setDtype("提现");
 			d.setDip(u.getCip());
 			d.setDorder(u.getCorder());
+			detailService.add(d);
 	       // 设置发送报文的格式  
 	       response.setContentType("text/xml");  
 	       response.setCharacterEncoding("UTF-8");  
@@ -157,9 +158,9 @@ public class WithdrawalsController {
 		
 		
 		
-		int with = SendServiceUtil.list(cash, "192.168.137.98:8080/Finances/front/withdrawals/updateWithdrawals");
+		int with = SendServiceUtil.list(cash, "192.168.90.47:8080/Finances/front/withdrawals/updateWithdrawals");
 		
-		int bank = SendServiceUtil.list(b, "192.168.137.98:8080/Finances/idcard/updateBank");
+		int bank = SendServiceUtil.list(b, "192.168.90.47:8080/Finances/idcard/updateBank");
 		if(with==1&&bank==1) {
 			bankService.update(b);
 			inComeService.add(ic);
@@ -189,7 +190,12 @@ public class WithdrawalsController {
 				if(d1.getTime()-d2.getTime()>172800000) {
 					if(withdrawals.getCstate()==1) {
 						withdrawals.setCstate(3);
+						Detail detail=new Detail();
+						detail.setDorder(withdrawals.getCorder());
+						Detail d=detailService.getDetail(detail);
+						d.setDstate(3);
 						withdrawalsService.update(withdrawals);
+						detailService.update(d);
 						SendServiceUtil.list(withdrawals, "192.168.137.98:8080/Finances/recharge/rechargereplay");
 					}
 				}

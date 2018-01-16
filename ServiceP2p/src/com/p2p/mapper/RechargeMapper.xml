@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				r.ch_suid=u.id
 				<if test="user.suname!=null">and u.su_name LIKE CONCAT(CONCAT('%', #{user.suname}), '%')</if>
 				<if test="chorder!=null">and ch_order LIKE CONCAT(CONCAT('%', #{chorder}), '%')</if>
-				<if test="chbankid!=null">and ch_bankid LIKE CONCAT(CONCAT('%', #{chbankid}), '%')</if>
+				<if test="chstate!=null">and ch_state LIKE CONCAT(CONCAT('%', #{chstate}), '%')</if>
 			</where>
 		</select>
 		<!-- 增加 -->
