@@ -105,12 +105,12 @@ public class AdminController{
 	public String index() {
 		return "/ntps/index";
 	}
-	/*public static void main(String[] args) {
-		String phone="15279457626";
-		Object result = new SimpleHash("MD5", "111111", ByteSource.Util.bytes(phone), 1);
+	public static void main(String[] args) {
+		String phone="龙";
+		Object result = new SimpleHash("MD5", "123456", ByteSource.Util.bytes(phone), 1);
 		String pass=result.toString();
 		System.out.println(pass);
-	}*/
+	}
 	@RequestMapping("exit")
 	public String exit(HttpServletRequest request) {
 		request.getSession().removeAttribute("admin");

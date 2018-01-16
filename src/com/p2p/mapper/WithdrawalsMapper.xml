@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 		c.c_suid=u.id
 	 		<if test="user.suname!=null">and u.su_name LIKE CONCAT(CONCAT('%', #{user.suname}), '%')</if>
 	 		<if test="corder!=null">and c.c_order LIKE CONCAT(CONCAT('%', #{corder}), '%')</if>
-	 		<if test="ccard!=null">and c.c_card LIKE CONCAT(CONCAT('%', #{ccard}), '%')</if>
+	 		<if test="cstate!=null">and c.c_state LIKE CONCAT(CONCAT('%', #{cstate}), '%')</if>
 	 	</where> 
 	</select>
 	<select id="getById" resultMap="withdrawalsMap">

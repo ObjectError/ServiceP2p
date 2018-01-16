@@ -174,7 +174,12 @@ public class RechargeController {
 			if(d1.getTime()-d2.getTime()>172800000) {
 				if(recharge.getChstate()==1) {
 					recharge.setChstate(3);
+					Detail detail=new Detail();
+					detail.setDorder(recharge.getChorder());
+					Detail d=detailService.getDetail(detail);
+					d.setDstate(3);
 					rechargeService.update(recharge);
+					detailService.update(d);
 					SendServiceUtil.list(recharge, "192.168.137.98:8080/Finances/recharge/rechargereplay");
 				}
 			}

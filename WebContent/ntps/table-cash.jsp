@@ -110,8 +110,12 @@
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">
-
-                        <input id="likebank" style="border-radius:15px" type="text" placeholder="银行卡号查找..." class="form-control">
+						<select id="likebank" style="border-radius:15px" class="form-control">
+							<option value="">提现状态查询</option>
+							<option value="1">审核中</option>
+							<option value="2">提现成功</option>
+							<option value="3">提现超时</option>
+						</select>
                     </div>
                 </li> 
             </ul>
@@ -490,8 +494,8 @@
     	$('#likebutton').click(function(){
     		var name=$('#likename').val();
     		var order=$('#likeorder').val();
-    		var bank=$('#likebank').val();
-    		parent.window.location="withdrawals/likeList?user.suname="+name+"&corder="+order+"&ccard="+bank;
+    		var state=$('#likebank').val();
+    		parent.window.location="withdrawals/likeList?user.suname="+name+"&corder="+order+"&cstate="+state;
     	});
     });
     

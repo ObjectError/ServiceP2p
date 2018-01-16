@@ -156,10 +156,6 @@ String path = request.getContextPath();
                                 <i class="entypo-clipboard"></i>
                                 <span>管理员表</span>
                             </a>
-                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/admin/list" title="Dashboard">
-                                <i class="entypo-clipboard"></i>
-                                <span>主动投标表</span>
-                            </a>
                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/user/list" title="Dashboard">
                                 <i class="entypo-clipboard"></i>
                                 <span>用户表</span>
@@ -167,10 +163,6 @@ String path = request.getContextPath();
                              <a class="tooltip-tip ajax-load" href="/ServiceP2p/bank/list" title="Dashboard">
                                 <i class="entypo-clipboard"></i>
                                 <span>银行卡表</span>
-                            </a>
-                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/income/list" title="Dashboard">
-                                <i class="entypo-clipboard"></i>
-                                <span>收益表</span>
                             </a>
                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/detail/list" title="Dashboard">
                                 <i class="entypo-clipboard"></i>
@@ -184,10 +176,18 @@ String path = request.getContextPath();
                                 <i class="entypo-clipboard"></i>
                                 <span>充值表</span>
                             </a>
-                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/repayment/list" title="Dashboard">
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/fabiao/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>发标表</span>
+                            </a>
+                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/initiative/list" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>投标表</span>
+                            </a>
+                             <!-- <a class="tooltip-tip ajax-load" href="/ServiceP2p/repayment/list" title="Dashboard">
                                 <i class="entypo-clipboard"></i>
                                 <span>还款表</span>
-                            </a>
+                            </a> -->
                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/repayment/list" title="Dashboard">
                                 <i class="entypo-clipboard"></i>
                                 <span>放款表</span>
