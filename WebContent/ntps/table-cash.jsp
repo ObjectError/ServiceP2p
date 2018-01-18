@@ -88,7 +88,7 @@
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="bank/list" title="Sample page 1">提现表</a>
+                <li><a href="withdrawals/list" title="Sample page 1">提现表</a>
                 </li>
                <li class="pull-right">
                     <div class="input-group input-widget">

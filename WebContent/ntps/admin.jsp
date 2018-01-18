@@ -53,7 +53,7 @@ String path = request.getContextPath();
                     <div class="col-sm-3">
                         <h2 class="tittle-content-header">
                             <span class="entypo-menu"></span>
-                            <span>银行卡管理表
+                            <span>管理员表
                             </span>
                         </h2>
 
@@ -91,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="bank/list" title="Sample page 1">银行卡管理表</a>
+                <li><a href="admin/list" title="Sample page 1">管理员表</a>
                 </li>
                 <li class="pull-right">
                     <div class="input-group input-widget">

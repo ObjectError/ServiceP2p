@@ -190,7 +190,7 @@ String path = request.getContextPath();
                             </a> -->
                             <a class="tooltip-tip ajax-load" href="/ServiceP2p/repayment/list" title="Dashboard">
                                 <i class="entypo-clipboard"></i>
-                                <span>放款表</span>
+                                <span>还款表</span>
                             </a>
                             
                         </li>
