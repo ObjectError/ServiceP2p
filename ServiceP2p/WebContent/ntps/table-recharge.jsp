@@ -91,7 +91,7 @@ String path = request.getContextPath();
                 </li>
                 <li><i class="fa fa-lg fa-angle-right"></i>
                 </li>
-                <li><a href="bank/list" title="Sample page 1">充值表</a>
+                <li><a href="recharge/list" title="Sample page 1">充值表</a>
                 </li>
                  <li class="pull-right">
                     <div class="input-group input-widget">
