@@ -3,7 +3,6 @@ package com.p2p.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +24,6 @@ import com.p2p.pojo.Recharge;
 import com.p2p.pojo.Users;
 import com.p2p.services.BankService;
 import com.p2p.services.DetailService;
-import com.p2p.services.InComeService;
 import com.p2p.services.RechargeService;
 import com.p2p.services.UsersService;
 import com.p2p.util.SendServiceUtil;
@@ -40,8 +38,7 @@ public class RechargeController {
 	private UsersService usersService;
 	@Resource(name="bankServiceImpl")
 	private BankService bankService;
-	@Resource(name="inComeServiceImpl")
-	private InComeService inComeService;
+	
 	@Resource(name="detailServiceImpl")
 	private DetailService detailService;
 	

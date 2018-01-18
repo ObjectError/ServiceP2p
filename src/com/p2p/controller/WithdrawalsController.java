@@ -20,14 +20,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.p2p.pojo.Bank;
 import com.p2p.pojo.Detail;
-import com.p2p.pojo.Income;
-import com.p2p.pojo.Recharge;
 import com.p2p.pojo.Users;
 import com.p2p.pojo.Withdrawals;
 import com.p2p.services.BankService;
 import com.p2p.services.CashService;
 import com.p2p.services.DetailService;
-import com.p2p.services.InComeService;
 import com.p2p.services.UsersService;
 import com.p2p.services.WithdrawalsService;
 import com.p2p.util.SendServiceUtil;
@@ -44,8 +41,6 @@ public class WithdrawalsController {
 	private UsersService userService;
 	@Resource(name="bankServiceImpl")
 	private BankService bankService;
-	@Resource(name="inComeServiceImpl")
-	private InComeService inComeService; 
 	@Resource(name="detailServiceImpl")
 	private DetailService detailService;
 	
@@ -144,13 +139,6 @@ public class WithdrawalsController {
 		Bank b=bankService.selectBankCard(cash.getCcard());
 		b.setBmoney(b.getBmoney()+cash.getCmoney()-cash.getCpoundage());
 		
-		Income ic=new Income();
-		ic.setImoeny(cash.getCmoney());
-		ic.setIsuid(u.getSuid());
-		ic.setItype("提现");
-		ic.setItime(cash.getCtime());
-		ic.setIip(cash.getCip());
-		
 		Detail detail=new Detail();
 		detail.setDorder(cash.getCorder());
 		Detail d=detailService.getDetail(detail);
@@ -163,7 +151,6 @@ public class WithdrawalsController {
 		int bank = SendServiceUtil.list(b, "192.168.90.47:8080/Finances/idcard/updateBank");
 		if(with==1&&bank==1) {
 			bankService.update(b);
-			inComeService.add(ic);
 			detailService.update(d);
 			userService.update(u);
 			withdrawalsService.update(cash);
