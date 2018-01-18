@@ -7,50 +7,44 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.p2p.mapper.InComeMapper;
-import com.p2p.pojo.Income;
-import com.p2p.services.InComeService;
+import com.p2p.mapper.ProfitMapper;
+import com.p2p.pojo.Profit;
+import com.p2p.services.ProfitService;
 
 @Transactional
 @Service
-public class InComeServiceImpl implements InComeService{
-	
+public class ProfitServiceImpl implements ProfitService {
+
 	@Resource
-	private InComeMapper incomem;
-	
+	private ProfitMapper profitMapper;
 	@Override
-	public List<Income> list() {
+	public List<Profit> list() {
 		// TODO Auto-generated method stub
-		return incomem.list();
+		return profitMapper.list();
 	}
 
 	@Override
-	public void add(Income t) {
+	public void add(Profit t) {
 		// TODO Auto-generated method stub
-		incomem.add(t);
+		profitMapper.add(t);
 	}
 
 	@Override
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
-		incomem.delete(id);
+		profitMapper.delete(id);
 	}
 
 	@Override
-	public void update(Income t) {
+	public void update(Profit t) {
 		// TODO Auto-generated method stub
-		incomem.update(t);
+		profitMapper.update(t);
 	}
 
 	@Override
-	public Income getById(Integer id) {
+	public Profit getById(Integer id) {
 		// TODO Auto-generated method stub
-		return incomem.getById(id);
-	}
-
-	@Override
-	public List<Income> likeIncome(Income income) {
-		return incomem.likeIncome(income);
+		return profitMapper.getById(id);
 	}
 
 }
