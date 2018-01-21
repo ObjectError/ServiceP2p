@@ -49,7 +49,7 @@ String path = request.getContextPath();
                         </a>
                         <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                             <li>
-                                <a href="/ServiceP2p/admin/list">
+                                <a href="/ServiceP2p/admin/selectAdmin?id=${admin.aid }">
                                     <span class="entypo-user"></span>&#160;&#160;个人信息</a>
                             </li>
                             <li class="divider"></li>

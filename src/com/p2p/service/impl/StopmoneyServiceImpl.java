@@ -7,50 +7,50 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.p2p.mapper.FabiaoMapper;
-import com.p2p.pojo.Fabiao;
-import com.p2p.services.FabiaoService;
+import com.p2p.mapper.StopmoneyMapper;
+import com.p2p.pojo.Stopmoney;
+import com.p2p.services.StopmoneyService;
 
 @Transactional
 @Service
-public class FabiaoServiceImpl implements FabiaoService {
+public class StopmoneyServiceImpl implements StopmoneyService{
 
 	@Resource
-	private FabiaoMapper fabiaoMapper;
+	private StopmoneyMapper stopmoney;
 	@Override
-	public List<Fabiao> list() {
+	public List<Stopmoney> list() {
 		// TODO Auto-generated method stub
-		return fabiaoMapper.list();
+		return stopmoney.list();
 	}
 
 	@Override
-	public void add(Fabiao t) {
+	public void add(Stopmoney t) {
 		// TODO Auto-generated method stub
-		fabiaoMapper.add(t);
+		stopmoney.add(t);
 	}
 
 	@Override
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
-		fabiaoMapper.delete(id);
+		stopmoney.delete(id);
 	}
 
 	@Override
-	public void update(Fabiao t) {
+	public void update(Stopmoney t) {
 		// TODO Auto-generated method stub
-		fabiaoMapper.update(t);
+		stopmoney.update(t);
 	}
 
 	@Override
-	public Fabiao getById(Integer id) {
+	public Stopmoney getById(Integer id) {
 		// TODO Auto-generated method stub
-		return fabiaoMapper.getById(id);
+		return stopmoney.getById(id);
 	}
 
 	@Override
-	public Fabiao getByOrder(String order) {
+	public Stopmoney getOrder(String order) {
 		// TODO Auto-generated method stub
-		return fabiaoMapper.getByOrder(order);
+		return stopmoney.getOrder(order);
 	}
 
 }

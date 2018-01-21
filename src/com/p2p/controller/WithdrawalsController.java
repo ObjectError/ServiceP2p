@@ -20,11 +20,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.p2p.pojo.Bank;
 import com.p2p.pojo.Detail;
+import com.p2p.pojo.Transfer;
 import com.p2p.pojo.Users;
 import com.p2p.pojo.Withdrawals;
 import com.p2p.services.BankService;
 import com.p2p.services.CashService;
 import com.p2p.services.DetailService;
+import com.p2p.services.TransferService;
 import com.p2p.services.UsersService;
 import com.p2p.services.WithdrawalsService;
 import com.p2p.util.SendServiceUtil;
@@ -43,7 +45,10 @@ public class WithdrawalsController {
 	private BankService bankService;
 	@Resource(name="detailServiceImpl")
 	private DetailService detailService;
+	@Resource(name="transferServiceImpl")
+	private TransferService transferService;
 	
+	//提现
 	@RequestMapping("add")
 	public void add(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		 String ip = request.getRemoteHost(); 
@@ -68,20 +73,52 @@ public class WithdrawalsController {
 	        Withdrawals u=o.readValue(inputString.toString(), Withdrawals.class);
 	        System.out.println("接收的报文为= "+u);
 	        u.setCip(ip);
-	        withdrawalsService.add(u);
-	       // 要返回的报文  
-	       StringBuffer resultBuffer = new StringBuffer();  
-	       resultBuffer.append("1");
+	        
+	        //更改提现人的余额
+	        Users user=userService.getById(u.getCsuid());
+			user.setSumoney(user.getSumoney()-u.getCmoney());
+			user.setSucanmoney(user.getSucanmoney()-u.getCmoney());
+			
+			//更改平台的余额
+			Users users=userService.getById(1);
+			users.setSumoney(users.getSumoney()+u.getCpoundage());
+			users.setSucanmoney(users.getSucanmoney()+u.getCpoundage());
+			
+			Detail d1=new Detail();
+			d1.setDip(u.getCip());
+			d1.setDmoney(u.getCpoundage());
+			d1.setDstate(2);
+			d1.setDsuid(1);
+			d1.setDtime(u.getCtime());
+			d1.setDtype("提现手续费");
+			d1.setDip(u.getCip());
+			d1.setDorder(u.getCorder());
+			
+			detailService.add(d1);
+			
+			Bank b=bankService.selectBankCard(u.getCcard());
+			b.setBmoney(b.getBmoney()+u.getCmoney()-u.getCpoundage());
+			
+	      
+	       
 	       Detail d=new Detail();
 			d.setDip(u.getCip());
-			d.setDmoney(u.getCmoney());
-			d.setDstate(1);
+			d.setDmoney(u.getCmoney()-u.getCpoundage());
+			d.setDstate(2);
 			d.setDsuid(u.getCsuid());
 			d.setDtime(u.getCtime());
 			d.setDtype("提现");
 			d.setDip(u.getCip());
 			d.setDorder(u.getCorder());
+			
 			detailService.add(d);
+			withdrawalsService.add(u);
+			userService.update(user);
+			userService.update(users);
+			bankService.update(b);
+			 // 要返回的报文  
+	       StringBuffer resultBuffer = new StringBuffer();  
+	       resultBuffer.append("1");
 	       // 设置发送报文的格式  
 	       response.setContentType("text/xml");  
 	       response.setCharacterEncoding("UTF-8");  
@@ -130,7 +167,7 @@ public class WithdrawalsController {
 		return "redirect:/cash/list";
 	} 
 	
-	@RequestMapping("/update")
+	/*@RequestMapping("/update")
 	public String update(Withdrawals cash) throws Exception {
 		
 		Users u=userService.getById(cash.getCsuid());
@@ -156,7 +193,7 @@ public class WithdrawalsController {
 			withdrawalsService.update(cash);
 		}
 		return "redirect:/withdrawals/list";
-	}
+	}*/
 	
 	@RequestMapping("/getby")
 	@ResponseBody

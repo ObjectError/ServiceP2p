@@ -79,6 +79,8 @@ public class UserdsController {
 	        Users use=userService.getById(u.getSuid());
 	        if(use==null) {
 	        	u.setSuip(ip);
+	        	u.setSucanmoney(u.getSumoney());
+	        	u.setSustopmoney(0);
 	  	       	u.setId(u.getSuid());
 	  	       	userService.add(u);
 	        }

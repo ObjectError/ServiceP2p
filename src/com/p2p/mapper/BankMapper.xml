@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 	<if test="bname!=null">and b_name LIKE CONCAT(CONCAT('%', #{bname}), '%')</if>
 		 	<if test="bphone!=null">and b_phone LIKE CONCAT(CONCAT('%', #{bphone}), '%')</if>
 		 	<if test="bcode!=null">and b_code LIKE CONCAT(CONCAT('%', #{bcode}), '%')</if>
+		 	<if test="bsuid!=null">and b_suid=#{bsuid} and b_state=1</if>
 		</where>
 	</select>
 	<!-- 增加 -->
@@ -35,6 +36,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="java.lang.Integer">
+		delete from bank where b_id = #{b_id}
+	</delete>
+	<!-- 解绑 -->
+	<delete id="delbank" parameterType="java.lang.String">
 		delete from bank where b_id = #{b_id}
 	</delete>
 	<!-- 修改 -->

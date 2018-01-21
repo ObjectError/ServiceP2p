@@ -98,12 +98,10 @@
                                             <img src="/ServiceP2p/ntps/assets/img/307327_205.jpg" alt="" class="img-circle img-responsive img-profile">
 
                                         </li>
-                                        <c:forEach items="${adminList}" var="admin">
 										<li class="list-group-item text-right">
                                             <span class="pull-left">
                                                 <strong>昵称</strong>
                                             </span>${admin.aname }</li>
-										</c:forEach>
                                         
                                     </ul>
 									
@@ -116,7 +114,6 @@
                                     </h2>
                                     
                                     <hr>
-									<c:forEach items="${adminList}" var="admin">
                                     <dl class="dl-horizontal-profile">
                                         <dt>Id</dt>
                                         <dd>${admin.aid }</dd>
@@ -131,7 +128,6 @@
                                         <dd>${admin.aphone}</dd>
 
                                     </dl>
-                                    </c:forEach>
                                     <hr>
 									
                                    
@@ -216,7 +212,6 @@
                                                 <strong>警报</strong>.使用此来向用户显示重要消息。
                                             </div>
                                             <h3>个人信息</h3>
-                                            <c:forEach items="${adminList}" var="admin">
                                             <form class="form-horizontal" role="form" action="update" method="post">
                                             <input type="hidden" name="aid" value="${admin.aid}">
                                                 <div class="form-group">
@@ -259,7 +254,6 @@
                                                     </div>
                                                 </div>
                                                 </form>
-                                                </c:forEach>
                                         </div>
                                     </div>
                                 </div>

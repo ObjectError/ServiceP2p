@@ -61,7 +61,7 @@ public class RechargeController {
 		return "redirect:/recharge/list";
 	}
 	
-	@RequestMapping("/update")
+	/*@RequestMapping("/update")
 	public String update(Recharge recharge,HttpServletRequest request) throws Exception {
 		Users users=usersService.getById(recharge.getChsuid());
 		users.setSumoney(users.getSumoney()+recharge.getChmoney());
@@ -84,7 +84,7 @@ public class RechargeController {
 		SendServiceUtil.list(recharge, "192.168.137.98:8080/Finances/recharge/rechargereplay");
 		return "redirect:/recharge/list";
 	}
-	
+	*/
 	@RequestMapping("/add")
 	public void add(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		 String ip = request.getRemoteHost(); 
@@ -110,15 +110,26 @@ public class RechargeController {
 	        System.out.println("接收的报文为= "+u);
 	        u.setChip(ip);
 	        u.setChtype("银行卡");
-	        rechargeService.add(u);
+	        
 	        Detail d=new Detail();
 	        d.setDip(ip);
 	        d.setDmoney(u.getChmoney());
 	        d.setDorder(u.getChorder());
-	        d.setDstate(1);
+	        d.setDstate(2);
 	        d.setDsuid(u.getChsuid());
 	        d.setDtime(u.getChtime());
 	        d.setDtype("充值");
+	        
+	        Users users=usersService.getById(u.getChsuid());
+			users.setSumoney(users.getSumoney()+u.getChmoney());
+			users.setSucanmoney(users.getSucanmoney()+u.getChmoney());
+			
+			Bank ba = bankService.selectBankCard(u.getChbankid());
+			ba.setBmoney(ba.getBmoney()-u.getChmoney());
+			
+			bankService.update(ba);
+			usersService.update(users);
+	        rechargeService.add(u);
 	        detailService.add(d);
 	        // 要返回的报文  
 	       StringBuffer resultBuffer = new StringBuffer();  

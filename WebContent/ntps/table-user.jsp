@@ -132,6 +132,78 @@ String path = request.getContextPath();
                     <div class="col-sm-12">
                         <div class="nest" id="FootableClose">
                           
+							 <!-- 修改拟态框（Modal） -->
+							<div class="modal fade" id="myupdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							    <form action="user/update" method="post">
+							        <div class="modal-content">
+							        	<input type="hidden" name="id" id="id">
+							        	<input type="hidden" name="suid" id="suid">
+							            <div class="modal-header">
+							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							                    &times;
+							                </button>
+							                <h4 class="modal-title" id="myModalLabel">
+							                		    修改
+							                </h4>
+							            </div>
+							            <div class="modal-body">
+							                <div class="input-group">
+												<div class="form-group">
+										            <input name="csuid" id="csuid" type="hidden"  style="color:black;">
+										             <input name="cid" id="cid" type="hidden"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+							                        <label>用户名:</label>
+							                		<input name="suusername" id="suusername" type="text"  style="color:black;" readonly="readonly">
+							                    </div>
+							                    <div class="form-group">
+							                        <label>真实姓名:</label>
+							                		<input name="suname" id="suname" type="text"  style="color:black;" readonly="readonly">
+							                    </div>
+							                    <div class="form-group">
+													<label>手机号:</label>
+										            <input name="suphone" id="suphone" type="text"   style="color:black;" readonly="readonly">
+							                    </div>
+							                    <div class="form-group">
+													<label>身份证:</label>
+										            <input name="sucard" id="sucard" type="text"  style="color:black;" readonly="readonly">
+							                    </div>
+							                   
+							                    <div class="form-group">
+													<label>邮箱:</label>
+										            <input name="suemail" id="suemail" type="text"  style="color:black;" readonly="readonly">
+							                    </div>
+							                    <div class="form-group">
+													<label>用户余额:</label>
+										            <input name="sumoney" id="sumoney" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>用户可用余额:</label>
+										            <input name="sucanmoney" id="sucanmoney" type="text"  style="color:black;">
+							                    </div>
+							                    <div class="form-group">
+													<label>用户冻结资金:</label>
+										            <input name="sustopmoney" id="sustopmoney" type="text"  style="color:black;">
+							                    </div>
+							                     <div class="form-group">
+													<label>IP地址:</label>
+										            <input name="suip" id="suip" type="text"  style="color:black;" readonly="readonly">
+							                    </div>
+							                </div>
+							            </div>
+							            <div class="modal-footer">
+							                <button type="button" class="btn btn-default" data-dismiss="modal" >
+							                	关闭
+							                </button>
+							               
+							                <input type="submit" value="提交" class="btn btn-primary" id="id_">
+							            </div>
+							        </div>
+							        </form>
+							        <!-- /.modal-content -->
+							    </div><!-- /.modal -->
+							</div> 
 							
 							
                             <div class="body-nest" id="Footable">
@@ -157,11 +229,17 @@ String path = request.getContextPath();
                                                 	账户余额
                                             </th >
                                             <th data-hide="phone,tablet">
-                                            		信用额度
+                                                	账号可用余额
+                                            </th >
+                                            <th data-hide="phone,tablet">
+                                                	账户冻结资金
                                             </th >
                                             
                                             <th data-hide="phone,tablet">
                                             		ip地址
+                                            </th >
+                                            <th data-hide="phone,tablet">
+                                            		操作
                                             </th >
                                             
                                         </tr>
@@ -174,9 +252,12 @@ String path = request.getContextPath();
 												<td>${user.sucard}</td>
 												<td>${user.suemail}</td>
 												<td>${user.sumoney}</td>
-												<td>${user.sucredit}</td>
+												<td>${user.sucanmoney}</td>
+												<td>${user.sustopmoney}</td>
 												<td>${user.suip}</td>
-												
+												<td>
+													<a href="javascript:void(-1);" onclick="show_update(${user.suid})"><span class="glyphicon glyphicon-list-alt"></span>修改</a>
+												</td>
 												</tr>
 											</tbody>
 										</c:forEach>
@@ -447,21 +528,23 @@ String path = request.getContextPath();
     
     
     function show_update(id) {
-    	var url =  "userBindCard/getby";
+    	var url =  "user/getby";
     	$.post(
     			url,
     			{
-    				uid:id
+    				suid:id
     			},
 	    			function(data){
 	    				var obj = JSON.parse(data);
-	    				$('#uid').val(obj.uid);
-	    				$('#usuid').val(obj.usuid);
-	    				$('#ubankcode').val(obj.ubankcode);
-	    				$('#utype').val(obj.utype);
-	    				$('#utime').val(obj.utime);
-	    				$('#ustate').val(obj.ustate);
-	    				$('#uip').val(obj.uip);
+	    				$('#id').val(obj.id);
+	    				$('#suid').val(obj.suid);
+	    				$('#suusername').val(obj.suusername);
+	    				$('#suname').val(obj.suname);
+	    				$('#suphone').val(obj.suphone);
+	    				$('#sucard').val(obj.sucard);
+	    				$('#suemail').val(obj.suemail);
+	    				$('#sumoney').val(obj.sumoney);
+	    				$('#suip').val(obj.suip);
 	    			}
 		    );	
 	    	

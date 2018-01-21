@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<where>
 			i.it_suid =u.id
 			<if test="user.suname!=null">and u.su_name LIKE CONCAT(CONCAT('%', #{user.suname}), '%')</if>
-			<if test="itorder!=null">and it_order LIKE CONCAT(CONCAT('%', #{itorder}), '%')</if>
+			<if test="itorder!=null">and it_order=#{itorder}</if>
 			<if test="itstate!=null">and it_state LIKE CONCAT(CONCAT('%', #{itstate}), '%')</if>
 		</where>
 	</select>

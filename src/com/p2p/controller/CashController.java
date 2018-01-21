@@ -46,6 +46,7 @@ public class CashController {
 		cashService.update(cash);
 		Users u=userService.getById(cash.getCsuid());
 		u.setSumoney(u.getSumoney()-cash.getCmoeny());
+		u.setSucanmoney(u.getSucanmoney()-cash.getCmoeny());
 		userService.update(u);
 		Bank b=bankService.selectBankCard(cash.getCcard());
 		b.setBmoney(b.getBmoney()+cash.getCmoeny());

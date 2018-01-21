@@ -187,13 +187,7 @@ String path = request.getContextPath();
                                     <thead>
                                         <tr>
                                             <th>
-                                               		编号
-                                            </th>
-                                            <th>
                                            			 还款用户id
-                                            </th>
-                                            <th>
-                                           			 收款用户id
                                             </th>
                                             <th data-hide="phone,tablet">
                                         		           还款金额
@@ -205,36 +199,16 @@ String path = request.getContextPath();
                                                 	还款状态
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	还款人ip
-                                            </th >
-                                            <th data-hide="phone,tablet">
-                                                	收款人ip
-                                            </th >
-                                            <th data-hide="phone,tablet">
                                             		操作
                                             </th >
                                         </tr>
                                         <c:forEach items="${listre}" var="repayy">
                                         <tbody>
 											<tr>
-												<td>${repayy.rid}</td>
-												<td>${repayy.rsuid}</td>
-												<td>${repayy.rsuids}</td>
+												<td>${repayy.rsuname}</td>
 												<td>${repayy.rmoeny}</td>
 												<td>${repayy.rtime}</td>
-												<td>
-													<c:if test="${repayy.rstate==1}">
-														审核中
-													</c:if>
-													<c:if test="${repayy.rstate==2}">
-														还款成功
-													</c:if>
-													<c:if test="${repayy.rstate==3}">
-														还款失败
-													</c:if>
-												</td>
-												<td>${repayy.rip}</td>
-												<td>${repayy.rips}</td>
+												<td>${repayy.rstate}</td>
 												<td><a href="javascript:void(-1);" onclick="show_update(${repayy.rid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
 													<a href="repayment/delete/${repayy.rid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
 											</tr>
