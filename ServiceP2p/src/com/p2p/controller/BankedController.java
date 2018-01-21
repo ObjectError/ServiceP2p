@@ -41,16 +41,67 @@ public class BankedController {
 		model.addAttribute("bankList", bankList);
 		return "/ntps/table-dynamic";
 	}
-	@RequestMapping("/delete/{id}")
-	public String delete(@PathVariable Integer id){
-		bankService.delete(id);
-		return "redirect:/bank/list";
+	//解绑银行卡
+	@RequestMapping("/delete")
+	public void delete(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		String ip = request.getRemoteHost(); 
+		
+	     System.out.println("ip地址="+ip);
+	      
+	   
+	     try {
+	    	//获取接收的报文
+ 	 	BufferedReader reader=request.getReader();
+			String line="";
+			StringBuffer inputString = new StringBuffer();  
+		    while ((line = reader.readLine()) != null) {  
+		        inputString.append(line);  
+		     }
+	       
+		    //jackJson    
+	        ObjectMapper o=new ObjectMapper();
+	        //Map map=new HashMap<>();
+	        
+	        Bank bank=o.readValue(inputString.toString(), Bank.class);
+	        bankService.delbank(bank.getBcode());
+	              
+	       // 要返回的报文  
+	       StringBuffer resultBuffer = new StringBuffer();  
+	       resultBuffer.append("1");
+	     
+	       // 设置发送报文的格式  
+	       response.setContentType("text/xml");  
+	       response.setCharacterEncoding("UTF-8");  
+	   
+	       PrintWriter out = response.getWriter();  
+	       out.println(resultBuffer.toString());  
+	       out.flush();  
+	       out.close();  
+	       
+	      
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			 StringBuffer resultBuffer = new StringBuffer();  
+		       resultBuffer.append("2");
+		     
+		       // 设置发送报文的格式  
+		       response.setContentType("text/xml");  
+		       response.setCharacterEncoding("UTF-8");  
+		   
+		       PrintWriter out = response.getWriter();  
+		       out.println(resultBuffer.toString());  
+		       out.flush();  
+		       out.close();  
+			e.printStackTrace();
+		}
 	}
 	@RequestMapping("/update")
 	public String update(Bank bank){
 		bankService.update(bank);
 		return "redirect:/bank/list";
 	}
+	//绑定银行卡
 	@RequestMapping("/add")
 	public String add(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		String ip = request.getRemoteHost(); 

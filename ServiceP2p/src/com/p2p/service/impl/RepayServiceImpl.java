@@ -43,4 +43,10 @@ public class RepayServiceImpl implements RepayServices{
 		return repaym.getById(id);
 	}
 
+	@Override
+	public Repayment getByOrder(String order) {
+		// TODO Auto-generated method stub
+		return repaym.getByOrder(order);
+	}
+
 }

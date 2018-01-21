@@ -41,6 +41,12 @@ public class Users implements Serializable{
 	@TableField("su_money")
 	private double sumoney; //账户余额
 	
+	@TableField("su_canmoney")
+	private double sucanmoney;//账号可用余额
+	
+	@TableField("su_stopmoney")
+	private double sustopmoney;//账号冻结资金
+	
 	@TableField("su_credit")
 	private Integer sucredit; //信用额度
 	
@@ -138,8 +144,31 @@ public class Users implements Serializable{
 		this.id = id;
 	}
 
+	public double getSucanmoney() {
+		return sucanmoney;
+	}
+
+	public void setSucanmoney(double sucanmoney) {
+		this.sucanmoney = sucanmoney;
+	}
+
+	public double getSustopmoney() {
+		return sustopmoney;
+	}
+
+	public void setSustopmoney(double sustopmoney) {
+		this.sustopmoney = sustopmoney;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [suid=" + suid + ", id=" + id + ", suusername=" + suusername + ", suname=" + suname + ", suphone="
+				+ suphone + ", sucard=" + sucard + ", suemail=" + suemail + ", sumoney=" + sumoney + ", sucanmoney="
+				+ sucanmoney + ", sustopmoney=" + sustopmoney + ", sucredit=" + sucredit + ", suip=" + suip + "]";
+	}
+
 	public Users(Integer suid, Integer id, String suusername, String suname, String suphone, String sucard,
-			String suemail,double sumoney,Integer sucredit, String suip) {
+			String suemail, double sumoney, double sucanmoney, double sustopmoney, Integer sucredit, String suip) {
 		super();
 		this.suid = suid;
 		this.id = id;
@@ -149,16 +178,10 @@ public class Users implements Serializable{
 		this.sucard = sucard;
 		this.suemail = suemail;
 		this.sumoney = sumoney;
+		this.sucanmoney = sucanmoney;
+		this.sustopmoney = sustopmoney;
 		this.sucredit = sucredit;
 		this.suip = suip;
-	}
-
-	@Override
-	public String toString() {
-		return "Users [suid=" + suid + ", id=" + id + ", suusername=" + suusername + ", suname=" + suname + ", suphone="
-				+ suphone + ", sucard=" + sucard + ", suemail=" + suemail + ", supaypassword=" 
-				+ ", subankcard=" + ", sumoney=" + sumoney + ", sucredit="
-				+ sucredit + ", suip=" + suip + "]";
 	}
 
 	

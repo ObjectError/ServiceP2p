@@ -12,6 +12,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="su_card" property="sucard"/>
 			<result column="su_email" property="suemail"/>
 			<result column="su_money" property="sumoney"/>
+			<result column="su_canmoney" property="sucanmoney"/>
+			<result column="su_stopmoney" property="sustopmoney"/>
 			<result column="su_credit" property="sucredit"/>
 			<result column="su_ip" property="suip"/>
 	</resultMap>
@@ -36,9 +38,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 增加 -->
 	<insert id="add" parameterType="com.p2p.pojo.Users">
 		insert into users(id,su_username,su_name,su_phone,su_card,su_email,
-		su_money,su_credit,su_ip) 
+		su_money,su_canmoney,su_stopmoney,su_credit,su_ip) 
 		values(#{id},#{suusername},#{suname},#{suphone},#{sucard},#{suemail},
-		#{sumoney},#{sucredit},#{suip})
+		#{sumoney},#{sucanmoney},#{sustopmoney},#{sucredit},#{suip})
 	</insert>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="java.lang.Integer">
@@ -54,6 +56,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="sucard!=null">su_card=#{sucard},</if>
 			<if test="suemail!=null">su_email=#{suemail},</if>
 			<if test="sumoney!=null">su_money=#{sumoney},</if>
+			<if test="sumoney!=null">su_canmoney=#{sucanmoney},</if>
+			<if test="sumoney!=null">su_stopmoney=#{sustopmoney},</if>
 			<if test="sucredit!=null">su_credit=#{sucredit},</if>
 			<if test="suip!=null">su_ip=#{suip},</if>
 		</trim>
@@ -63,6 +67,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<!-- 根据id查用户 -->
 	<select id="getById" resultMap="userssm" parameterType="java.lang.Integer">
-		select * from users where id = #{id}
+		select * from users where su_id = #{suid}
 	</select>
 </mapper>

@@ -16,17 +16,21 @@ public class Fabiao implements Serializable{
 	@TableField("fs_money")
 	private double fsmoney;
 	@TableField("fs_time")
-	private String fstime;
+	private String fstime;//投标截止时间
 	@TableField("fs_state")
-	private Integer fsstate;
+	private Integer fsstate;//发布状态  1募集标  2还款标  3结清标 4流标  5废标  6待审核标  7满标
 	@TableField("fs_ip")
 	private String fsip;
+	private Integer fsstyle;//还款类型：1：自动还款 2：手动还款
+	private String fshktime;//还款截止时间
+	private double fsroe;	//收益率 
 	
 	private Users user;
 	public Fabiao() {}
 	
+	
 	public Fabiao(Integer fsid, Integer fssuid, String fstitle, String fsorder, double fsmoney, String fstime,
-			Integer fsstate, String fsip, Users user) {
+			Integer fsstate, String fsip, Integer fsstyle, String fshktime, double fsroe, Users user) {
 		super();
 		this.fsid = fsid;
 		this.fssuid = fssuid;
@@ -36,15 +40,20 @@ public class Fabiao implements Serializable{
 		this.fstime = fstime;
 		this.fsstate = fsstate;
 		this.fsip = fsip;
+		this.fsstyle = fsstyle;
+		this.fshktime = fshktime;
+		this.fsroe = fsroe;
 		this.user = user;
 	}
+
 
 	@Override
 	public String toString() {
 		return "Fabiao [fsid=" + fsid + ", fssuid=" + fssuid + ", fstitle=" + fstitle + ", fsorder=" + fsorder
-				+ ", fsmoney=" + fsmoney + ", fstime=" + fstime + ", fsstate=" + fsstate + ", fsip=" + fsip + ", user="
-				+ user + "]";
+				+ ", fsmoney=" + fsmoney + ", fstime=" + fstime + ", fsstate=" + fsstate + ", fsip=" + fsip
+				+ ", fsstyle=" + fsstyle + ", fshktime=" + fshktime + ", fsroe=" + fsroe + ", user=" + user + "]";
 	}
+
 
 	public Integer getFsid() {
 		return fsid;
@@ -101,6 +110,36 @@ public class Fabiao implements Serializable{
 
 	public void setUser(Users user) {
 		this.user = user;
+	}
+
+
+	public Integer getFsstyle() {
+		return fsstyle;
+	}
+
+
+	public void setFsstyle(Integer fsstyle) {
+		this.fsstyle = fsstyle;
+	}
+
+
+	public String getFshktime() {
+		return fshktime;
+	}
+
+
+	public void setFshktime(String fshktime) {
+		this.fshktime = fshktime;
+	}
+
+
+	public double getFsroe() {
+		return fsroe;
+	}
+
+
+	public void setFsroe(double fsroe) {
+		this.fsroe = fsroe;
 	}
 	
 	

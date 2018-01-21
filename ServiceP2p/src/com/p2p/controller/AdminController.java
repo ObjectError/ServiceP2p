@@ -43,10 +43,21 @@ public class AdminController{
 		return "redirect:/admin/list";
 	}
 	@RequestMapping("/update")
-	public String update(Admin admin){
+	public String update(Admin admin,HttpServletRequest request){
 			
 		adminService.update(admin);
+		request.getSession().setAttribute("admin", admin);
 		return "redirect:/admin/list";
+	}
+	@RequestMapping("selectAdmin")
+	public String selectAdmin(Model model,Integer id) {
+		if(id==null) {
+			return "/ntps/login";
+		}else {
+			Admin admin=adminService.getById(id);
+			model.addAttribute("admin", admin);
+			return "/ntps/profile";
+		}
 	}
 	@RequestMapping("/add")
 	public String add(Admin admin) {

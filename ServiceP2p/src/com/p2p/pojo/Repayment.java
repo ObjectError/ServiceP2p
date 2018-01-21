@@ -23,24 +23,23 @@ public class Repayment implements Serializable{
 	
 	@TableField("r_suid")
 	private Integer rsuid;//还款用户id
-	
-	@TableField("r_suids")
-	private Integer rsuids;//收款用户id
-	
+		
 	@TableField("r_moeny")
 	private double rmoeny;//还款金额
+	
+	@TableField("r_handmoney")
+	private double rhandmoney;//手续费
 	
 	@TableField("r_time")
 	private String rtime;//还款时间
 	
 	@TableField("r_state")
-	private String rstate;//还款状态
+	private Integer rstate;//还款状态（1：还款中 2：还款成功 3：还款逾期）
 	
-	@TableField("r_ip")
-	private String rip;//还款人ip
+	@TableField("r_order")
+	private String rorder;//还款订单号
 	
-	@TableField("r_ips")
-	private String rips;//收款人ip
+	private String rsuname;
 
 	public Integer getRid() {
 		return rid;
@@ -56,14 +55,6 @@ public class Repayment implements Serializable{
 
 	public void setRsuid(Integer rsuid) {
 		this.rsuid = rsuid;
-	}
-
-	public Integer getRsuids() {
-		return rsuids;
-	}
-
-	public void setRsuids(Integer rsuids) {
-		this.rsuids = rsuids;
 	}
 
 	public double getRmoeny() {
@@ -82,58 +73,64 @@ public class Repayment implements Serializable{
 		this.rtime = rtime;
 	}
 
-	public String getRstate() {
+	public Integer getRstate() {
 		return rstate;
 	}
 
-	public void setRstate(String rstate) {
+	public void setRstate(Integer rstate) {
 		this.rstate = rstate;
 	}
 
-	public String getRip() {
-		return rip;
-	}
-
-	public void setRip(String rip) {
-		this.rip = rip;
-	}
-
-	public String getRips() {
-		return rips;
-	}
-
-	public void setRips(String rips) {
-		this.rips = rips;
-	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-
-	public Repayment(Integer rid, Integer rsuid, Integer rsuids, double rmoeny, String rtime, String rstate, String rip,
-			String rips) {
-		super();
-		this.rid = rid;
-		this.rsuid = rsuid;
-		this.rsuids = rsuids;
-		this.rmoeny = rmoeny;
-		this.rtime = rtime;
-		this.rstate = rstate;
-		this.rip = rip;
-		this.rips = rips;
-	}
-
-	@Override
-	public String toString() {
-		return "Repayment [rid=" + rid + ", rsuid=" + rsuid + ", rsuids=" + rsuids + ", rmoeny=" + rmoeny + ", rtime="
-				+ rtime + ", rstate=" + rstate + ", rip=" + rip + ", rips=" + rips + "]";
 	}
 
 	public Repayment() {
 		super();
 	}
 
-	
-	
-	
+	public String getRsuname() {
+		return rsuname;
+	}
+
+	public void setRsuname(String rsuname) {
+		this.rsuname = rsuname;
+	}
+
+	public String getRorder() {
+		return rorder;
+	}
+
+	public void setRorder(String rorder) {
+		this.rorder = rorder;
+	}
+
+	@Override
+	public String toString() {
+		return "Repayment [rid=" + rid + ", rsuid=" + rsuid + ", rmoeny=" + rmoeny + ", rhandmoney=" + rhandmoney
+				+ ", rtime=" + rtime + ", rstate=" + rstate + ", rorder=" + rorder + ", rsuname=" + rsuname + "]";
+	}
+
+	public Repayment(Integer rid, Integer rsuid, double rmoeny, double rhandmoney, String rtime, Integer rstate,
+			String rorder, String rsuname) {
+		super();
+		this.rid = rid;
+		this.rsuid = rsuid;
+		this.rmoeny = rmoeny;
+		this.rhandmoney = rhandmoney;
+		this.rtime = rtime;
+		this.rstate = rstate;
+		this.rorder = rorder;
+		this.rsuname = rsuname;
+	}
+
+	public double getRhandmoney() {
+		return rhandmoney;
+	}
+
+	public void setRhandmoney(double rhandmoney) {
+		this.rhandmoney = rhandmoney;
+	}
+
 }

@@ -61,4 +61,10 @@ public class BankServiceImpl implements BankService{
 		return bankmapper.listLike(bank);
 	}
 
+	@Override
+	public void delbank(String bcode) {
+		// TODO Auto-generated method stub
+		bankmapper.delbank(bcode);
+	}
+
 }

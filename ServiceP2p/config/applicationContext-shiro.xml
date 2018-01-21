@@ -57,7 +57,9 @@
                 /front/** = user
                 -->
                 /ntps/login.jsp = anon   
-                /ntps/index.jsp=user        
+                /ntps/index.jsp=user
+                /ntps/profile.jsp=user  
+                
             </value>
         </property>
     </bean>

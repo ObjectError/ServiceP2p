@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>TMS终端管理系统 </title>
+    <title>亿信终端管理系统 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -148,7 +148,7 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div id="logo-login">
-                        <h1>TMS终端管理系统
+                        <h1>亿信终端管理系统
                             <span>v1.3</span>
                         </h1>
                     </div>
@@ -185,39 +185,7 @@
                             </button> -->
                         </form>
                         <a class="forgotLnk" href="index.html"></a>
-                        <!--div class="or-box">
-                          
-                            <center><span class="text-center login-with">Login or <b>Sign Up</b></span></center>
-                            <div class="row">
-                                <div class="col-md-6 row-block">
-                                    <a href="index.html" class="btn btn-facebook btn-block">
-                                        <span class="entypo-facebook space-icon"></span>Facebook</a>
-                                </div>
-                                <div class="col-md-6 row-block">
-                                    <a href="index.html" class="btn btn-twitter btn-block">
-                                        <span class="entypo-twitter space-icon"></span>Twitter</a>
-                                        
-                                </div>
-
-                            </div>
-                            <div style="margin-top:25px" class="row">
-                                <div class="col-md-6 row-block">
-                                    <a href="index.html" class="btn btn-google btn-block"><span class="entypo-gplus space-icon"></span>Google +</a>
-                                </div>
-                                <div class="col-md-6 row-block">
-                                    <a href="index.html" class="btn btn-instagram btn-block"><span class="entypo-instagrem space-icon"></span>Instagram</a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row-block">
-                            <div class="row">
-                                <div class="col-md-12 row-block">
-                                    <a href="index.html" class="btn btn-primary btn-block">Create New Account</a>
-                                </div>
-                            </div>
-                        </div-->
+                        
                         <div class="row-block">
 	                        <div class="row">
 		                    </div>
@@ -228,23 +196,9 @@
         </div>
 
  		<p>&nbsp;</p>
-        <div style="text-align:center;margin:0 auto;">
-            <h6 style="color:#fff;">Copyright(C)2014 fjcloudsoft.com All Rights Reserved<br />
-				福建云软网络科技有限公司 版权所有 闽IP备07021605号</h6>
-        </div>
 
     </div>
     <div id="test1" class="gmap3"></div>
-
-
-
-    <!--  END OF PAPER WRAP -->
-
-
-
-
-    <!-- MAIN EFFECT -->
-
 
 
 </body>

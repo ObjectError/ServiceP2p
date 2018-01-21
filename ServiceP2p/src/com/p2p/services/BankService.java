@@ -11,4 +11,6 @@ public interface BankService extends IBaseService<Integer, Bank>{
 	Bank selectBankCard(String card);
 	//模糊查询
 		List<Bank> listLike(Bank bank);
+		//解绑
+		void delbank(String bcode);
 }
