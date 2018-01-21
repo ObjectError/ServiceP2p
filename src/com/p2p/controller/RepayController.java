@@ -79,7 +79,7 @@ public class RepayController {
 			 StringBuffer inputString = new StringBuffer();  
 		        while ((line = reader.readLine()) != null) {  
 		        inputString.append(line);  
-		     }  
+		     }
 	       
 		    //jackJson    
 	        ObjectMapper o=new ObjectMapper();
