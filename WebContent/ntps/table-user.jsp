@@ -210,9 +210,9 @@ String path = request.getContextPath();
                                 <table class="table-striped footable-res footable" data-page-size="7">
                                     <thead>
                                         <tr>
-                                            <th data-hide="phone,tablet">
+                                           <!--  <th data-hide="phone,tablet">
                                                		用户名
-                                            </th>
+                                            </th> -->
                                             <th data-hide="phone,tablet">
                                            			 真实姓名
                                             </th >
@@ -246,7 +246,7 @@ String path = request.getContextPath();
                                         <c:forEach items="${userList}" var="user">
                                         <tbody>
 											<tr>
-												<td>${user.suusername}</td>
+												<%-- <td>${user.suusername}</td> --%>
 												<td>${user.suname}</td>
 												<td>${user.suphone}</td>
 												<td>${user.sucard}</td>
@@ -544,6 +544,8 @@ String path = request.getContextPath();
 	    				$('#sucard').val(obj.sucard);
 	    				$('#suemail').val(obj.suemail);
 	    				$('#sumoney').val(obj.sumoney);
+	    				$('#sucanmoney').val(obj.sucanmoney);
+	    				$('#sustopmoney').val(obj.sustopmoney);
 	    				$('#suip').val(obj.suip);
 	    			}
 		    );	

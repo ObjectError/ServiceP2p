@@ -96,7 +96,13 @@ String path = request.getContextPath();
                 <li class="pull-right">
                     <div class="input-group input-widget">
 
-                        <input style="border-radius:15px" type="text" placeholder="查找..." class="form-control">
+                        <input id="likebutton" style="border-radius:15px" type="button" value="搜索" class="form-control">
+                    </div>
+                </li>
+                <li class="pull-right">
+                    <div class="input-group input-widget">
+
+                        <input id="likename" style="border-radius:15px" type="text" placeholder="用户名查找..." class="form-control">
                     </div>
                 </li>
             </ul>
@@ -187,7 +193,7 @@ String path = request.getContextPath();
                                     <thead>
                                         <tr>
                                             <th>
-                                           			 还款用户id
+                                           			 还款用户
                                             </th>
                                             <th data-hide="phone,tablet">
                                         		           还款金额
@@ -196,21 +202,20 @@ String path = request.getContextPath();
                           							还款时间
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	还款状态
+                                                	还款手续费
                                             </th>
                                             <th data-hide="phone,tablet">
-                                            		操作
+                                            		还款订单号
                                             </th >
                                         </tr>
                                         <c:forEach items="${listre}" var="repayy">
                                         <tbody>
 											<tr>
-												<td>${repayy.rsuname}</td>
+												<td>${repayy.user.suname}</td>
 												<td>${repayy.rmoeny}</td>
 												<td>${repayy.rtime}</td>
-												<td>${repayy.rstate}</td>
-												<td><a href="javascript:void(-1);" onclick="show_update(${repayy.rid})"> <span class="glyphicon glyphicon-list-alt"></span>修改</a>|
-													<a href="repayment/delete/${repayy.rid}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
+												<td>${repayy.rhandmoney}</td>
+												<td>${repayy.rorder }</td>
 											</tr>
 											</tbody>
 										</c:forEach>
@@ -436,6 +441,13 @@ String path = request.getContextPath();
     <script type="text/javascript">
     $(function() {
         $('.footable-res').footable();
+    });
+    
+    $(document).ready(function(){
+    	$('#likebutton').click(function(){
+    		var name=$('#likename').val();
+    		parent.window.location="repayment/listLike?user.suname="+name;
+    	});
     });
     </script>
     <script type="text/javascript">

@@ -53,4 +53,10 @@ public class FabiaoServiceImpl implements FabiaoService {
 		return fabiaoMapper.getByOrder(order);
 	}
 
+	@Override
+	public List<Fabiao> listLike(Fabiao fa) {
+		// TODO Auto-generated method stub
+		return fabiaoMapper.listLike(fa);
+	}
+
 }

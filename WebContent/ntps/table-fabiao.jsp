@@ -111,12 +111,6 @@ String path = request.getContextPath();
                         <input id="likeorder" style="border-radius:15px" type="text" placeholder="订单号查找..." class="form-control">
                     </div>
                 </li>
-                <li class="pull-right">
-                    <div class="input-group input-widget">
-
-                        <input id="likebank" style="border-radius:15px" type="text" placeholder="银行卡号查找..." class="form-control">
-                    </div>
-                </li> 
             </ul>
 
             <!-- END OF BREADCRUMB -->
@@ -222,14 +216,14 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                           							订单号
                                             </th>
-                                            <th data-hide="phone,tablet">
+                                            <!-- <th data-hide="phone,tablet">
                                                 	标状态
-                                            </th>
+                                            </th> -->
                                             <th data-hide="phone,tablet">
                                                 	金额
                                             </th >
                                             <th data-hide="phone,tablet">
-                                            		发标时间
+                                            		发标截止时间
                                             </th >
                                             <th data-hide="phone,tablet">
                                             		ip地址
@@ -244,7 +238,7 @@ String path = request.getContextPath();
 												<td>${rechargess.user.suname}</td>
 												<td>${rechargess.fstitle}</td>
 												<td>${rechargess.fsorder}</td>
-												<td>
+												<%-- <td>
 													<c:if test="${rechargess.fsstate==1}">
 														发标中
 													</c:if>
@@ -254,7 +248,7 @@ String path = request.getContextPath();
 													<c:if test="${rechargess.fsstate==3}">
 														流标
 													</c:if>
-												</td>
+												</td> --%>
 												<td>${rechargess.fsmoney}</td>
 												<td>${rechargess.fstime}</td>
 												<td>${rechargess.fsip}</td>
@@ -505,8 +499,7 @@ String path = request.getContextPath();
     	$('#likebutton').click(function(){
     		var name=$('#likename').val();
     		var order=$('#likeorder').val();
-    		var bank=$('#likebank').val();
-    		parent.window.location="recharge/likelist?user.suname="+name+"&chorder="+order+"&chbankid="+bank;
+    		parent.window.location="${Pagecontext.request.contextPath}fabiao/listLike?user.suname="+name+"&chorder="+order;
     	});
     });
     </script>

@@ -111,16 +111,7 @@ String path = request.getContextPath();
                         <input id="likeorder" style="border-radius:15px" type="text" placeholder="订单号查找..." class="form-control">
                     </div>
                 </li>
-                <li class="pull-right">
-                    <div class="input-group input-widget">
-						<select id="likebank" style="border-radius:15px" class="form-control">
-							<option value="">充值状态查询</option>
-							<option value="1">审核中</option>
-							<option value="2">充值成功</option>
-							<option value="3">充值失败</option>
-						</select>
-                    </div>
-                </li> 
+               
             </ul>
 
             <!-- END OF BREADCRUMB -->
@@ -227,9 +218,9 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                           							订单号
                                             </th>
-                                            <th data-hide="phone,tablet">
+                                            <!-- <th data-hide="phone,tablet">
                                                 	充值状态
-                                            </th>
+                                            </th> -->
                                             <th data-hide="phone,tablet">
                                                 	充值时间
                                             </th >
@@ -242,9 +233,9 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                                             		ip地址
                                             </th >
-                                            <th data-hide="phone,tablet">
+                                            <!-- <th data-hide="phone,tablet">
 													操作
-                                            </th >
+                                            </th > -->
                                         </tr>
                                         <c:forEach items="${rechlist}" var="rechargess">
                                         <tbody>
@@ -252,7 +243,7 @@ String path = request.getContextPath();
 												<td>${rechargess.user.suname}</td>
 												<td>${rechargess.chmoney}</td>
 												<td>${rechargess.chorder}</td>
-												<td>
+												<%-- <td>
 													<c:if test="${rechargess.chstate==1}">
 														审核中
 													</c:if>
@@ -262,12 +253,12 @@ String path = request.getContextPath();
 													<c:if test="${rechargess.chstate==3}">
 														充值失败
 													</c:if>
-												</td>
+												</td> --%>
 												<td>${rechargess.chtime}</td>
 												<td>${rechargess.chbankid}</td>
 												<td>${rechargess.chtype}</td>
 												<td>${rechargess.chip}</td>
-												<td>
+												<%-- <td>
 													<c:if test="${rechargess.chstate==1}">
 														<a href="javascript:void(-1);" onclick="show_update(${rechargess.chid})"><span class="glyphicon glyphicon-list-alt"></span>待审核</a>
 													</c:if>
@@ -277,7 +268,7 @@ String path = request.getContextPath();
 													<c:if test="${rechargess.chstate==3}">
 														<span class="entypo-lock"></span><font color="red">审核超时</font>
 													</c:if>
-												</td>
+												</td> --%>
 											</tr>
 											</tbody>
 										</c:forEach>
@@ -514,8 +505,7 @@ String path = request.getContextPath();
     	$('#likebutton').click(function(){
     		var name=$('#likename').val();
     		var order=$('#likeorder').val();
-    		var state=$('#likebank').val();
-    		parent.window.location="recharge/likelist?user.suname="+name+"&chorder="+order+"&chstate="+state;
+    		parent.window.location="recharge/likelist?user.suname="+name+"&chorder="+order;
     	});
     });
     </script>

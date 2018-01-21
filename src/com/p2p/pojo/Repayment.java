@@ -40,6 +40,8 @@ public class Repayment implements Serializable{
 	private String rorder;//还款订单号
 	
 	private String rsuname;
+	
+	private Users user;
 
 	public Integer getRid() {
 		return rid;
@@ -106,14 +108,17 @@ public class Repayment implements Serializable{
 		this.rorder = rorder;
 	}
 
-	@Override
-	public String toString() {
-		return "Repayment [rid=" + rid + ", rsuid=" + rsuid + ", rmoeny=" + rmoeny + ", rhandmoney=" + rhandmoney
-				+ ", rtime=" + rtime + ", rstate=" + rstate + ", rorder=" + rorder + ", rsuname=" + rsuname + "]";
+	
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
 	}
 
 	public Repayment(Integer rid, Integer rsuid, double rmoeny, double rhandmoney, String rtime, Integer rstate,
-			String rorder, String rsuname) {
+			String rorder, String rsuname, Users user) {
 		super();
 		this.rid = rid;
 		this.rsuid = rsuid;
@@ -123,6 +128,14 @@ public class Repayment implements Serializable{
 		this.rstate = rstate;
 		this.rorder = rorder;
 		this.rsuname = rsuname;
+		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "Repayment [rid=" + rid + ", rsuid=" + rsuid + ", rmoeny=" + rmoeny + ", rhandmoney=" + rhandmoney
+				+ ", rtime=" + rtime + ", rstate=" + rstate + ", rorder=" + rorder + ", rsuname=" + rsuname + ", user="
+				+ user + "]";
 	}
 
 	public double getRhandmoney() {

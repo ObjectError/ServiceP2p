@@ -49,4 +49,10 @@ public class RepayServiceImpl implements RepayServices{
 		return repaym.getByOrder(order);
 	}
 
+	@Override
+	public List<Repayment> listLike(Repayment repayment) {
+		// TODO Auto-generated method stub
+		return repaym.listLike(repayment);
+	}
+
 }

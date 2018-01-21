@@ -21,7 +21,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	<!-- 查询 -->
 	<select id="list" resultMap="BaceFabiao">
-		select f.*,u.su_name from fabiaos f,users u;
+		select f.*,u.su_name from fabiaos f,users u where f.fs_suid=u.id;
+	</select>
+	<!-- 模糊查询 -->
+	<select id="listLike" parameterType="com.p2p.pojo.Fabiao" resultMap="BaceFabiao">
+		select f.*,u.su_name from fabiaos f,users u
+		<where>
+			f.fs_suid=u.id
+			<if test="fsorder!=null">and fs_order LIKE CONCAT(CONCAT('%', #{fsorder}), '%')</if>
+			<if test="user.suname!=null">and u.su_name LIKE CONCAT(CONCAT('%', #{user.suname}), '%')</if>
+		</where>
 	</select>
 	<update id="update" parameterType="com.p2p.pojo.Fabiao">
 		update fabiaos 

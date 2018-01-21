@@ -112,18 +112,6 @@ String path = request.getContextPath();
                     </div>
                     
                 </li>
-                <li class="pull-right">
-                    <div class="input-group input-widget">
-						<select id="likestate" style="border-radius:15px" name="suname" class="form-control">
-							<option value="">账单交易状态查询</option>
-							<option value="1">审核中</option>
-							<option value="2">交易成功</option>
-							<option value="3">交易失败</option>
-						</select>
-                       
-                    </div>
-                    
-                </li>
                
             </ul>
 
@@ -172,9 +160,9 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                                                 	受理时间
                                             </th >
-                                            <th data-hide="phone,tablet">
+                                            <!-- <th data-hide="phone,tablet">
                                             	    交易状态
-                                            </th>
+                                            </th> -->
                                             <th data-hide="phone,tablet">
                                             	    交易IP
                                             </th>
@@ -187,7 +175,7 @@ String path = request.getContextPath();
 												<td>${detail.dtype }</td>
 												<td>${detail.dmoney }</td>
 												<td>${detail.dtime }</td>
-												<td>
+												<%-- <td>
 													<c:if test="${detail.dstate==1 }">
 														审核中
 													</c:if>
@@ -197,7 +185,7 @@ String path = request.getContextPath();
 													<c:if test="${detail.dstate==3 }">
 														交易失败
 													</c:if>
-												</td>
+												</td> --%>
 												<td>${detail.dip }</td>
 											</tr>
 											</tbody>
@@ -456,9 +444,8 @@ String path = request.getContextPath();
     <script>
     $(document).ready(function(){
     	$('#likebutton').click(function(){
-    		var state=$('#likestate').val();
     		var name=$('#likeName').val();
-    		parent.window.location="${pageContext.request.contextPath}/detail/listLike?user.suname="+name+"&dstate="+state;
+    		parent.window.location="${pageContext.request.contextPath}/detail/listLike?user.suname="+name;
     	});
     });
     

@@ -156,9 +156,9 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                                                 	银行卡余额
                                             </th>
-                                            <th data-hide="phone,tablet">
+                                            <!-- <th data-hide="phone,tablet">
                                                 	银行卡状态
-                                            </th >
+                                            </th > -->
                                             <th >
                                             	申请银行卡时间
                                             </th>
@@ -172,14 +172,14 @@ String path = request.getContextPath();
 												<td>${bank.bcode }</td>
 												<td>${bank.btype }</td>
 												<td>${bank.bmoney }</td>
-												<td>
+												<%-- <td>
 													<c:if test="${bank.bstate==1 }">
 														正常
 													</c:if>
 													<c:if test="${bank.bstate==2 }">
 														冻结
 													</c:if>
-												</td>
+												</td> --%>
 												<td>${bank.btime }</td>
 											</tr>
 											</tbody>
