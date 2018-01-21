@@ -165,10 +165,18 @@ public class ProfitController {
 			d.setDtype("投标收益");
 			//d.setDorder(u.get);
 			
+			 Detail d1=new Detail();
+       	 	d1.setDmoney(u.getPfmoney());
+			d1.setDstate(2);
+			d1.setDsuid(1);
+			d1.setDtime(u.getPftime());
+			d1.setDtype("投标垫付收益");
+			
 			profitService.add(u);
 			userService.update(user);
 			userService.update(user1);
 			detailService.add(d);
+			detailService.add(d1);
 	        // 要返回的报文  
 	       StringBuffer resultBuffer = new StringBuffer();  
 	       resultBuffer.append("1");

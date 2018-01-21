@@ -170,27 +170,4 @@ public class RechargeController {
 		Recharge recharge = rechargeService.getById(id);
 		return recharge;
 	}
-	
-	//定时器定时在规定范围内是否审核完充值
-	public void rechargeSuccess() throws Exception {
-		List<Recharge> list=rechargeService.list();
-		for(Recharge recharge:list) {
-			SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			Date d1=new Date();
-			Date d2=df.parse(recharge.getChtime());
-			//相减大于半个小时执行
-			if(d1.getTime()-d2.getTime()>172800000) {
-				if(recharge.getChstate()==1) {
-					recharge.setChstate(3);
-					Detail detail=new Detail();
-					detail.setDorder(recharge.getChorder());
-					Detail d=detailService.getDetail(detail);
-					d.setDstate(3);
-					rechargeService.update(recharge);
-					detailService.update(d);
-					SendServiceUtil.list(recharge, "192.168.137.98:8080/Finances/recharge/rechargereplay");
-				}
-			}
-		}
-	}
 }
