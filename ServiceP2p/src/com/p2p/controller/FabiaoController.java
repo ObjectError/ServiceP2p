@@ -51,6 +51,12 @@ public class FabiaoController {
 		model.addAttribute("listfabiao", listfabiao);
 		return "/ntps/table-fabiao";
 	}
+	@RequestMapping("listLike")
+	public String listLike(Model model,Fabiao fa) {
+		List<Fabiao> listfabiao = fabiaoService.listLike(fa);
+		model.addAttribute("listfabiao", listfabiao);
+		return "/ntps/table-fabiao";
+	}
 	//发标
 	@RequestMapping("add")
 	public void add(HttpServletRequest request,HttpServletResponse response) throws IOException {

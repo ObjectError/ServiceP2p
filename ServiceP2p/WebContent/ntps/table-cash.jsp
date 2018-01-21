@@ -108,16 +108,7 @@
                         <input id="likeorder" style="border-radius:15px" type="text" placeholder="订单号查找..." class="form-control">
                     </div>
                 </li>
-                <li class="pull-right">
-                    <div class="input-group input-widget">
-						<select id="likebank" style="border-radius:15px" class="form-control">
-							<option value="">提现状态查询</option>
-							<option value="1">审核中</option>
-							<option value="2">提现成功</option>
-							<option value="3">提现超时</option>
-						</select>
-                    </div>
-                </li> 
+               
             </ul>
 
             <!-- END OF BREADCRUMB -->
@@ -224,18 +215,18 @@
                                             <th data-hide="phone,tablet">
                                                 	提现时间
                                             </th >
-                                          <th data-hide="phone,tablet">
+                                         <!--  <th data-hide="phone,tablet">
                                             	    提现状态
-                                            </th>
+                                            </th> -->
                                             <th data-hide="phone,tablet">
                                             	    手续费
                                             </th>
                                             <th data-hide="phone,tablet">
                                             	    ip地址
                                             </th>
-                                             <th data-hide="phone,tablet">
+                                             <!-- <th data-hide="phone,tablet">
                                             	   操作
-                                            </th>
+                                            </th> -->
                                         </tr>
                                         <c:forEach items="${listcash}" var="cash">
                                         <tbody>
@@ -246,7 +237,7 @@
 												<td>${cash.ccard}</td>
 												<td>${cash.corder}</td>
 												<td>${cash.ctime}</td>
-												<td>
+												<%-- <td>
 													<c:if test="${cash.cstate==1}">
 														待审核
 													</c:if>
@@ -256,10 +247,10 @@
 													<c:if test="${cash.cstate==3}">
 														提现失败
 													</c:if>
-												</td>
+												</td> --%>
 												<td>${cash.cpoundage}</td>
 												<td>${cash.cip}</td>
-												<td>
+												<%-- <td>
 													<c:if test="${cash.cstate==1}">
 														<a href="javascript:void(-1);" onclick="show_update(${cash.cid})"><span class="glyphicon glyphicon-list-alt"></span>待审核</a>
 													</c:if>
@@ -269,7 +260,7 @@
 													<c:if test="${cash.cstate==3}">
 														<span class="entypo-lock"></span><font color="red">审核超时</font>
 													</c:if>
-												</td>
+												</td> --%>
 											</tr>
 											
 											</tbody>
@@ -494,8 +485,7 @@
     	$('#likebutton').click(function(){
     		var name=$('#likename').val();
     		var order=$('#likeorder').val();
-    		var state=$('#likebank').val();
-    		parent.window.location="withdrawals/likeList?user.suname="+name+"&corder="+order+"&cstate="+state;
+    		parent.window.location="withdrawals/likeList?user.suname="+name+"&corder="+order;
     	});
     });
     

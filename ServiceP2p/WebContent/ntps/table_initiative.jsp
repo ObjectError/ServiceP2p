@@ -111,16 +111,7 @@ String path = request.getContextPath();
                         <input id="likeorder" style="border-radius:15px" type="text" placeholder="订单号查找..." class="form-control">
                     </div>
                 </li>
-                <li class="pull-right">
-                    <div class="input-group input-widget">
-						<select id="likebank"   style="border-radius:15px" class="form-control">
-							<option value="">投标状态查询</option>
-							<option value="1">投标中</option>
-							<option value="2">标满</option>
-							<option value="2">流标</option>
-						</select>
-                    </div>
-                </li> 
+                
             </ul>
 
             <!-- END OF BREADCRUMB -->
@@ -148,11 +139,11 @@ String path = request.getContextPath();
                                                 	订单号
                                             </th>
                                             <th data-hide="phone,tablet">
-                                                	发标截止时间
+                                                	投标时间
                                             </th>
-                                            <th data-hide="phone,tablet">
+                                            <!-- <th data-hide="phone,tablet">
                                                 	标状态
-                                            </th >
+                                            </th > -->
                                             <th data-hide="phone,tablet">
                                             		ip地址
                                             </th >
@@ -165,7 +156,7 @@ String path = request.getContextPath();
 												<td>${ints.itmoney}</td>
 												<td>${ints.itorder}</td>
 												<td>${ints.ittime}</td>
-												<td>
+												<%-- <td>
 													<c:if test="${ints.itstate==1}">
 														投标中
 													</c:if>
@@ -175,7 +166,7 @@ String path = request.getContextPath();
 													<c:if test="${ints.itstate==3}">
 														流标
 													</c:if>
-												</td>
+												</td> --%>
 												<td>${ints.itip}</td>
 											</tr>
 											</tbody>
@@ -391,8 +382,7 @@ String path = request.getContextPath();
     	$('#likebutton').click(function(){
     		var name=$('#likename').val();
     		var order=$('#likeorder').val();
-    		var state=$('#likebank').val();
-    		parent.window.location="initiative/likeList?user.suname="+name+"&itorder="+order+"&itstate="+state;
+    		parent.window.location="initiative/likeList?user.suname="+name+"&itorder="+order;
     	});
     });
     

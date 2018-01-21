@@ -55,7 +55,12 @@ public class RepayController {
 		model.addAttribute("listre", listre);
 		return "/ntps/table-repayment";
 	}
-	
+	@RequestMapping("/listLike")
+	public String listLike(Model model,Repayment repayment) {
+		List<Repayment> listre = repayServices.listLike(repayment);
+		model.addAttribute("listre", listre);
+		return "/ntps/table-repayment";
+	}
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id) {
 		repayServices.delete(id);
@@ -96,6 +101,7 @@ public class RepayController {
 	        	repayServices.add(u);
 	        }else if(repay!=null) {
 	        	repay.setRmoeny(repay.getRmoeny()+u.getRmoeny());
+	        	repay.setRhandmoney(repay.getRhandmoney()+u.getRmoeny());
 	        	repayServices.update(repay);
 	        }
 	        
