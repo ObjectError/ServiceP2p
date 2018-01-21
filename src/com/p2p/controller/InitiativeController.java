@@ -48,7 +48,7 @@ public class InitiativeController {
 		model.addAttribute("listInitiative",likeList);
 		return "/ntps/table_initiative";
 	}
-	
+	//投标接口
 	@RequestMapping("add")
 	public void add(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		 String ip = request.getRemoteHost(); 

@@ -92,23 +92,33 @@ public class RepayController {
 	        //根据订单号查询是否有这个还款订单号
 	        Repayment repay=repayServices.getByOrder(u.getRorder());
 	        
-	        
 	        if(repay==null) {
 	        	repayServices.add(u);
 	        }else if(repay!=null) {
 	        	repay.setRmoeny(repay.getRmoeny()+u.getRmoeny());
 	        	repayServices.update(repay);
 	        }
+	        
 	        Users user=userService.getById(repay.getRsuid());
         	user.setSucanmoney(user.getSucanmoney()-u.getRmoeny());
         	user.setSumoney(user.getSumoney()-u.getRmoeny());
-        	
-        	Users user1=userService.getById(1);
-        	user1.setSucanmoney(user1.getSucanmoney()+u.getRhandmoney());
-        	user1.setSumoney(user1.getSumoney()+u.getRhandmoney());
-        	
-        	userService.update(user1);
         	userService.update(user);
+        	
+        	if(u.getRhandmoney()!=0) {
+        		Users user1=userService.getById(1);
+            	user1.setSucanmoney(user1.getSucanmoney()+u.getRhandmoney());
+            	user1.setSumoney(user1.getSumoney()+u.getRhandmoney());
+            	userService.update(user1);
+            	Detail d1=new Detail();
+            	d1.setDmoney(u.getRmoeny());
+     			d1.setDstate(2);
+     			d1.setDsuid(1);
+     			d1.setDtime(u.getRtime());
+     			d1.setDtype("发标还款手续费");
+     			d1.setDorder(u.getRorder());
+     			detailService.add(d1);
+        	}
+        	
 	        Detail d=new Detail();
        	 	d.setDmoney(u.getRmoeny());
 			d.setDstate(2);

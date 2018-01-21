@@ -53,8 +53,8 @@ public class UserdsController {
 		userService.update(users);
 		return "redirect:/user/list";
 	}
+	//增加资金托管用户接口
 	@RequestMapping("/add")
-	
 	public void add(HttpServletRequest request,HttpServletResponse response) throws IOException {
 		 String ip = request.getRemoteHost(); 
 			
