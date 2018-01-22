@@ -43,13 +43,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<trim prefix="set" suffixOverrides=",">
 				<if test="rsuid!=null">r_suid = #{rsuid},</if>
 				<if test="rmoeny!=null">r_moeny = #{rmoeny},</if>
-				<if test="rtime">r_time = #{rtime},</if>
-				<if test="rstate">r_state = #{rstate},</if>
-				<if test="rorder">r_order = #{rorder},</if>
-				<if test="rhandmoney">r_handmoney = #{rhandmoney},</if>
+				<if test="rtime!=null">r_time = #{rtime},</if>
+				<if test="rstate!=null">r_state = #{rstate},</if>
+				<if test="rorder!=null">r_order = #{rorder},</if>
+				<if test="rhandmoney!=null">r_handmoney = #{rhandmoney},</if>
 			</trim>
 			<where>
-				where r_id = #{rid}
+				r_id = #{rid}
 			</where>
 			
 		</update>

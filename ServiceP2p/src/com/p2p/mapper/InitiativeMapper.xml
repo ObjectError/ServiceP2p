@@ -35,12 +35,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update" parameterType="com.p2p.pojo.Initiative">
 		update initiative
 		<trim prefix="set" suffixOverrides=",">
-			<if test="ittitle!=null">it_title=#{ittitle}</if>
-			<if test="itsuid!=null">it_suid=#{itsuid}</if>
-			<if test="itmoney!=null">it_money=#{itmoney}</if>
-			<if test="ittime!=null">it_time=#{ittime}</if>
-			<if test="itstate!=null">it_state=#{itstate}</if>
-			<if test="itip!=null">it_ip=#{itip}</if>
+			<if test="ittitle!=null">it_title=#{ittitle},</if>
+			<if test="itsuid!=null">it_suid=#{itsuid},</if>
+			<if test="itmoney!=null">it_money=#{itmoney},</if>
+			<if test="ittime!=null">it_time=#{ittime},</if>
+			<if test="itstate!=null">it_state=#{itstate},</if>
+			<if test="itip!=null">it_ip=#{itip},</if>
 		</trim>
 		<where>
 			it_id=#{itid}
