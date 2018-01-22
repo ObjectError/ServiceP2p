@@ -172,8 +172,7 @@ public class FabiaoController {
 	 			detailService.add(d);
 		      
 		       Fabiao fa=fabiaoService.getByOrder(u.getFsorder());
-		       fa.setFsstate(4);
-		       fabiaoService.update(fa);
+		       fabiaoService.delete(fa.getFsid());
 		        // 要返回的报文  
 		       StringBuffer resultBuffer = new StringBuffer();  
 		       resultBuffer.append("1");
