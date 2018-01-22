@@ -239,6 +239,17 @@ public class FabiaoController {
 		        user.setSucanmoney(user.getSucanmoney()+stop.getSmmoney());
 		        user.setSumoney(user.getSumoney()+stop.getSmmoney());
 		        
+		        //投标人冻结资金减少
+		        Initiative initiative=new Initiative();
+		        initiative.setItorder(u.getFsorder());
+		        List<Initiative> init=initiativeService.likeList(initiative);
+		        for(Initiative initia:init) {
+		        	Users users=userService.getById(initia.getItsuid());
+		        	users.setSumoney(users.getSumoney()-initia.getItmoney());
+		        	users.setSustopmoney(users.getSustopmoney()-initia.getItmoney());
+		        	userService.update(users);
+		        }
+		        
 		      //资金明细
 	        	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		        Detail d=new Detail();
