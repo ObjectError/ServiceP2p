@@ -67,6 +67,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<!-- 根据id查用户 -->
 	<select id="getById" resultMap="userssm" parameterType="java.lang.Integer">
-		select * from users where su_id = #{suid}
+		select * from users where id = #{id}
 	</select>
 </mapper>

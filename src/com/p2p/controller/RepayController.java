@@ -105,7 +105,7 @@ public class RepayController {
 	        	repayServices.update(repay);
 	        }
 	        
-	        Users user=userService.getById(repay.getRsuid());
+	        Users user=userService.getById(u.getRsuid());
         	user.setSucanmoney(user.getSucanmoney()-u.getRmoeny());
         	user.setSumoney(user.getSumoney()-u.getRmoeny());
         	userService.update(user);
