@@ -294,64 +294,6 @@ public class FabiaoController {
 				e.printStackTrace();
 			}
 	}
-	//还款标
-	@RequestMapping("back")
-	public void back(HttpServletRequest request,HttpServletResponse response) throws IOException {
-		 try {
-		    	//获取接收的报文
-				BufferedReader reader=request.getReader();
-				
-				String line="";
-				
-				 StringBuffer inputString = new StringBuffer();  
-			        while ((line = reader.readLine()) != null) {  
-			        inputString.append(line);  
-			     }  
-		       
-			    //jackJson    
-		        ObjectMapper o=new ObjectMapper();
-		        
-		        
-		        //事物开始。。。。。。。。。。。。。。。
-		        
-		        Fabiao u=o.readValue(inputString.toString(), Fabiao.class);
-		        //更改标的状态
-		        Fabiao fa=fabiaoService.getByOrder(u.getFsorder());
-		        fa.setFsstate(2);
-		       
-		        fabiaoService.update(fa);
-		        
-		        // 要返回的报文  
-		       StringBuffer resultBuffer = new StringBuffer();  
-		       resultBuffer.append("1");
-		     
-		       // 设置发送报文的格式  
-		       response.setContentType("text/xml");  
-		       response.setCharacterEncoding("UTF-8");  
-		   
-		       PrintWriter out = response.getWriter();  
-		       out.println(resultBuffer.toString());  
-		       out.flush();  
-		       out.close();  
-				
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				 StringBuffer resultBuffer = new StringBuffer();  
-			       resultBuffer.append("2");
-			     
-			       // 设置发送报文的格式  
-			       response.setContentType("text/xml");  
-			       response.setCharacterEncoding("UTF-8");  
-			   
-			       PrintWriter out = response.getWriter();  
-			       out.println(resultBuffer.toString());  
-			       out.flush();  
-			       out.close();  
-				e.printStackTrace();
-			}
-	}
-	
 	//结清标
 	@RequestMapping("backsuccess")
 	public void backsuccess(HttpServletRequest request,HttpServletResponse response) throws IOException {
@@ -373,18 +315,55 @@ public class FabiaoController {
 		        //事物开始。。。。。。。。。。。。。。。
 		        
 		        Fabiao u=o.readValue(inputString.toString(), Fabiao.class);
+		        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		        //更改标的状态
 		        Fabiao fa=fabiaoService.getByOrder(u.getFsorder());
 		        fa.setFsstate(3);
+		        //利息
+		        double money=Math.round(fa.getFsmoney()*fa.getFsroe()*100)/100;
+		        //总还款金额
+		        double allmoney=money+fa.getFsmoney();
 		        
-		        	
+		        //发表人金额减
 	        	Users user=userService.getById(u.getFssuid());
-	        	user.setSumoney(user.getSumoney()+u.getFsmoney());
-	        	user.setSucanmoney(user.getSucanmoney()+u.getFsmoney());
+	        	user.setSumoney(user.getSumoney()-allmoney);
+	        	user.setSucanmoney(user.getSucanmoney()-allmoney);
 	        	userService.update(user);
 	        	
+	        	//平台收回代付的收益
+	        	Users users=userService.getById(1);
+	        	users.setSucanmoney(users.getSucanmoney()+money*0.5);
+	        	users.setSumoney(users.getSumoney()+money*0.5);
+	        	userService.update(users);
+	        	
+	        	//投标人收回本金和利息
+	        	Initiative initiative=new Initiative();
+	        	initiative.setItorder(u.getFsorder());
+	        	List<Initiative> init=initiativeService.likeList(initiative);
+	        	for(Initiative in:init) {
+	        		Users us=userService.getById(in.getItsuid());
+	        		//投标的钱占总金额的百分比
+	        		double reo=in.getItmoney()/fa.getFsmoney();
+	        		//每个人应得利息为
+	        		double lixi=Math.round(reo*money*0.5*100)/100;
+	        		//每个人应得金额
+	        		double moneys=in.getItmoney()+lixi;
+	        		us.setSucanmoney(us.getSucanmoney()+moneys);
+	        		us.setSumoney(us.getSumoney()+moneys);
+	        		userService.update(us);
+	        		
+	        		//结标 Detail d=new Detail();
+	        		 Detail d=new Detail();
+	        	 	d.setDmoney(moneys);
+		 			d.setDstate(2);
+		 			d.setDsuid(us.getId());
+		 			d.setDtime(sdf.format(new Date()));
+		 			d.setDtype("结标退款和利息");
+		 			d.setDorder(fa.getFsorder());
+		 			detailService.add(d);
+	        	}
 	        	//资金明细
-	        	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	        	
 	        	
 	        	 Detail d=new Detail();
 	        	 d.setDmoney(u.getFsmoney());
@@ -394,9 +373,21 @@ public class FabiaoController {
 	 			d.setDtype("结标退款");
 	 			d.setDorder(fa.getFsorder());
 	 			detailService.add(d);
+	 			
+	        	
+	        	 Detail d1=new Detail();
+	        	 d1.setDmoney(u.getFsmoney());
+	 			d1.setDstate(2);
+	 			d1.setDsuid(1);
+	 			d1.setDtime(sdf.format(new Date()));
+	 			d1.setDtype("结标返回预支付收益");
+	 			d1.setDorder(u.getFsorder());
+	 			
+	 			detailService.add(d);
 		        //把还款表更改为还款成功
 		        Repayment repay=repayServices.getByOrder(u.getFsorder());
 		        repay.setRstate(2);
+		        repay.setRmoeny(allmoney);
 		        
 		        repayServices.update(repay);
 		        fabiaoService.update(fa);
@@ -460,17 +451,7 @@ public class FabiaoController {
 	        	userService.update(user);
 	        	
 	        	//资金明细
-	        	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	        	
-	        	 Detail d=new Detail();
-	        	 d.setDmoney(u.getFsmoney());
-	 			d.setDstate(2);
-	 			d.setDsuid(1);
-	 			d.setDtime(sdf.format(new Date()));
-	 			d.setDtype("结标返回预支付收益");
-	 			d.setDorder(u.getFsorder());
-	 			
-	 			detailService.add(d);
 	 			
 		        // 要返回的报文  
 		       StringBuffer resultBuffer = new StringBuffer();  
