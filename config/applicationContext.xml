@@ -57,5 +57,4 @@
 	 
 	  <!-- 引入shiro配置文件 -->
      <import resource="classpath:applicationContext-shiro.xml"/>
-     
 	</beans>
