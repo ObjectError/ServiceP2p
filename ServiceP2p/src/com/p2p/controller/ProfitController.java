@@ -3,8 +3,6 @@ package com.p2p.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -17,17 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.p2p.pojo.Detail;
-import com.p2p.pojo.Fabiao;
-import com.p2p.pojo.Initiative;
 import com.p2p.pojo.Profit;
-import com.p2p.pojo.Repayment;
 import com.p2p.pojo.Users;
 import com.p2p.services.DetailService;
 import com.p2p.services.FabiaoService;
 import com.p2p.services.InitiativeService;
 import com.p2p.services.ProfitService;
 import com.p2p.services.UsersService;
-import com.p2p.util.SendServiceUtil;
+
+import redis.clients.jedis.Jedis;
 
 @Controller
 @RequestMapping("/profit")
@@ -132,13 +128,5 @@ public class ProfitController {
 			e.printStackTrace();
 		}
 	}
-	/*public static void main(String[] args) throws ParseException {
-		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Date d1=df.parse("2018-01-21 09:01:00");
-		Date d2=df.parse("2018-01-19 09:01:00");
-		Date d3=new Date();
-		System.out.println((d1.getTime()-d2.getTime())/(1*24*60*60*1000));
-		System.out.println(1*24*60*60*1000);
-		System.out.println(d3.getTime()>d2.getTime());
-	}*/
+	
 }
