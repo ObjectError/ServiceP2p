@@ -40,7 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	<!-- 解绑 -->
 	<delete id="delbank" parameterType="java.lang.String">
-		delete from bank where b_id = #{b_id}
+		delete from bank where b_code = #{bcode}
 	</delete>
 	<!-- 修改 -->
 	<update id="update" parameterType="com.p2p.pojo.Bank">
