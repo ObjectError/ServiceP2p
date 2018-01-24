@@ -53,4 +53,12 @@ public class StopmoneyServiceImpl implements StopmoneyService{
 		return stopmoney.getOrder(order);
 	}
 
+	@Override
+	public List<Stopmoney> likeStopmoney(Stopmoney stopmoneys) {
+		// TODO Auto-generated method stub
+		return stopmoney.likeStopmoney(stopmoneys);
+	}
+
+	
+
 }
