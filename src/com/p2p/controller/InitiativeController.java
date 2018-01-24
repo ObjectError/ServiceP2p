@@ -1,17 +1,21 @@
 package com.p2p.controller;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.p2p.pojo.Detail;
@@ -23,9 +27,11 @@ import com.p2p.services.InitiativeService;
 import com.p2p.services.StopmoneyService;
 import com.p2p.services.UsersService;
 
+
 @Controller
 @RequestMapping("initiative")
 public class InitiativeController {
+
 
 	@Resource(name="initiativeServiceImpl")
 	private InitiativeService initiativeService;
@@ -87,13 +93,23 @@ public class InitiativeController {
 	        //用户资金冻结
 	        Users user=userService.getById(u.getItsuid());
 	        user.setSucanmoney(user.getSucanmoney()-u.getItmoney());
-	        user.setSustopmoney(u.getItmoney());
+	        user.setSustopmoney(user.getSustopmoney()+u.getItmoney());
 	        
 	        //资金冻结增加
 	        Stopmoney stop=stopService.getOrder(u.getItorder());
-	        stop.setSmmoney(stop.getSmmoney()+u.getItmoney());
+	        if(stop==null) {
+	        	Stopmoney stops=new Stopmoney();
+	        	stops.setSmmoney(u.getItmoney());
+	        	stops.setSmorder(u.getItorder());
+	        	stops.setSmstate(1);
+	        	stops.setSmsuid(u.getItsuid());
+	        	stops.setSmtype(u.getIttitle());
+	        	stopService.add(stops);
+	        }else {
+	        	stop.setSmmoney(stop.getSmmoney()+u.getItmoney());
+	        	stopService.update(stop);
+	        }
 	        
-	        stopService.update(stop);
 	        userService.update(user);
 	        initiativeService.add(u);
 	        detailService.add(d);
