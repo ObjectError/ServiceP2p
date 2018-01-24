@@ -25,10 +25,15 @@ public class Stopmoney implements Serializable{
 	private Integer smstate;//状态
 	
 	private String smsuname;//用户名
-
 	
+	private Users user;
+	
+	public Stopmoney() {
+		super();
+	}
+
 	public Stopmoney(Integer smid, Integer smsuid, String smtype, String smorder, double smmoney, Integer smstate,
-			String smsuname) {
+			String smsuname, Users user) {
 		super();
 		this.smid = smid;
 		this.smsuid = smsuid;
@@ -37,12 +42,13 @@ public class Stopmoney implements Serializable{
 		this.smmoney = smmoney;
 		this.smstate = smstate;
 		this.smsuname = smsuname;
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
 		return "Stopmoney [smid=" + smid + ", smsuid=" + smsuid + ", smtype=" + smtype + ", smorder=" + smorder
-				+ ", smmoney=" + smmoney + ", smstate=" + smstate + ", smsuname=" + smsuname + "]";
+				+ ", smmoney=" + smmoney + ", smstate=" + smstate + ", smsuname=" + smsuname + ", user=" + user + "]";
 	}
 
 	public Integer getSmid() {
@@ -85,6 +91,14 @@ public class Stopmoney implements Serializable{
 		this.smmoney = smmoney;
 	}
 
+	public Integer getSmstate() {
+		return smstate;
+	}
+
+	public void setSmstate(Integer smstate) {
+		this.smstate = smstate;
+	}
+
 	public String getSmsuname() {
 		return smsuname;
 	}
@@ -93,17 +107,14 @@ public class Stopmoney implements Serializable{
 		this.smsuname = smsuname;
 	}
 
-	public Stopmoney() {
-		super();
+	public Users getUser() {
+		return user;
 	}
 
-	public Integer getSmstate() {
-		return smstate;
+	public void setUser(Users user) {
+		this.user = user;
 	}
 
-	public void setSmstate(Integer smstate) {
-		this.smstate = smstate;
-	}
 	
 	
 }
