@@ -129,9 +129,6 @@ String path = request.getContextPath();
                                             <th data-hide="phone,tablet">
                                                 	邮箱
                                             </th>
-                                            <th data-hide="phone,tablet">
-                                                	头像
-                                            </th>
                                         </tr>
                                         <c:forEach items="${adminList }" var="bank">
                                         <tbody>
@@ -140,7 +137,6 @@ String path = request.getContextPath();
 												<td>${bank.acard }</td>
 												<td>${bank.aphone }</td>
 												<td>${bank.amail }</td>
-												<td>${bank.aimg }</td>
 											</tr>
 											</tbody>
 										</c:forEach>
