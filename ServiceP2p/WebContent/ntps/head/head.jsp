@@ -192,6 +192,10 @@ String path = request.getContextPath();
                                 <i class="entypo-clipboard"></i>
                                 <span>还款表</span>
                             </a>
+                            <a class="tooltip-tip ajax-load" href="/ServiceP2p/listStopmoney" title="Dashboard">
+                                <i class="entypo-clipboard"></i>
+                                <span>资金冻结</span>
+                            </a>
                             
                         </li>
                         
